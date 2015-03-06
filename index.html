@@ -3,12 +3,21 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script type="text/javascript" src="javascript/angular.min.js"></script>
 	<script type="text/javascript" src="javascript/app.js"></script>
 	<script type="text/javascript" src="javascript/angular-resource.min.js"></script>
 	<script type="text/javascript" src="javascript/jquery.min.js"></script>
+	
 
 </head>
 <body >
+	<h1>Hello SkillFuel!</h1>
+	<div ng-controller="MyController as Ctrl">
+		<h2> Let's try this Firebase thing. </h2>
+		<h3> {{Ctrl.data}} </h3>
+	</div>
+	
+
 </body>
 </html>
