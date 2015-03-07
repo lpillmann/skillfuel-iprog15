@@ -1,0 +1,37 @@
+<!-- We include the sidebar as it is shared across two screens. -->
+<!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
+<h1>Create your profile</h1>
+<hr>
+<div class="row">
+	<div class="col-md-6">
+		<div id="newImage">
+			<img ng-src="" style="display:block">
+			<a href="#/" class="btn btn-primary" style="display:block">+ Add picture</a>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<h2>New profile</h2>
+		<p>Please insert your name below:</p>
+		<form ng-submit="addUser()">
+			<input ng-model="newUserName" />
+	      	<button type="submit">Create profile</button>
+		</form>
+	</div>
+</div>
+<hr>
+
+<!-- <div>
+	<h2>List of users</h2>
+	<p>All guys already registered.</p>
+	<ul>
+      	<li ng-repeat="user in users">
+        
+        <input ng-model="user.name" ng-change="users.$save(user)" />
+        
+        <button ng-click="users.$remove(user)">Delete User</button>
+      </li>
+    </ul>
+</div>
+ -->
+<!-- TODO in Lab 5: Display the dish information including image, Description, 
+Instructions, Ingredients and total cost. -->
