@@ -3,8 +3,10 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script type="text/javascript" src="javascript/angular.min.js"></script>
+	
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
 	
 	<script type="text/javascript" src="javascript/angular-resource.min.js"></script>
 	<script type="text/javascript" src="javascript/jquery.min.js"></script>
@@ -15,10 +17,18 @@
 	<h1>Hello SkillFuel!</h1>
 	<div ng-controller="MyController as Ctrl">
 		<h2> Let's try this Firebase thing. </h2>
-		<h3> {{Ctrl.data}} </h3>
+	
+		<ul id="example-messages" class="example-chat-messages">
+		  <li>
+			<strong class="example-chat-username">{{ messages }}</strong>
+		  </li>
+		</ul>
 	</div>
 	
+
+	
 	<script type="text/javascript" src="javascript/model/firebaseModel.js"></script>
+	
 	<script type="text/javascript" src="javascript/app.js"></script>
 
 </body>
