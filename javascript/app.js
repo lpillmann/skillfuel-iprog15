@@ -1,6 +1,9 @@
 (function () {
 	
+	//var model = new FirebaseModel();
+	
 	var app = angular.module('myApp', []);
+	
 	var myFirebaseRef = new Firebase('https://sizzling-heat-4392.firebaseio.com/');
 
 
@@ -8,9 +11,12 @@
   		this.data = '';
 
   		myFirebaseRef.child("Person/Name").on("value", function(snapshot) {
-  			alert(snapshot.val());
+  			
   			this.data = snapshot.val();
 		});
 	});
+	
+	
+	
 
 })();
