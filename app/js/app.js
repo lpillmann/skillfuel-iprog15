@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var dinnerPlannerApp = angular.module('dinnerPlanner', ['ngRoute','ngResource']);
+var skillFuelApp = angular.module('skillFuel', ['ngRoute','ngResource']);
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
@@ -34,7 +34,7 @@ var dinnerPlannerApp = angular.module('dinnerPlanner', ['ngRoute','ngResource'])
 // the path we use the ":" sign. For instance, our '/dish/:dishId' will be triggered when we access 
 // 'http://localhost:8000/#/dish/12345'. The 12345 value will be stored in a dishId parameter, which we can
 // then access through $routeParams service. More information on this in the dishCtrl.js 
-dinnerPlannerApp.config(['$routeProvider',
+skillFuelApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/home', {
@@ -44,9 +44,9 @@ dinnerPlannerApp.config(['$routeProvider',
         templateUrl: 'partials/search.html',
         controller: 'SearchCtrl'
       }).
-      when('/dish/:dishId', {
-        templateUrl: 'partials/dish.html',
-        controller: 'DishCtrl'
+      when('/profile/:profileId', {
+        templateUrl: 'partials/profile.html',
+        controller: 'ProfileCtrl'
       }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
