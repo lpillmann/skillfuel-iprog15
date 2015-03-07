@@ -7,7 +7,6 @@ skillFuelApp.factory('SkillFuel',function ($resource) {
   
   var numberOfGuest = 2;
 
-
   this.setNumberOfGuests = function(num) {
     numberOfGuest = num;
   }
@@ -15,6 +14,10 @@ skillFuelApp.factory('SkillFuel',function ($resource) {
   this.getNumberOfGuests = function() {
     return numberOfGuest;
   }
+
+  //this.ProfileSearch = $resource('http://api.bigoven.com/recipes',{pg:1,rpp:25,api_key:'YOUR_API_KEY'});
+  this.ProfileSearch = $resource('https://scorching-torch-5112.firebaseio.com/.json');
+  this.Profile = $resource('https://scorching-torch-5112.firebaseio.com/1.json'); 
 
 
   // TODO in Lab 5: Add your model code from previous labs
