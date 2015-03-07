@@ -2,6 +2,7 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
   
   var ref = new Firebase("https://sizzling-heat-4392.firebaseio.com/name");
   var refMessages = new Firebase("https://sizzling-heat-4392.firebaseio.com/messages");
+  var refUsers = new Firebase("https://sizzling-heat-4392.firebaseio.com/users");
   
    // download the data into a local object
   var syncObject = $firebaseObject(ref);
@@ -12,6 +13,7 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
 
   // create a synchronized array
   $scope.messages = $firebaseArray(refMessages);
+  $scope.users = $firebaseArray(refUsers);
 
   // add new items to the array
   // the message is automatically added to Firebase!
@@ -21,6 +23,11 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
     });
   };
 
+  $scope.addUser = function() {
+    $scope.users.$add({
+      name: $scope.newUserName
+    });
+  };
   /*// AUTHENTICATION (to be configured later if necessary)
   // create an instance of the authentication service
   var auth = $firebaseAuth(ref);
