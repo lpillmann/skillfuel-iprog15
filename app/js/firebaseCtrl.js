@@ -25,9 +25,15 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
 
   $scope.addUser = function() {
     $scope.users.$add({
-      name: $scope.newUserName
+      name:     $scope.newUserName,
+      title:    $scope.newUserTitle,
+      location: $scope.newUserLocation,
+      need:     $scope.newUserNeed,
+      know:     $scope.newUserKnow
     });
   };
+
+
   /*// AUTHENTICATION (to be configured later if necessary)
   // create an instance of the authentication service
   var auth = $firebaseAuth(ref);

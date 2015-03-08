@@ -1,13 +1,37 @@
 <!-- We include the sidebar as it is shared across two screens. -->
 <!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
-<h1>Create your profile</h1>
+
+<div ng-controller="FirebaseCtrl">
+    <!-- anything typed in here is magically saved to Firebase! -->
+    <h2>Write your name below:</h2>
+    <input type="text" ng-model="data.text"/>
+    <!-- all changes from Firebase magically appear here! -->
+    <h3>This is your name:</h3>
+    <h4>{{ data.text }}</h4>
+</div>
 <hr>
+<div>
+	<h2>Message testing</h2>
+	<ul>
+      <li ng-repeat="message in messages">
+        <!-- edit a message -->
+        <input ng-model="message.text" ng-change="messages.$save(message)" />
+        <!-- delete a message -->
+        <button ng-click="messages.$remove(message)">Delete Message</button>
+      </li>
+    </ul>
+    <!-- push a new message onto the array -->
+    <form ng-submit="addMessage()">
+      <input ng-model="newMessageText" />
+      <button type="submit">Add Message</button>
+    </form>
+</div>
+<hr>
+
+
 <div class="row">
 	<div class="col-md-6">
-		<div id="newImage">
-			<img ng-src="" style="display:block">
-			<a href="#/" class="btn btn-primary" style="display:block" id="newImageBtn">+ Add picture</a>
-		</div>
+		
 	</div>
 	<div class="col-md-6">
 		<h2>New profile</h2>
