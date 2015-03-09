@@ -9,8 +9,18 @@
 	    <p><strong>Name:</strong> {{user.name}}</p>
 	    <p><strong>Title:</strong> {{user.title}}</p>
 	    <p><strong>Location:</strong> {{user.location}}</p>
-	    <p><strong>Need:</strong> {{user.need}}</p>
-	    <p><strong>Know:</strong> {{user.know}}</p>
+	    <p><strong>Needs:</strong></p>	
+	    <ul>
+	    	<li ng-repeat="need in user.skills.need">
+			    {{need}}
+		    </li>
+	    </ul>
+	    <p><strong>Knows:</strong></p>
+	    <ul>
+	    	<li ng-repeat="know in user.skills.know">
+			    {{know}}
+		    </li>
+	    </ul>
 	    <!-- delete a user -->
 	    <button ng-click="users.$remove(user)">Delete User</button>
 	  </li>
