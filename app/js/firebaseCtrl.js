@@ -1,45 +1,25 @@
 skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $firebaseArray) {//, $firebaseAuth) {
   
   var ref = new Firebase("https://sizzling-heat-4392.firebaseio.com/name");
-  var refMessages = new Firebase("https://sizzling-heat-4392.firebaseio.com/messages");
   var refUsers = new Firebase("https://sizzling-heat-4392.firebaseio.com/users");
 
-  // object that hold the skills (to be inserted in the user profile later)
-  var skills = {
-    'know':
-      {},
-    'need':
-      {}
-  };
-
-  // download the data into a local object
+/*  // download the data into a local object (Example of how to do a 3-way binding)
   var syncObject = $firebaseObject(ref);
   
   // synchronize the object with a three-way data binding
   // click on `index.html` above to see it used in the DOM!
-  syncObject.$bindTo($scope, "data");
-
-  // try to reference existing data
-  ref.child('users/');
+  syncObject.$bindTo($scope, "data");*/
 
   // create a synchronized array
-  $scope.messages = $firebaseArray(refMessages);
   $scope.users = $firebaseArray(refUsers);
 
-  // add new items to the array
-  // the message is automatically added to Firebase!
-  $scope.addMessage = function() {
-    $scope.messages.$add({
-      text: $scope.newMessageText
-    });
-  };
-
+  // arrays that hold the skills being added in the profile creation
   $scope.needsArray = [];
   $scope.knowsArray = [];
 
-  // function to add skill in input field to a temporary object. This object will later be added to the user profile in $scope.addUser()
+  // function to add skill in input field to temporary arrays. These arrays will later be added to the user profile in $scope.addUser()
   $scope.addSkill = function (skillType) {
-    switch (skillType) { // complete with cases for adding
+    switch (skillType) { // depending on the skill type, it adds the value to the proper array
       case 'need':
         $scope.needsArray.push($scope.newUserNeed);
         $scope.newUserNeed = ""; // clears input field
@@ -53,9 +33,7 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
     };
   };
 
-  /*var skillType = 'know';
-  $.extend(skills[skillType], {"hello": { "label":"Hello", "url":"#hello" }});    */
-
+  // adds user with all the information that was filled in the form fields (bugs when fields are empty)
   $scope.addUser = function() {
     $scope.users.$add({
       name:     $scope.newUserName,
@@ -66,9 +44,9 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
         know: $scope.knowsArray
       }
     });
-    $scope.needsArray = []; // cleans both arrays of needs to be used by the next profile creation
-    $scope.knowsArray = [];
 
+    $scope.needsArray = []; // cleans variables to be used by the next profile creation (provides submition feedback also)
+    $scope.knowsArray = [];
     $scope.newUserName      = "";
     $scope.newUserTitle     = "";
     $scope.newUserLocation  = "";
