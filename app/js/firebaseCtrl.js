@@ -32,8 +32,19 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
       know:     $scope.newUserKnow
     });
   };
-
-
+	
+	console.log($scope.users);
+	
+	function chunk(users, size) {
+			var chunks = {};
+			for (i=0; i<users.length; i+=size) {
+				chunks.push(users.slice(i,i+=size));
+			}
+			return chunks;
+	};
+	
+	$scope.chunkedData= chunk($scope.users, 2);
+	
   /*// AUTHENTICATION (to be configured later if necessary)
   // create an instance of the authentication service
   var auth = $firebaseAuth(ref);
