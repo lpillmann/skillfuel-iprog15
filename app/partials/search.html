@@ -3,34 +3,23 @@
 
  <div ng-controller="FirebaseCtrl">
 		<h2>Users database</h2>	
-	  <div class="cardSearch" ng-repeat="user in users">
-		<div class="row">
+	<div class="row">
+	  <div class="cardSearch col-md-6" ng-repeat="user in users">
 			<img class="col-md-3" src="img/user.png">
 	    <!-- user data -->
 			<div class="col-md-3">
 		    <h4> {{user.name}}</h4>
-		    <p><strong>Title:</strong> {{user.title}}</p>
-	    <p><strong>Location:</strong> {{user.location}}</p>
-	    <p><strong>Needs:</strong></p>	
-	    <ul>
-	    	<li ng-repeat="need in user.skills.need">
-			    {{need}}
-		    </li>
-	    </ul>
-	    <p><strong>Knows:</strong></p>
-	    <ul>
-	    	<li ng-repeat="know in user.skills.know">
-			    {{know}}
-		    </li>
-	    </ul>
-	    </div>
+		    <p><strong>Title:</strong>{{user.title}}</p>
+		    <p><strong>Location:</strong> {{user.location}}</p>
+		    <p><strong>Need:</strong> {{user.need}}</p>
+		    <p><strong>Know:</strong> {{user.know}}</p>
+			
+		   <!-- delete a user -->
+		    <button ng-click="users.$remove(user)">Delete User</button>
+		    </div>
 	  	</div>
-	  	<div class="row">
 	  		<div class="col-md-3"><p>All needs and knows</div>
 	  		<div class="col-md-3"><p>Projects</div>
-	  	</div>
-	  	<!-- delete a user -->
-	    <button ng-click="users.$remove(user)">Delete User</button>
 	  </div>
 </div>
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does

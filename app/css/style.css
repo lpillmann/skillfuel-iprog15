@@ -31,6 +31,7 @@ img.search {
 	box-shadow: 1px 1px 5px #888888;
 	margin: 5px;
 	padding: 10px;
+	display: flex;
 }
 
 .new-user-input {
