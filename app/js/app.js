@@ -8,7 +8,11 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
+<<<<<<< HEAD
 var skillFuelApp = angular.module('skillFuel', ['ngRoute','ngResource','firebase']);
+=======
+var skillFuelApp = angular.module('skillFuel', ['ngRoute','ngResource','firebase','ui.bootstrap']);
+>>>>>>> Firebase-as-a-Angular-service
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
