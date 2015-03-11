@@ -2,35 +2,46 @@
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
 <div ng-controller="FirebaseCtrl">
 	<h2>Users database</h2>	
-	<div class="row">
-		<div class="cardSearch col-md-4" ng-repeat="user in users">
-			<img class="col-md-6" src="img/user.png"/>
-			<!-- user data -->
-			<div class="col-md-6">
-				<h4> {{user.name}}</h4>
-				<p><strong>Titleuuu:</strong> {{user.title}}</p>
-				<p><strong>Locationuuu:</strong> {{user.location}}</p>
-				<p><strong>Needs:</strong></p>	
-				<ul>
-					<li ng-repeat="need in user.skills.need">
-						{{need}}
-					</li>
-				</ul>
-				<p><strong>Knows:</strong></p>
-				<ul>
-					<li ng-repeat="know in user.skills.know">
-						{{know}}
-					</li>
-				</ul>
+	<!-- <div class="row"> -->
+		<div class="outer-container col-md-4" ng-repeat="user in users">
+			<div class="cardSearch">
+				<img class="col-md-6" src="img/user.png"/>
+				<!-- user data -->
+				<div class="col-md-6">
+					<h4> {{user.name}}</h4>
+					<p><strong>Titlexxx:</strong> {{user.title}}</p>
+					<p><strong>Locationuuu:</strong> {{user.location}}</p>
+					<p><strong>Needs:</strong></p> <p ng-repeat="need in user.skills.need"{{need}}>{{need}}</p>	
+					<p><strong>Knows:</strong></p>
+					<ul ng-repeat="know in user.skills.know">
+							{{know}}
+					</ul>
+				</div>
+				<div>
+					<div class="search-container col-md-6">
+						<a href="#/" class="btn btn-primary btn-search" style="display:block" id="newImageBtn"> All needs and knows</a>
+					</div>
+					<div class="col-md-6 search-container"><a href="#/" class="btn btn-primary btn-search" style="display:block" id="newImageBtn">Projects</a>
+				</div><!-- panel for projects and all needs & knows -->
+				<!-- delete a user -->
+				<button ng-click="users.$remove(user)">Delete User</button>
 			</div>
-			<div>
-				<div class="col-md-6"><p>All needs and knows</div>
-				<div class="col-md-6"><p>Projects</div>
-			</div><!-- panel for projects and all needs & knows -->
-			<!-- delete a user -->
-			<button ng-click="users.$remove(user)">Delete User</button>
 		</div><!-- card -->
-	</div><!-- row -->
+
 </div>
+
+<script>
+jQuery(document).ready(function($) {
+	
+	// Our script will go here
+	
+	$('.lightbox_trigger').click(function(e) {
+	
+	// Code that makes the lightbox appear
+
+});
+
+});
+</script>
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search.
