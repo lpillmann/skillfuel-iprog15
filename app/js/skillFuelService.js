@@ -40,15 +40,24 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
       return knowsArray;
   }
 
+  // clears arrays when view requests
+  this.emptySkillsArray = function (skillType) {
+    if (skillType === "need")
+      needsArray = [];
+    else if (skillType === "know") 
+      knowsArray = [];
+  }
+
+   this.addUser = function(newUserObj) {
+    users.$add(newUserObj);
+  }
+
 
   // TODO in Lab 5: Add your model code from previous labs
   // feel free to remove above example code
   // you will need to modify the model (getDish and getAllDishes) 
   // a bit to take the advantage of Angular resource service
   // check lab 5 instructions for details
-
-
-
 
 
   // Angular service needs to return an object that has all the
