@@ -33,7 +33,7 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
     });
   };
 	
-	console.log($scope.users);
+	
 	
 	function chunk(users, size) {
 			var chunks = {};
@@ -43,7 +43,30 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
 			return chunks;
 	};
 	
-	$scope.chunkedData= chunk($scope.users, 2);
+	// Trying to split up the users data into chunks for columns
+	// still not working
+	/*
+	$scope.usersJsArray = [];
+	$scope.users.$loaded().then(function(users) {
+		console.log(users.length); // data is loaded here
+		
+		for (var i = 0; i < $scope.users.length; i++) {
+			$scope.usersJsArray[i] = {};
+			console.log($scope.users[i]);
+			
+			$scope.usersJsArray[i]['location']= $scope.users[i].location;
+			$scope.usersJsArray[i]['name']= $scope.users[i].name;
+			$scope.usersJsArray[i]['skills'] =  $scope.users[i].skills;
+			$scope.usersJsArray[i]['title'] =  $scope.users[i].title;
+			
+		}
+		console.log($scope.usersJsArray);
+		
+		$scope.chunkedData = chunk($scope.usersJsArray, 2);
+		
+		console.log($scope.chunkedData);
+	});
+	*/
 	
   /*// AUTHENTICATION (to be configured later if necessary)
   // create an instance of the authentication service
