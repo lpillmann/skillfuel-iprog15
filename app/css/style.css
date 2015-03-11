@@ -30,7 +30,9 @@ img.search {
 	background-color: #EEE;
 	box-shadow: 1px 1px 5px #888888;
 	margin: 5px;
-	padding: 10px;
+	/*float: left;*/
+	/*padding: 10px;*/
+	/*display: flex;*/
 }
 
 .new-user-input {
