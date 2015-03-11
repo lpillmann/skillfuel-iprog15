@@ -46,6 +46,7 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
 	// Trying to split up the users data into chunks for columns
 	// still not working
 	/*
+	
 	$scope.usersJsArray = [];
 	$scope.users.$loaded().then(function(users) {
 		console.log(users.length); // data is loaded here
@@ -67,6 +68,7 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
 		console.log($scope.chunkedData);
 	});
 	*/
+	
 	
   /*// AUTHENTICATION (to be configured later if necessary)
   // create an instance of the authentication service
