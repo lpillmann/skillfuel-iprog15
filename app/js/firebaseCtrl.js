@@ -1,4 +1,4 @@
-skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $firebaseArray) {//, $firebaseAuth) {
+skillFuelApp.controller("FirebaseCtrl", ['$scope', '$firebaseObject', '$firebaseArray', 'SkillFuel', function( $scope, $firebaseObject, $firebaseArray, SkillFuel) {//, $firebaseAuth) {
   
   var ref = new Firebase("https://sizzling-heat-4392.firebaseio.com/name");
   var refUsers = new Firebase("https://sizzling-heat-4392.firebaseio.com/users");
@@ -12,13 +12,15 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
 
   // create a synchronized array
   $scope.users = $firebaseArray(refUsers);
-
+  
   // arrays that hold the skills being added in the profile creation
   $scope.needsArray = [];
   $scope.knowsArray = [];
 
   // function to add skill in input field to temporary arrays. These arrays will later be added to the user profile in $scope.addUser()
-  $scope.addSkill = function (skillType) {
+
+/*OLD WAY*/
+/*  $scope.addSkill = function (skillType) {
     switch (skillType) { // depending on the skill type, it adds the value to the proper array
       case 'need':
         $scope.needsArray.push($scope.newUserNeed);
@@ -31,8 +33,20 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
       default:
         alert("error 007!"); 
     };
+  };*/
+
+
+  //New way (with service)
+  $scope.addSkill = function (skillType, skill) {
+    SkillFuel.addSkill(skillType, skill);
   };
 
+  $scope.getSkillsArray = function (skillType) {
+    return SkillFuel.getSkillsArray(skillType);
+  }
+
+
+  // Old way
   // adds user with all the information that was filled in the form fields (bugs when fields are empty)
   $scope.addUser = function() {
     $scope.users.$add({
@@ -63,4 +77,4 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
   });
   */
 
-});
+}]);

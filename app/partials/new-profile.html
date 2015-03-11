@@ -38,11 +38,11 @@
 		<div class="input-group">
 	      <input type="text" class="form-control" placeholder="" id="needInput" ng-model="newUserNeed">
 	      <span class="input-group-btn">
-	        <button class="btn btn-primary" type="button" id="needBtn" ng-click='addSkill("need")'>+ Add skill</button>
+	        <button class="btn btn-primary" type="button" id="needBtn" ng-click='addSkill("need", newUserNeed)'>+ Add skill</button>
 	      </span>
 	    </div><!-- /input-group -->
 	    <ul> <!-- shows needed skills on the go -->
-		    <li ng-repeat="need in needsArray">
+		    <li ng-repeat="need in getSkillsArray('need')">
 			    {{need}}
 		    </li>
 		</ul>
@@ -54,11 +54,11 @@
 		<div class="input-group">
 	      <input type="text" class="form-control" placeholder="" id="knowInput" ng-model="newUserKnow">
 	      <span class="input-group-btn">
-	        <button class="btn btn-success" type="button" id="knowBtn" ng-click='addSkill("know")'>+ Add skill</button>
+	        <button class="btn btn-success" type="button" id="knowBtn" ng-click='addSkill("know", newUserKnow)'>+ Add skill</button>
 	      </span>
 	    </div><!-- /input-group -->
 	    <ul> <!-- shows known skills on the go -->
-		    <li ng-repeat="know in knowsArray">
+		    <li ng-repeat="know in getSkillsArray('know')">
 			    {{know}}
 		    </li>
 		</ul>
