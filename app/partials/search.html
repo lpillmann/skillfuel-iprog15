@@ -1,37 +1,8 @@
 <!-- We include the sidebar as it is shared across two screens.
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
-<div>
 	<h2>Users database</h2>	
-	<div>
-		Search: <input ng-model="search.$"> <br>
-		Needs: <input ng-model="search.skills.need"><br>
-		Know:	<input ng-model="search.skills.know"><br>
-	</div>
-	<div class="col-md-6 col-md-offset-6">
-		<div class="input-group">
-		  <input type="text" class="form-control" aria-label="...">
-		  <div class="input-group-btn">
-		    <!-- Button and dropdown menu -->
-		    <span class="input-group-btn">
-	        <button class="btn btn-default" type="button">Go!</button>
-	      	</span>
-	      	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-	        <ul class="dropdown-menu" role="menu">
-	          <li><a href="#">Action</a></li>
-	          <li><a href="#">Another action</a></li>
-	          <li><a href="#">Something else here</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Separated link</a></li>
-	        </ul>
-	      </div><!-- /btn-group -->
-		  </div>
-		</div>
-	</div>
-	<hr>
-	<br>
-	<br>	
 	<!-- <div class="row"> -->
-		<div class="outer-container col-md-4" ng-repeat="user in users | filter:search">
+		<div class="outer-container col-md-4" ng-repeat="user in users">
 			<div class="cardSearch">
 				<img class="col-md-6" src="img/user.png"/>
 				<!-- user data -->
@@ -47,29 +18,15 @@
 				</div>
 				<div>
 					<div class="search-container col-md-6">
-						<a href="#/" class="btn btn-primary btn-search" style="display:block" id="newImageBtn"> All needs and knows</a>
+						<a href="#/" class="btn btn-primary btn-search" style="display:block" id="newImageBtn" > XX All needs and knows</a>
 					</div>
 					<div class="col-md-6 search-container"><a href="#/" class="btn btn-primary btn-search" style="display:block" id="newImageBtn">Projects</a>
-				</div><!-- panel for projects and all needs & knows -->
+					</div><!-- panel for projects and all needs & knows -->
 				<!-- delete a user -->
-				<button ng-click="users.$remove(user)">Delete User</button>
-			</div>
-		</div><!-- card -->
+					<button ng-click="users.$remove(user)">Delete User</button>
+				</div>
+			</div><!-- card -->
+		</div>
 
-</div>
-
-<script>
-jQuery(document).ready(function($) {
-	
-	// Our script will go here
-	
-	$('.lightbox_trigger').click(function(e) {
-	
-	// Code that makes the lightbox appear
-
-});
-
-});
-</script>
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search.
