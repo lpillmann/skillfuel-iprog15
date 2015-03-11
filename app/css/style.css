@@ -6,8 +6,8 @@ img {
 }
 
 .cardSearch img {
-	width: 30%;
-	height: 30%;
+	/*width: 30%;*/
+	/*height: 30%;*/
 	display: block;
 }
 
@@ -29,8 +29,9 @@ img {
 .cardSearch {
 	background-color: #EEE;
 	box-shadow: 1px 1px 5px #888888;
-	margin: 5px;
-	/*float: left;*/
+	/*margin: 0.1em;*/*/
+	float: left;*/
+	width: 90%;
 	/*padding: 10px;*/
 	/*display: flex;*/
 }
