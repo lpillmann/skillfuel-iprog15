@@ -12,8 +12,8 @@ img {
 .cardSearch img {
 	/*width: 30%;*/
 	/*height: 30%;*/
-	width: 50%;
-	height: 50%;
+	width: 30%;
+	height: 30%;
 	display: block;
 }
 
@@ -40,7 +40,20 @@ img {
 	padding: 0px;
 }
 .outer-container{
-	padding: 0.5em;
+	padding: 5px;
+	width: 350px;
+	height: 250px;
+	overflow: hidden;
+}
+
+.outer-container p {
+	margin: 0px;
+}
+
+.outer-container .userInfo {
+	height: 150px;
+	overflow: hidden;
+	padding-left: 10px;
 }
 
 .cardSearch {

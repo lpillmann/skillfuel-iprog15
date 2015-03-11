@@ -1,13 +1,6 @@
-'use strict';
+// IMPORTANT: Where does the FileUploader service come from? We don't have this in the code now. Please include necessary libraries. (Commented on March 11, Lui)
 
-
-angular
-
-
-    .module('app', ['angularFileUpload'])
-
-
-    .controller('AppController', ['$scope', 'FileUploader', function($scope, FileUploader) {
+skillFuelApp.controller('uploadFileCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
         var uploader = $scope.uploader = new FileUploader({
             url: 'upload.php'
         });

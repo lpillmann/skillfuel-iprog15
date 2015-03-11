@@ -52,6 +52,10 @@ skillFuelApp.config(['$routeProvider',
         templateUrl: 'partials/new-profile.html',
         controller: 'FirebaseCtrl'
       }).
+      when('/new-profile-projects', {
+        templateUrl: 'partials/new-profile-projects.html',
+        controller: 'uploadFileCtrl'
+      }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/home'

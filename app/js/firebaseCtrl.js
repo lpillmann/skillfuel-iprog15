@@ -35,6 +35,7 @@ skillFuelApp.controller("FirebaseCtrl", ['$scope', 'SkillFuel', function( $scope
 
   $scope.addUser = function() {
     // creates object with new info from form
+    console.log("add user from scope");
     newUserObj = {
       'name':     $scope.newUserName,
       'title':    $scope.newUserTitle,

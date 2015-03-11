@@ -6,15 +6,12 @@
 		<div class="cardSearch">
 			<img class="col-md-6" src="img/user.png"/>
 			<!-- user data -->
-			<div class="col-md-6">
+			<div class="userInfo">
 				<h4> {{user.name}}</h4>
-				<p><strong>Titlexxx:</strong> {{user.title}}</p>
-				<p><strong>Locationuuu:</strong> {{user.location}}</p>
-				<p><strong>Needs:</strong></p> <p ng-repeat="need in user.skills.need"{{need}}>{{need}}</p>	
-				<p><strong>Knows:</strong></p>
-				<ul ng-repeat="know in user.skills.know">
-						{{know}}
-				</ul>
+				<p><strong>Title:</strong> {{user.title}}</p>
+				<p><strong>Location:</strong> {{user.location}}</p>
+				<p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> {{need}}{{$last ? '' : ', '}} </span></p> <!-- Commas as separators -->
+				<p><strong>Knows:</strong> <span ng-repeat="know in user.skills.know"> {{know}}{{$last ? '' : ', '}} </span></p> 
 			</div>
 			<div>
 				<div class="search-container col-md-6">

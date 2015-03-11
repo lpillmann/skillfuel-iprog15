@@ -1,210 +1,81 @@
-<!-- We include the sidebar as it is shared across two screens. -->
-<!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
-<<<<<<< HEAD
 <div class="col-md-8 col-md-offset-2">
 	<h1>Create your profile</h1>
+	<h4>Basic information and skills</h4>
 	<hr>
 	<form ng-submit="addUser()">
 		<div class="row card">
-		<div class="row">
-				<div class="col-md-6">
+			<div class="row">
+				<div class="col-xs-4">
 					<div id="newImage">
 						<img ng-src="" style="display:block">
 					</div>
 				</div>
-				<div class="col-md-6 new-user-col">
-					
-						<p class="new-user-p">Name</p>
-						<input class="new-user-input" ng-model="newUserName" />
-						<p class="new-user-p">Title</p>
-						<input class="new-user-input" ng-model="newUserTitle" />
-						<p class="new-user-p">Location</p>
-						<input class="new-user-input" ng-model="newUserLocation" />		      	
-					
-				</div>
-		</div>
-		<div class="row"> <!-- Row with buttons -->
-			<div class="col-md-6">
-					<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="newImageBtn">+ Add picture</a>		
-			</div>
-			<div class="col-md-6">
-					<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="connectLinkedInBtn">Connect to LinkedIn</a>
+				<div class="col-xs-8 new-user-col">
+	              <div class="form-group">
+	                <label for="name">Name</label>
+	                <input type="text" class="form-control" id="new-user-p" ng-model="newUserName" placeholder="Input Name">
+	              </div>
+	              <div class="form-group">
+	                <label for="new-user-p">Title</label>
+	                <input type="title" class="form-control" id="new-user-p" ng-model="newUserTitle" placeholder="Title">
+	              </div>
+	              <div class="form-group">
+	                <label for="new-user-p">Location</label>
+	                <input type="location" class="form-control" id="new-user-p" ng-model="newUserLocation" placeholder="Location">
+	              </div>
 				</div>
 			</div>
-		</div>
-	<div class="row card">
-		<!--  Needs Column -->
-		<div class="col-md-6">
-			<h2 class="new-user-h2">I need</h2>
-			<div class="input-group">
-		      <input type="text" class="form-control" placeholder="" id="needInput" ng-model="newUserNeed">
-		      <span class="input-group-btn">
-		        <button class="btn btn-primary" type="button" id="needBtn" ng-click='addSkill("need", newUserNeed)'>+ Add skill</button>
-		      </span>
-		    </div><!-- /input-group -->
-		    <ul> <!-- shows needed skills on the go -->
-			    <li ng-repeat="need in getSkillsArray('need')">
-				    {{need}}
-			    </li>
-			</ul>
+			<div class="row"> <!-- Row with buttons -->
+				<div class="col-md-6">
+						<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="newImageBtn">+ Add picture</a>		
+				</div>
+				<div class="col-md-6">
+						<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="connectLinkedInBtn">Connect to LinkedIn</a>
+					</div>
+				</div>
+			</div>
+		<div class="row card">
+			<!--  Needs Column -->
+			<div class="col-md-6">
+				<h2 class="new-user-h2">I need</h2>
+				<div class="input-group">
+			      <input type="text" class="form-control" placeholder="" id="needInput" ng-model="newUserNeed">
+			      <span class="input-group-btn">
+			        <button class="btn btn-primary" type="button" id="needBtn" ng-click='addSkill("need", newUserNeed)'>+ Add skill</button>
+			      </span>
+			    </div><!-- /input-group -->
+			    <ul> <!-- shows needed skills on the go -->
+				    <li ng-repeat="need in getSkillsArray('need')">
+					    {{need}}
+				    </li>
+				</ul>
+			</div>
+
+			<!--  Knows Column -->
+			<div class="col-md-6">
+				<h2 class="new-user-h2">I know</h2>
+				<div class="input-group">
+			      <input type="text" class="form-control" placeholder="" id="knowInput" ng-model="newUserKnow">
+			      <span class="input-group-btn">
+			        <button class="btn btn-success" type="button" id="knowBtn" ng-click='addSkill("know", newUserKnow)'>+ Add skill</button>
+			      </span>
+			    </div><!-- /input-group -->
+			    <ul> <!-- shows known skills on the go -->
+				    <li ng-repeat="know in getSkillsArray('know')">
+					    {{know}}
+				    </li>
+				</ul>
+			</div>
 		</div>
 
-		<!--  Knows Column -->
-		<div class="col-md-6">
-			<h2 class="new-user-h2">I know</h2>
-			<div class="input-group">
-		      <input type="text" class="form-control" placeholder="" id="knowInput" ng-model="newUserKnow">
-		      <span class="input-group-btn">
-		        <button class="btn btn-success" type="button" id="knowBtn" ng-click='addSkill("know", newUserKnow)'>+ Add skill</button>
-		      </span>
-		    </div><!-- /input-group -->
-		    <ul> <!-- shows known skills on the go -->
-			    <li ng-repeat="know in getSkillsArray('know')">
-				    {{know}}
-			    </li>
-			</ul>
-		</div>
+		<!-- Project form was here -->
 
-<!-- Wen's addition to project -->
-<div class="row card">
-    <div class="row">
-        <div class="col-xs-6 text-left"><h3>Add a project</h3></div>
-        <div class="col-xs-6 text-right"><small>upcoming/past</small></div>  
-    </div> 
-    <div class="row">
-    	<form>
-        <div class="col-xs-6 col-md-6">
-            <div class="form-group">
-            <label for="project">Project Name</label>
-            <input type="text" class="form-control" id="project" placeholder="Project Name">
-          </div>     
-        </div>
-        <div class="col-xs-6 col-xs-6">
-            <div class="form-group">
-	            <label for="url">URL</label>
-	            <input type="url" class="form-control" id="url" placeholder="http://">
-    	    </div>
-        </div>
-    </div>
-	<div class="row">   
-		<div class="col-xs-12">
+	<a href="#/new-profile-projects" class="btn btn-success">Add projects to your profile</a>
+	<button type="submit" class="btn btn-info">Submit profile</button>	
+	</form>
+	<hr>
+	<a href="#/search" class="btn btn-warning">See all users</a>
 
-		  <div class="form-group">
-		    <label for="description">Description</label>
-		      <textarea class="form-control" rows="3" id="description" placeholder="Add text here"></textarea>
-		  </div>
-		</div>
-	</div>
-    <div ng-controller= "AppController">    
-    	<div class="row">
-        	<div class="col-xs-12">
-        		<div class="form-group">
-            		<label for="project">Files</label>
-            		<div ng-controller="AppController" ng-show="uploader.isHTML5">
-               		<!-- 3. nv-file-over uploader="link" over-class="className" -->
-	                	<div class="col-xs-4">     
-	                		<div class="well my-drop-zone" nv-file-over="" uploader="uploader">
-	                    		Drag & drop 
-	                    		<br/>Images Files
-	                		</div>
-	                	</div>
-	                
-	                	<div class="col-xs-4">     
-	                		<div class="well my-drop-zone" nv-file-over="" uploader="uploader">
-	                    		Drag & drop
-	                    		<br/>Video Files
-	                		</div>
-	                	</div>
-                	</div>
-                </div>  
-            </div>
-        </div>
-    </div>
-    
-    
-    <table class="table">
-        <thead>
-            <tr>
-                <th width="50%">Name</th>
-                <th ng-show="uploader.isHTML5">Size</th>
-                <th ng-show="uploader.isHTML5">Progress</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="item in uploader.queue">
-                <td><strong>{{ item.file.name }}</strong></td>
-                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-                <td ng-show="uploader.isHTML5">
-                    <div class="progress" style="margin-bottom: 0;">
-                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
-                    </div>
-                </td>
-                <td class="text-center">
-                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                </td>
-                <td nowrap>
-                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                        <span class="glyphicon glyphicon-upload"></span> Upload
-                    </button>
-                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                    </button>
-                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                        <span class="glyphicon glyphicon-trash"></span> Remove
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>  
-    
-    <div>
-        <div>
-            Queue progress:
-            <div class="progress" style="">
-                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
-            </div>
-        </div><!-- Queue progress-->
-        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-            <span class="glyphicon glyphicon-upload"></span> Upload all
-        </button>
-        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
-            <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
-        </button>
-        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-            <span class="glyphicon glyphicon-trash"></span> Remove all
-        </button>
-    </div> <!-- Queue progress & buttons-->
 
-    <div class="col-xs-6">
-		<h3>I need for this project</h3>
-		<div class="input-group">
-	      <input type="text" class="form-control" placeholder="" id="needInput" ng-model="newUserNeed">
-	      <span class="input-group-btn">
-	        <button class="btn btn-primary" type="button" id="needBtn">+ Add skill</button>
-	      </span>
-	    </div><!-- /input-group -->
-	</div>
-	<div class="col-xs-6">
-		<h3>I know for this project</h3>
-		<div class="input-group">
-	      <input type="text" class="form-control" placeholder="" id="knowInput" ng-model="newUserKnow">
-	      <span class="input-group-btn">
-	        <button class="btn btn-success" type="button" id="knowBtn">+ Add skill</button>
-	      </span>
-	    </div><!-- /input-group -->
-	</div>       
-    
-	</form>    
-    </div>
 </div>
 
-<button type="submit" class="btn btn-info">Submit profile</button>	
-</form>
-
-</div>
-<hr>
-<a href="#/search" class="btn btn-warning">See all users</a>
