@@ -91,7 +91,31 @@ skillFuelApp.controller("FirebaseCtrl", ['$scope', 'SkillFuel', function( $scope
     $scope.newUserLocation  = "";
   };
   */
-
+	
+	/*
+	
+	$scope.usersJsArray = [];
+	$scope.users.$loaded().then(function(users) {
+		console.log(users.length); // data is loaded here
+		
+		for (var i = 0; i < $scope.users.length; i++) {
+			$scope.usersJsArray[i] = {};
+			console.log($scope.users[i]);
+			
+			$scope.usersJsArray[i]['location']= $scope.users[i].location;
+			$scope.usersJsArray[i]['name']= $scope.users[i].name;
+			$scope.usersJsArray[i]['skills'] =  $scope.users[i].skills;
+			$scope.usersJsArray[i]['title'] =  $scope.users[i].title;
+			
+		}
+		console.log($scope.usersJsArray);
+		
+		$scope.chunkedData = chunk($scope.usersJsArray, 2);
+		
+		console.log($scope.chunkedData);
+	});
+	*/
+	
   /*// AUTHENTICATION (to be configured later if necessary)
   // create an instance of the authentication service
   var auth = $firebaseAuth(ref);

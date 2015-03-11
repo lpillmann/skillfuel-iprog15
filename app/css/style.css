@@ -12,6 +12,8 @@ img {
 .cardSearch img {
 	/*width: 30%;*/
 	/*height: 30%;*/
+	width: 50%;
+	height: 50%;
 	display: block;
 }
 
@@ -46,7 +48,6 @@ img {
 	box-shadow: 1px 1px 5px #888888;
 	margin: 0px;
 	padding: 0px;
-}
 
 .new-user-input {
 	width: 100%;
