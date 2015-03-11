@@ -2,8 +2,9 @@
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
 <div ng-controller="FirebaseCtrl">
 	<h2>Users database</h2>	
+	<div>Search: <input ng-model="searchText"></div>
 	<!-- <div class="row"> -->
-		<div class="outer-container col-md-4" ng-repeat="user in users">
+		<div class="outer-container col-md-4" ng-repeat="user in users | filter:searchText">
 			<div class="cardSearch">
 				<img class="col-md-6" src="img/user.png"/>
 				<!-- user data -->
