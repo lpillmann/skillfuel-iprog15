@@ -32,48 +32,6 @@
 			</div>
 		</div>
 	<div class="row card">
-		<!--  Needs Column -->
-		<div class="col-md-6">
-			<h2 class="new-user-h2">I need</h2>
-			<div class="input-group">
-		      <input type="text" class="form-control" placeholder="" id="needInput" ng-model="newUserNeed">
-		      <span class="input-group-btn">
-		        <button class="btn btn-primary" type="button" id="needBtn" ng-click='addSkill("need")'>+ Add skill</button>
-		      </span>
-		    </div><!-- /input-group -->
-		    <ul> <!-- shows needed skills on the go -->
-			    <li ng-repeat="need in needsArray">
-				    {{need}}
-			    </li>
-			</ul>
-		</div>
-
-		<!--  Knows Column -->
-		<div class="col-md-6">
-			<h2 class="new-user-h2">I know</h2>
-			<div class="input-group">
-		      <input type="text" class="form-control" placeholder="" id="knowInput" ng-model="newUserKnow">
-		      <span class="input-group-btn">
-		        <button class="btn btn-success" type="button" id="knowBtn" ng-click='addSkill("know")'>+ Add skill</button>
-		      </span>
-		    </div><!-- /input-group -->
-		    <ul> <!-- shows known skills on the go -->
-			    <li ng-repeat="know in knowsArray">
-				    {{know}}
-			    </li>
-			</ul>
-		</div>
-<<<<<<< HEAD
-	</div>	
-
-	<button type="submit" class="btn btn-info">Submit profile</button>	
-	</form>
-	<hr>
-	<a href="#/search" class="btn btn-warning">See all users</a>
-=======
-	</div>
-</div>
-<div class="row card">
 	<!--  Needs Column -->
 	<div class="col-md-6">
 		<h2 class="new-user-h2">I need</h2>
@@ -104,9 +62,15 @@
 			    {{know}}
 		    </li>
 		</ul>
->>>>>>> origin/Firebase-as-a-Angular-service
+
+	</div>
+
+
+	<button type="submit" class="btn btn-info">Submit profile</button>	
+	</form>
+	<hr>
+	<a href="#/search" class="btn btn-warning">See all users</a>
 	</div>
 </div>
-
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
