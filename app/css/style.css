@@ -5,9 +5,9 @@ img {
 	background-color: #CCC;
 }
 
-img.search {
-	width: 50%;
-	height: 50%;
+.cardSearch img {
+	width: 30%;
+	height: 30%;
 	display: block;
 }
 
