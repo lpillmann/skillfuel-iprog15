@@ -35,35 +35,35 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
 	
 	
 	
+	// Trying to split up the users data into chunks for columns
+	// working, sort of, but fixed it with another solutiono in search.html
+	/*
 	function chunk(users, size) {
-			var chunks = {};
+			var chunks = [];
 			for (i=0; i<users.length; i+=size) {
 				chunks.push(users.slice(i,i+=size));
 			}
+			
 			return chunks;
 	};
 	
-	// Trying to split up the users data into chunks for columns
-	// still not working
-	/*
-	
-	$scope.usersJsArray = [];
+	usersJsArray = [];
 	$scope.users.$loaded().then(function(users) {
 		console.log(users.length); // data is loaded here
 		
 		for (var i = 0; i < $scope.users.length; i++) {
-			$scope.usersJsArray[i] = {};
+			usersJsArray[i] = {};
 			console.log($scope.users[i]);
 			
-			$scope.usersJsArray[i]['location']= $scope.users[i].location;
-			$scope.usersJsArray[i]['name']= $scope.users[i].name;
-			$scope.usersJsArray[i]['skills'] =  $scope.users[i].skills;
-			$scope.usersJsArray[i]['title'] =  $scope.users[i].title;
+			usersJsArray[i]['location']= $scope.users[i].location;
+			usersJsArray[i]['name']= $scope.users[i].name;
+			usersJsArray[i]['skills'] =  $scope.users[i].skills;
+			usersJsArray[i]['title'] =  $scope.users[i].title;
 			
 		}
-		console.log($scope.usersJsArray);
+		console.log(usersJsArray);
 		
-		$scope.chunkedData = chunk($scope.usersJsArray, 2);
+		$scope.chunkedData = chunk(usersJsArray, 3);
 		
 		console.log($scope.chunkedData);
 	});

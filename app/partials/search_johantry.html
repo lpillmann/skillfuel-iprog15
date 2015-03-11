@@ -1,0 +1,31 @@
+<!-- We include the sidebar as it is shared across two screens. -->
+<!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
+
+ <div ng-controller="FirebaseCtrl" class="col-md-12">
+		<h2>Users database</h2>	
+		
+	  <div class="row" ng-repeat="chunks in chunkedData">
+			<div class="cardSearch col-md-4" ng-repeat="user in chunks">	
+				<div class="row">
+					<img class="col-md-6" src="img/user.png">
+					<!-- user data -->
+					<div class="col-md-6">
+					<h4> {{user.name}}</h4>
+					<p><strong>Title:</strong>{{user.title}}</p>
+					<p><strong>Location:</strong> {{user.location}}</p>
+					<p><strong>Need:</strong> {{user.need}}</p>
+					<p><strong>Know:</strong> {{user.know}}</p>
+				
+				 <!-- delete a user -->
+					<button ng-click="users.$remove(user)">Delete User</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6"><p>All needs and knows</div>
+					<div class="col-md-6"><p>Projects</div>
+				</div>				
+			</div>
+	  </div>	
+</div>
+<!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
+not support it in free version) and list all the dishes that match the search. -->

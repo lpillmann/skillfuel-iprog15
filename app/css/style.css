@@ -29,8 +29,12 @@ img.search {
 .cardSearch {
 	background-color: #EEE;
 	box-shadow: 1px 1px 5px #888888;
-	margin: 5px;
+	margin: 0px;
 	padding: 10px;
+}
+
+.outerContainer {
+	padding: 0.5em;
 }
 
 .new-user-input {
