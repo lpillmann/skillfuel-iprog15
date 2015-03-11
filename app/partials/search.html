@@ -1,10 +1,37 @@
 <!-- We include the sidebar as it is shared across two screens.
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
-<div ng-controller="FirebaseCtrl">
+<div>
 	<h2>Users database</h2>	
-	<div>Search: <input ng-model="searchText"></div>
+	<div>
+		Search: <input ng-model="search.$"> <br>
+		Needs: <input ng-model="search.skills.need"><br>
+		Know:	<input ng-model="search.skills.know"><br>
+	</div>
+	<div class="col-md-6 col-md-offset-6">
+		<div class="input-group">
+		  <input type="text" class="form-control" aria-label="...">
+		  <div class="input-group-btn">
+		    <!-- Button and dropdown menu -->
+		    <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">Go!</button>
+	      	</span>
+	      	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+	        <ul class="dropdown-menu" role="menu">
+	          <li><a href="#">Action</a></li>
+	          <li><a href="#">Another action</a></li>
+	          <li><a href="#">Something else here</a></li>
+	          <li class="divider"></li>
+	          <li><a href="#">Separated link</a></li>
+	        </ul>
+	      </div><!-- /btn-group -->
+		  </div>
+		</div>
+	</div>
+	<hr>
+	<br>
+	<br>	
 	<!-- <div class="row"> -->
-		<div class="outer-container col-md-4" ng-repeat="user in users | filter:searchText">
+		<div class="outer-container col-md-4" ng-repeat="user in users | filter:search">
 			<div class="cardSearch">
 				<img class="col-md-6" src="img/user.png"/>
 				<!-- user data -->
