@@ -1,41 +1,55 @@
 <!-- We include the sidebar as it is shared across two screens.
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
-	<h2>Users database</h2>	
-	<!-- <div class="row"> -->
-	<div class="row">
-	  <div class="col-lg-6 col-lg-offset-3">
-	    <div class="input-group">
-	      <input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
-	      <span class="input-group-btn">
-	        <button class="btn btn-default" type="button">I need</button>
-	        <button class="btn btn-default" type="button">I know</button>
-	      </span>
-	    </div><!-- /input-group -->
-	  </div><!-- /.col-lg-6 -->
-	</div><!-- /.row -->
-	<hr>
 
-	<div class="outer-container col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText">
-		<div class="cardSearch">
-			<img class="col-md-6" src="img/user.png"/>
-			<!-- user data -->
-			<div class="userInfo">
-				<h4> {{user.name}}</h4>
-				<p><strong>Title:</strong> {{user.title}}</p>
-				<p><strong>Location:</strong> {{user.location}}</p>
-				<p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> {{need}}{{$last ? '' : ', '}} </span></p> <!-- Commas as separators -->
-				<p><strong>Knows:</strong> <span ng-repeat="know in user.skills.know"> {{know}}{{$last ? '' : ', '}} </span></p> 
-			</div>
-			<div>
-				<div class="search-container col-md-6">
-					<a href="#/" class="btn btn-primary btn-search" style="display:block" id="newImageBtn" > XX All needs and knows</a>
-				</div>
-				<div class="col-md-6 search-container"><a href="#/" class="btn btn-primary btn-search" style="display:block" id="newImageBtn">Projects</a>
-				</div><!-- panel for projects and all needs & knows -->
-			<!-- delete a user -->
-				<button ng-click="users.$remove(user)">Delete User</button>
-			</div>
-		</div><!-- card -->
+<div class="row subHeader">
+	<div style="float:left;margin-left:63em">
+		<h3 style="margin-top:2px"></h3>
 	</div>
+	<div style="float:left; margin-top:8px; margin-left: 6px; color:white">
+		<small></small>
+	</div>	
+</div>
+<!-- <div class="row"> -->
+<div class="row" id="searchContainer">
+  <div class="col-lg-3">
+	<h1 style="color:#E6B800">Skillfuel</h1>
+	<h4 style="color:#001F3D">Find people with skills</h4>
+  </div>
+  <div class="col-lg-6" id="searchBar">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">I need</button>
+        <button class="btn btn-default" type="button">I know</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+<hr>
+
+<div class="outer-container col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText">
+	<div class="cardSearch">
+		<img class="col-md-6" src="img/user.png"/>
+		<!-- user data -->
+		<div class="userInfo">
+			<h4> {{user.name}}</h4>
+			<p><strong>Title:</strong> {{user.title}}</p>
+			<p><strong>Location:</strong> {{user.location}}</p>
+			<p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> {{need}}{{$last ? '' : ', '}} </span></p> <!-- Commas as separators -->
+			<p><strong>Knows:</strong> <span ng-repeat="know in user.skills.know"> {{know}}{{$last ? '' : ', '}} </span></p> 
+		</div>
+		<div>
+			<div class="col-md-6 user-details">
+				<a href="#/" class="btn btn-warning btn-skills" style="display:block"> Needs & knows</a>
+			</div>
+			<div class="col-md-6 user-details"><a href="#/" class="btn btn-default btn-projects" style="display:block">Projects</a>
+			</div><!-- panel for projects and all needs & knows -->
+		<!-- delete a user -->
+			<div>
+				<button class="btn-classic" ng-click="users.$remove(user)" style="margin: 10px 10px">Delete User</button>
+			</div>
+		</div>
+	</div><!-- card -->
+</div>
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search.

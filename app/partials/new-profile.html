@@ -1,6 +1,8 @@
+<ng-include src="'partials/top-banner.html'"></ng-include>
+<div class="row">	
 <div class="col-md-8 col-md-offset-2">
-	<h1>Create your profile</h1>
-	<h4>Basic information and skills</h4>
+	<h2>Create your profile</h2>
+	<h4>Your basic information and skills</h4>
 	<hr>
 	<form ng-submit="addUser()">
 		<div class="row card">
@@ -37,7 +39,7 @@
 		<div class="row card">
 			<!--  Needs Column -->
 			<div class="col-md-6">
-				<h2 class="new-user-h2">I need</h2>
+				<h3 class="new-user-h3">I need</h3>
 				<div class="input-group">
 			      <input type="text" class="form-control" placeholder="" id="needInput" ng-model="newUserNeed">
 			      <span class="input-group-btn">
@@ -53,7 +55,7 @@
 
 			<!--  Knows Column -->
 			<div class="col-md-6">
-				<h2 class="new-user-h2">I know</h2>
+				<h3 class="new-user-h3">I know</h3>
 				<div class="input-group">
 			      <input type="text" class="form-control" placeholder="" id="knowInput" ng-model="newUserKnow">
 			      <span class="input-group-btn">
@@ -79,3 +81,4 @@
 
 </div>
 
+</div>
