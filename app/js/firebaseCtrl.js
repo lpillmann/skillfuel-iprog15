@@ -1,13 +1,15 @@
-skillFuelApp.controller("FirebaseCtrl", ['$scope', '$firebaseObject', '$firebaseArray', 'SkillFuel', function( $scope, $firebaseObject, $firebaseArray, SkillFuel) {//, $firebaseAuth) {
+skillFuelApp.controller("FirebaseCtrl", ['$scope', 'SkillFuel', function( $scope, SkillFuel) {//, $firebaseAuth) {
   
-  var ref = new Firebase("https://sizzling-heat-4392.firebaseio.com/name");
-  var refUsers = new Firebase("https://sizzling-heat-4392.firebaseio.com/users");
+  // Used by Search view
+  $scope.getUsers = function () {
+    return SkillFuel.getUsers();
+  }
 
+  $scope.users = $scope.getUsers();
+
+  // Used by Profile creation view
   var newUserObj = {};
 
-  // create a synchronized array
-  $scope.users = $firebaseArray(refUsers);
-  
   // arrays that hold the skills being added in the profile creation
   $scope.needsArray = [];
   $scope.knowsArray = [];

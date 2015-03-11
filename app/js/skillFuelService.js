@@ -7,8 +7,6 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
   
    var refUsers = new Firebase("https://sizzling-heat-4392.firebaseio.com/users");
 
-   //Trying to bring what was in the Firebase controller (addUser first)
-
   // create a synchronized array
   var users = $firebaseArray(refUsers);
 
@@ -18,7 +16,6 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
 
   // function to add skill in input field to temporary arrays. These arrays will later be added to the user profile in $scope.addUser()
   this.addSkill = function (skillType, skill) {
-    console.log("called from service.");
     switch (skillType) { // depending on the skill type, it adds the value to the proper array
       case 'need':
         needsArray.push(skill);
@@ -50,6 +47,10 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
 
    this.addUser = function(newUserObj) {
     users.$add(newUserObj);
+  }
+
+  this.getUsers = function() {
+    return users;
   }
 
 
