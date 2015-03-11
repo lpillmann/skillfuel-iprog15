@@ -32,53 +32,5 @@ skillFuelApp.controller("FirebaseCtrl", function( $scope, $firebaseObject, $fire
       know:     $scope.newUserKnow
     });
   };
-	
-	
-	
-	// Trying to split up the users data into chunks for columns
-	// working, sort of, but fixed it with another solutiono in search.html
-	/*
-	function chunk(users, size) {
-			var chunks = [];
-			for (i=0; i<users.length; i+=size) {
-				chunks.push(users.slice(i,i+=size));
-			}
-			
-			return chunks;
-	};
-	
-	usersJsArray = [];
-	$scope.users.$loaded().then(function(users) {
-		console.log(users.length); // data is loaded here
-		
-		for (var i = 0; i < $scope.users.length; i++) {
-			usersJsArray[i] = {};
-			console.log($scope.users[i]);
-			
-			usersJsArray[i]['location']= $scope.users[i].location;
-			usersJsArray[i]['name']= $scope.users[i].name;
-			usersJsArray[i]['skills'] =  $scope.users[i].skills;
-			usersJsArray[i]['title'] =  $scope.users[i].title;
-			
-		}
-		console.log(usersJsArray);
-		
-		$scope.chunkedData = chunk(usersJsArray, 3);
-		
-		console.log($scope.chunkedData);
-	});
-	*/
-	
-	
-  /*// AUTHENTICATION (to be configured later if necessary)
-  // create an instance of the authentication service
-  var auth = $firebaseAuth(ref);
-  // login with Facebook
-  auth.$authWithOAuthPopup("facebook").then(function(authData) {
-    console.log("Logged in as:", authData.uid);
-  }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
-  */
 
 });

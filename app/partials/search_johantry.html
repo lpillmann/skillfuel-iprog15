@@ -4,28 +4,104 @@
  <div ng-controller="FirebaseCtrl" class="col-md-12">
 		<h2>Users database</h2>	
 		
-	  <div class="row" ng-repeat="chunks in chunkedData">
-			<div class="cardSearch col-md-4" ng-repeat="user in chunks">	
+	  <div ng-repeat="user in users">
+			<span ng-if="$index % 3 == 0" >
 				<div class="row">
-					<img class="col-md-6" src="img/user.png">
-					<!-- user data -->
-					<div class="col-md-6">
-					<h4> {{user.name}}</h4>
-					<p><strong>Title:</strong>{{user.title}}</p>
-					<p><strong>Location:</strong> {{user.location}}</p>
-					<p><strong>Need:</strong> {{user.need}}</p>
-					<p><strong>Know:</strong> {{user.know}}</p>
-				
-				 <!-- delete a user -->
-					<button ng-click="users.$remove(user)">Delete User</button>
-					</div>
+						<span ng-if="users[$index+0]" class="outer-container col-md-4">
+							<div class="cardSearch">
+								<div class="row">
+									<img class="col-md-6" src="img/user.png">
+									<!-- user data -->
+									<div class="col-md-6">
+										<h4> {{users[$index+0].name}}</h4>
+										<p><strong>Title:</strong>{{users[$index+0].title}}</p>
+										<p><strong>Location:</strong> {{users[$index+0].location}}</p>
+										<p><strong>Needs:</strong>
+												<p ng-repeat="need in users[$index+0].skills.need">
+													{{need}}
+												</p>
+										</p>
+										<p>
+											<strong>Knows:</strong>
+											<p ng-repeat="need in users[$index+0].skills.know">
+												{{know}}
+											</p>
+										</p>
+									 <!-- delete a user -->
+										<button ng-click="users.$remove(user)">Delete User</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6"><p>All needs and knows</div>
+									<div class="col-md-6"><p>Projects</div>
+								</div>
+							</div>
+						</span>
+						
+						<span ng-if="users[$index+1]" class="outer-container col-md-4">
+							<div class="cardSearch">
+								<div class="row">
+									<img class="col-md-6" src="img/user.png">
+									<!-- user data -->
+									<div class="col-md-6">
+										<h4> {{users[$index+1].name}}</h4>
+										<p><strong>Title:</strong>{{users[$index+1].title}}</p>
+										<p><strong>Location:</strong> {{users[$index+1].location}}</p>
+										<p><strong>Needs:</strong>
+												<p ng-repeat="need in users[$index+1].skills.need">
+													{{need}}
+												</p>
+										</p>
+										<p><strong>Knows:</strong>
+												<p ng-repeat="need in users[$index+1].skills.know">
+													{{know}}
+												</p>
+										</p>
+									
+									 <!-- delete a user -->
+										<button ng-click="users.$remove(user)">Delete User</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6"><p>All needs and knows</div>
+									<div class="col-md-6"><p>Projects</div>
+								</div>
+							</div>
+						</span>
+						
+						<span ng-if="users[$index+2]" class="outer-container col-md-4">
+							<div class="cardSearch">
+								<div class="row">
+									<img class="col-md-6" src="img/user.png">
+									<!-- user data -->
+									<div class="col-md-6">
+										<h4> {{users[$index+2].name}}</h4>
+										<p><strong>Title:</strong>{{users[$index+2].title}}</p>
+										<p><strong>Location:</strong> {{users[$index+2].location}}</p>
+										<p><strong>Needs:</strong>
+												<p ng-repeat="need in users[$index+2].skills.need">
+													{{need}}
+												</p>
+										</p>
+										<p><strong>Knows:</strong>
+												<p ng-repeat="need in users[$index+2].skills.know">
+													{{know}}
+												</p>
+										</p>
+									
+									 <!-- delete a user -->
+										<button ng-click="users.$remove(user)">Delete User</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6"><p>All needs and knows</div>
+									<div class="col-md-6"><p>Projects</div>
+								</div>
+							</div>
+						</span>
 				</div>
-				<div class="row">
-					<div class="col-md-6"><p>All needs and knows</div>
-					<div class="col-md-6"><p>Projects</div>
-				</div>				
-			</div>
-	  </div>	
+			</span>
+		</div>
 </div>
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search. -->

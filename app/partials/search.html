@@ -7,103 +7,43 @@
  <div ng-controller="FirebaseCtrl" class="col-md-12 col-md-offset-0">
 		
 		<h2>Users database</h2>	
-		<div ng-repeat="user in users">
-			<span ng-if="$index % 3 == 0" >
-				<div class="row">
-						<span ng-if="users[$index+0]" class="outer-container col-md-4">
-							<div class="cardSearch">
-								<div class="row">
-									<img class="col-md-6" src="img/user.png">
-									<!-- user data -->
-									<div class="col-md-6">
-										<h4> {{users[$index+0].name}}</h4>
-										<p><strong>Title:</strong>{{users[$index+0].title}}</p>
-										<p><strong>Location:</strong> {{users[$index+0].location}}</p>
-										<p><strong>Needs:</strong>
-												<p ng-repeat="need in users[$index+0].skills.need">
-													{{need}}
-												</p>
+		<div ng-repeat="(userIdx,project) in users" ng-if="userIdx % 3 == 0">
+				<div class="row" ng-if="userIdx !== 0">
+					<span ng-repeat="elIdx in [0,1,2]" ng-if="users[userIdx+elIdx]" class="outer-container col-md-4">
+						<div class="cardSearch">
+							<div class="row">
+								<img class="col-md-6" src="img/user.png">
+								<!-- user data -->
+								<div class="col-md-6">
+									<h4> {{users[userIdx+elIdx].name}}</h4>
+									<p><strong>Title:</strong>{{users[userIdx+elIdx].title}}</p>
+									<p><strong>Location:</strong> {{users[userIdx+elIdx].location}}</p>
+									<p><strong>Needs:</strong>
+											<p ng-repeat="need in users[userIdx+elIdx].skills.need">
+												{{need}}
+											</p>
+									</p>
+									<p>
+										<strong>Knows:</strong>
+										<p ng-repeat="need in users[userIdx+elIdx].skills.know">
+											{{know}}
 										</p>
-										<p><strong>Knows:</strong>
-												<p ng-repeat="need in users[$index+0].skills.know">
-													{{know}}
-												</p>
-										</p>
-									 <!-- delete a user -->
-										<button ng-click="users.$remove(user)">Delete User</button>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6"><p>All needs and knows</div>
-									<div class="col-md-6"><p>Projects</div>
+									</p>
+								 <!-- delete a user -->
+									<button ng-click="users.$remove(user)">Delete User</button>
 								</div>
 							</div>
-						</span>
-						
-						<span ng-if="users[$index+1]" class="outer-container col-md-4">
-							<div class="cardSearch">
-								<div class="row">
-									<img class="col-md-6" src="img/user.png">
-									<!-- user data -->
-									<div class="col-md-6">
-										<h4> {{users[$index+1].name}}</h4>
-										<p><strong>Title:</strong>{{users[$index+1].title}}</p>
-										<p><strong>Location:</strong> {{users[$index+1].location}}</p>
-										<p><strong>Needs:</strong>
-												<p ng-repeat="need in users[$index+1].skills.need">
-													{{need}}
-												</p>
-										</p>
-										<p><strong>Knows:</strong>
-												<p ng-repeat="need in users[$index+1].skills.know">
-													{{know}}
-												</p>
-										</p>
-									
-									 <!-- delete a user -->
-										<button ng-click="users.$remove(user)">Delete User</button>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6"><p>All needs and knows</div>
-									<div class="col-md-6"><p>Projects</div>
-								</div>
+							<div class="row">
+								<div class="col-md-6"><p>All needs and knows</div>
+								<div class="col-md-6"><p>Projects</div>
 							</div>
-						</span>
-						
-						<span ng-if="users[$index+2]" class="outer-container col-md-4">
-							<div class="cardSearch">
-								<div class="row">
-									<img class="col-md-6" src="img/user.png">
-									<!-- user data -->
-									<div class="col-md-6">
-										<h4> {{users[$index+2].name}}</h4>
-										<p><strong>Title:</strong>{{users[$index+2].title}}</p>
-										<p><strong>Location:</strong> {{users[$index+2].location}}</p>
-										<p><strong>Needs:</strong>
-												<p ng-repeat="need in users[$index+2].skills.need">
-													{{need}}
-												</p>
-										</p>
-										<p><strong>Knows:</strong>
-												<p ng-repeat="need in users[$index+2].skills.know">
-													{{know}}
-												</p>
-										</p>
-									
-									 <!-- delete a user -->
-										<button ng-click="users.$remove(user)">Delete User</button>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6"><p>All needs and knows</div>
-									<div class="col-md-6"><p>Projects</div>
-								</div>
-							</div>
-						</span>
+						</div>
+					</span>
 				</div>
-			</span>
 		</div>
+		
+		
+		
 		
 		
 </div>
