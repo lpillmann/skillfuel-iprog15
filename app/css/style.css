@@ -58,7 +58,7 @@ img {
 .outer-container{
 	padding: 5px;
 	width: 350px;
-	height: 250px;
+	height: 260px;
 	overflow: hidden;
 }
 
@@ -67,7 +67,7 @@ img {
 }
 
 .outer-container .userInfo {
-	height: 150px;
+	height: 180px;
 	overflow: hidden;
 	padding-left: 10px;
 }
