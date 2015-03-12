@@ -43,12 +43,12 @@
 				<div class="input-group">
 			      <input type="text" class="form-control" placeholder="" id="needInput" ng-model="newUserNeed">
 			      <span class="input-group-btn">
-			        <button class="btn btn-primary" type="button" id="needBtn" ng-click='addSkill("need", newUserNeed)'>+ Add skill</button>
+			        <button class="btn btn-primary" type="button" id="needBtn" ng-click='addSkill("need", newUserNeed)'><span class="glyphicon glyphicon-plus" aria-hidden="true"></button>
 			      </span>
 			    </div><!-- /input-group -->
 			    <ul> <!-- shows needed skills on the go -->
 				    <li ng-repeat="need in getSkillsArray('need')">
-					    {{need}}
+					    <h3><span class="label label-primary">{{need}} <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#99BAEB;cursor:pointer" ng-click="removeSkill('need', need)"></span></span></h3>
 				    </li>
 				</ul>
 			</div>
@@ -59,12 +59,12 @@
 				<div class="input-group">
 			      <input type="text" class="form-control" placeholder="" id="knowInput" ng-model="newUserKnow">
 			      <span class="input-group-btn">
-			        <button class="btn btn-success" type="button" id="knowBtn" ng-click='addSkill("know", newUserKnow)'>+ Add skill</button>
+			        <button class="btn btn-success" type="button" id="knowBtn" ng-click='addSkill("know", newUserKnow)'><span class="glyphicon glyphicon-plus" aria-hidden="true"></button>
 			      </span>
 			    </div><!-- /input-group -->
 			    <ul> <!-- shows known skills on the go -->
 				    <li ng-repeat="know in getSkillsArray('know')">
-					    {{know}}
+					    <h3><span class="label label-success">{{know}} <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#B8E6B8;cursor:pointer" ng-click="removeSkill('know', know)"></span></span></h3>
 				    </li>
 				</ul>
 			</div>

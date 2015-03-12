@@ -31,6 +31,21 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
     };
   };
 
+  this.removeSkill = function (skillType, skill) {
+    switch (skillType) { // depending on the skill type, it adds the value to the proper array
+      case 'need':
+        needsArray.remove(skill);
+        //newUserNeed = ""; // clears input field
+      break;
+      case 'know':
+        knowsArray.remove(skill);
+        //newUserKnow = ""; // clears input field
+      break;
+      default:
+        alert("error 008!"); 
+    }
+  }
+
   this.getSkillsArray = function (skillType) {
     if (skillType === "need")
       return needsArray;
@@ -53,6 +68,18 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
   this.getUsers = function() {
     return users;
   }
+
+  // function to remove element from array by value  (http://stackoverflow.com/questions/3954438/remove-item-from-array-by-value)
+  Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+  };
 
 
   // TODO in Lab 5: Add your model code from previous labs

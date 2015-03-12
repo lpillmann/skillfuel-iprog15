@@ -25,6 +25,10 @@ skillFuelApp.controller("FirebaseCtrl", ['$scope', 'SkillFuel', function( $scope
       $scope.newUserKnow = "";
   };
 
+  $scope.removeSkill = function (skillType, skill) {
+    SkillFuel.removeSkill(skillType, skill);
+  }
+
   $scope.getSkillsArray = function (skillType) {
     return SkillFuel.getSkillsArray(skillType);
   }
