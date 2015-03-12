@@ -29,14 +29,20 @@
 
 <div class="outer-container col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText">
 	<div class="cardSearch">
-		<img class="col-md-6" src="img/user.png"/>
+		<div class="imgContainer">
+			<img class="col-md-6" src="img/user.png"/>
+		</div>
 		<!-- user data -->
 		<div class="userInfo">
-			<h4> {{user.name}}</h4>
-			<p><strong>Title:</strong> {{user.title}}</p>
-			<p><strong>Location:</strong> {{user.location}}</p>
-			<p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> {{need}}{{$last ? '' : ', '}} </span></p> <!-- Commas as separators -->
-			<p><strong>Knows:</strong> <span ng-repeat="know in user.skills.know"> {{know}}{{$last ? '' : ', '}} </span></p> 
+			<div class="basicInfoDisplay">
+			  <h4> {{user.name}}</h4>
+			  <p><strong>Title:</strong> {{user.title}}</p>
+			  <p><strong>Location:</strong> {{user.location}}</p>
+			</div>
+			<div class="skillsDisplay">
+			  <p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
+			  <p><strong>Knows:</strong> <span ng-repeat="know in user.skills.know"> <span class="label label-success">{{know}}</span> </span></p> 
+			</div>
 		</div>
 		<div>
 			<div class="col-md-6 user-details">

@@ -25,13 +25,42 @@ ul {
     list-style-type: none;
 }
 
+.cardSearch {
+	background-color: #EEE;
+	box-shadow: 1px 1px 5px #888888;
+	margin: 0px;
+	padding: 0px;
+}
+
 .cardSearch img {
 	/*width: 30%;*/
 	/*height: 30%;*/
-	width: 30%;
-	height: 30%;
+	width: 100%;
+	height: auto;
 	display: block;
 	padding: 1px;
+}
+
+.cardSearch .imgContainer {
+	float: left;
+	width: 80px;
+}
+
+.cardSearch .userInfo {
+	height: 180px;
+	padding-top: 2px;
+	/*overflow: hidden;*/
+}
+
+.cardSearch .userInfo .basicInfoDisplay {
+	margin-bottom: 15px;
+	margin-left: 88px;
+
+}
+
+.cardSearch .userInfo .skillsDisplay {
+	margin-top: -5px;
+	padding-left: 5px;
 }
 
 .textSearch{
@@ -74,18 +103,6 @@ ul {
 .outer-container p {
 	margin: 0px;
 }
-
-.outer-container .userInfo {
-	height: 170px;
-	overflow: hidden;
-	padding-left: 10px;
-}
-
-.cardSearch {
-	background-color: #EEE;
-	box-shadow: 1px 1px 5px #888888;
-	margin: 0px;
-	padding: 0px;
 
 .new-user-input {
 	width: 100%;

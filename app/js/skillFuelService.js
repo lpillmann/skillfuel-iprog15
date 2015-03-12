@@ -34,6 +34,7 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
   this.removeSkill = function (skillType, skill) {
     switch (skillType) { // depending on the skill type, it adds the value to the proper array
       case 'need':
+      
         needsArray.remove(skill);
         //newUserNeed = ""; // clears input field
       break;
