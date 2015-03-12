@@ -4,12 +4,20 @@ skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', function ($scope,S
 
   // TODO in Lab 5: you will need to implement a method that searchers for dishes
   // including the case while the search is still running.
+  $scope.skillId = '';
+  $scope.skillType = '';
+  $scope.users = [];
 
   $scope.getUsers = function () {
     return SkillFuel.getUsers();
   }
 
-  $scope.users = $scope.getUsers();
+  // Experimenting with Tag-based database
+  $scope.getUsersBySkillId = function (skillType, skill) {
+  	$scope.users = SkillFuel.getUsersBySkillId(skillType, skill);
+  }
+
+  $scope.users = $scope.getUsersBySkillId($scope.skillType, $scope.skillId);
 
 
 

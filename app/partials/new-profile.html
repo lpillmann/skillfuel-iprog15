@@ -48,7 +48,7 @@
 			    </div><!-- /input-group -->
 			    <ul> <!-- shows needed skills on the go -->
 				    <li ng-repeat="need in getSkillsArray('need')">
-					    <h3><span class="label label-primary">{{need}} <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#99BAEB;cursor:pointer" ng-click="removeSkill('need', need)"></span></span></h3>
+					    <h4><span class="label label-primary">{{need}} <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#99BAEB;cursor:pointer" ng-click="removeSkill('need', need)"></span></span></h4>
 				    </li>
 				</ul>
 			</div>
@@ -64,7 +64,7 @@
 			    </div><!-- /input-group -->
 			    <ul> <!-- shows known skills on the go -->
 				    <li ng-repeat="know in getSkillsArray('know')">
-					    <h3><span class="label label-success">{{know}} <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#B8E6B8;cursor:pointer" ng-click="removeSkill('know', know)"></span></span></h3>
+					    <h4><span class="label label-success">{{know}} <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#B8E6B8;cursor:pointer" ng-click="removeSkill('know', know)"></span></span></h4>
 				    </li>
 				</ul>
 			</div>
@@ -85,6 +85,7 @@
 	<div class="row">
 		<div align="center">
 			<a href="#/search" class="btn btn-warning"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> See all users</a>
+			<a href="#/search-by-tags" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> See all users BY TAGS</a>
 		</div>
 	</div>
 	

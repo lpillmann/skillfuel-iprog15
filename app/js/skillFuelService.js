@@ -5,6 +5,9 @@
 // the next time.
 skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebaseArray) {
   
+   // tried to parametrise with this constant, but errors occurred
+   //var FIREBASE_URL = "https://sizzling-heat-4392.firebaseio.com";
+
    var refUsers = new Firebase("https://sizzling-heat-4392.firebaseio.com/users");
 
   // create a synchronized array
@@ -14,7 +17,8 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
   var needsArray = [];
   var knowsArray = [];
 
-  // function to add skill in input field to temporary arrays. These arrays will later be added to the user profile in $scope.addUser()
+  // function to add skill in input field to temporary arrays. 
+  //These arrays will later be added to the user profile in $scope.addUser()
   this.addSkill = function (skillType, skill) {
     console.log("called from service");
     switch (skillType) { // depending on the skill type, it adds the value to the proper array
@@ -70,7 +74,8 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
     return users;
   }
 
-  // function to remove element from array by value  (http://stackoverflow.com/questions/3954438/remove-item-from-array-by-value)
+  // function to remove element from array by value  
+  //(http://stackoverflow.com/questions/3954438/remove-item-from-array-by-value)
   Array.prototype.remove = function() {
     var what, a = arguments, L = a.length, ax;
     while (L && this.length) {
@@ -81,6 +86,50 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
     }
     return this;
   };
+
+  // Experimenting with Tag-based database
+
+  /*
+    Get users by skill ID and skill type (need or know)
+    - reads Firebase.tags object and returns Firebase.users with that particular skill and type
+    Returns: array of users with all properties that match the parameters
+  */
+  this.getUsersBySkillId = function (skillType, skill) {
+    if (!skillType || !skill) {
+      return ['please insert valid values in both fields'];
+    }
+
+    //array to accommodate results
+    var users = [];
+    // references to users and tags objects in Firebase
+    var usersRef =
+        new Firebase("https://sizzling-heat-4392.firebaseio.com/users");
+    var tagRef =
+        new Firebase("https://sizzling-heat-4392.firebaseio.com/tags");
+
+    // reference to all the users that are registered under a given tag (skill)
+    var tagUsersRef = tagRef.child(skill).child("users");
+
+    // finds users under a tag AND skill type (need or know)
+    // if the users under the tag have the desired skill type, it pushes to the array
+    tagUsersRef.on("child_added", function(snap) {
+      // 'snap' receives users in tags.users object
+      // users there have either 'need' or 'know' as values
+      usersRef.child(snap.key()).once("value", function(snapshot) {
+        // 'snapshot' receives users inside users object
+        // users inside users object are the actual objects (have name, title and location)
+        console.log("getUsersBySkillId called. >>" + snapshot.key() + " : " + snap.val());
+          // if the tags.users.userX has value as same as skillType (need/know)
+          if(snap.val() == skillType) {
+            users.push(snapshot.val());  // pushes users element to the array
+          }
+      });
+    });
+
+    return users;
+
+  }
+
 
 
   // TODO in Lab 5: Add your model code from previous labs
