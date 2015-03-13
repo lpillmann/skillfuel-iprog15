@@ -169,9 +169,8 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
         });
       });
       
-      
       if(usersByTag.length !==0) {
-        console.log("users changed: " + usersByTag.length);
+        usersByTag = usersByTag.filter(function(n){ return n != undefined }); // filter out null values
         return usersByTag;
       }
         
