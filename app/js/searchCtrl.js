@@ -7,17 +7,23 @@ skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', function ($scope,S
   $scope.skillId = '';
   $scope.skillType = '';
   $scope.users = [];
-
+    
   $scope.getUsers = function () {
     return SkillFuel.getUsers();
   }
 
-  // Experimenting with Tag-based database
+  $scope.usersByTag = []; 	// dummy temporary variable for users to be searched in the new way (with Tags)
+  							// QUESTION: Do we include the skills in Firabase.users.userX ? This would result in 
+  							// duplicated (denormalized) data, but that's fine
+
+  // Experimenting with Tag-based database: how to get all users with that have a tag Id as need or know
   $scope.getUsersBySkillId = function (skillType, skill) {
-  	$scope.users = SkillFuel.getUsersBySkillId(skillType, skill);
+  	$scope.usersByTag = SkillFuel.getUsersBySkillId(skillType, skill);
   }
 
-  $scope.users = $scope.getUsersBySkillId($scope.skillType, $scope.skillId);
+  $scope.users = $scope.getUsers();
+
+  //$scope.users = $scope.getUsersBySkillId($scope.skillType, $scope.skillId);
 
 
 
