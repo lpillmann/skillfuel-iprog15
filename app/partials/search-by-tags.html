@@ -28,15 +28,23 @@
 		<strong>Users fetched from query:</strong>
 	</div> 
 	<div>
-		Users:
-		<div ng-repeat="tag in userTags">
-			{{tag}}	
+		Test: {{tags.$id}}, {{tags.tag1}}, {{tags.tag2}}, {{tags.tag3}}
+		<br>
+		User: {{userId}}
+		<br>
+		Needs:
+		<div ng-repeat="need in needTags">
+			<strong>{{need}}</strong>
+		</div>
+		Knows:
+		<div ng-repeat="know in knowTags">
+			<strong>{{know}}</strong>
 		</div>
 		<hr>
-		Projects:
+		<!-- Projects:
 		
 		<div ng-repeat="tag in projectTagsArray">
 			{{tag}}	
-		</div>
+		</div> -->
 	</div>
 </div>
