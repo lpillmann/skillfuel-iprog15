@@ -17,18 +17,41 @@
 	{{userTagsContent.tag1.name}}
   </div>
   <div class="col-lg-6" id="searchBar">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I need</button>
-        <button class="btn btn-success" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I know</button>
-      </span>
-    </div><!-- /input-group -->
+	<div class="row">
+	  <div class="col-lg-6 col-lg-offset-4">
+	    <div class="input-group">
+	      <input type="text" class="form-control" placeholder="Filter users..." ng-model="search.info">
+	    </div><!-- /input-group -->
+	  </div>
+	</div>
+    <br>
+    <div class="row">
+	    <div class="col-lg-6">
+	      <div class="input-group">
+	  		<span class="input-group-btn">
+        		<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I need</button>
+     		 </span>
+	  		<input type="text" class="form-control" placeholder="Desired skill..." aria-describedby="basic-addon1" ng-model="search.need">
+	  	  </div>
+	    </div>
+	  	<div class="col-lg-6">
+		  <div class="input-group">
+		  	<span class="input-group-btn">
+	          <button class="btn btn-success" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I know</button>
+      		</span>
+		  	<input type="text" class="form-control" placeholder="I can offer..." aria-describedby="basic-addon2" ng-model="search.know">
+		  </div>
+	  	</div>
+	  	
+    </div>
+    
+      
+    
   </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
 <hr>
 
-<div class="outer-container col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText">
+<div class="outer-container col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:search">
 	<div class="cardSearch">
 		<div class="imgContainer">
 			<img class="col-md-6" src="img/user.png"/>
