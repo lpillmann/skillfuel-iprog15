@@ -14,6 +14,7 @@
   <div class="col-lg-3">
 	<h1 style="color:#E6B800">Skillfuel</h1>
 	<h4 style="color:#001F3D">Find people with skills</h4>
+	{{userTagsContent.tag1.name}}
   </div>
   <div class="col-lg-6" id="searchBar">
     <div class="input-group">
@@ -40,8 +41,8 @@
 			  <p><strong>Location:</strong> {{user.location}}</p>
 			</div>
 			<div class="skillsDisplay">
-			  <p><strong>Needs:</strong> <span ng-repeat="need in user.needs"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
-			  <p><strong>Knows:</strong> <span ng-repeat="know in user.knows"> <span class="label label-success">{{know}}</span> </span></p> 
+			  <p><strong>Needs:</strong> <span ng-repeat="(need, value) in usersNeedsKnows[user.$id].needs"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
+			  <p><strong>Knows:</strong> <span ng-repeat="(know, value) in usersNeedsKnows[user.$id].knows"> <span class="label label-success">{{know}}</span> </span></p> 
 			</div>
 		</div>
 		<div>

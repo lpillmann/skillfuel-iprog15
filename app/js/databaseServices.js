@@ -40,7 +40,7 @@ skillFuelApp
     return function(userId) {
 
     console.log("userId in service: " + userId);
-    var needsKnowsObj = {};  
+    var needsKnowsObj = {needs:{},knows:{}};  
 
     userTagsObj = UserTags(userId); //creates a UserTags Firebase Object that links to users.userId tags
 
@@ -78,7 +78,7 @@ skillFuelApp
       
       $rootScope.$broadcast('onNeedsKnowsObj'); // test to send an event to $rootScope
       
-      return needsKnowsObj;
+      needsKnowsObj;
     }
   }
 ])
@@ -89,6 +89,23 @@ skillFuelApp
     var ref = new Firebase("https://skillfuel.firebaseio.com/users");
 
     return $firebaseArray(ref);
+  }
+])
+// 'join' service to get tags content from a given user. Uses Firebase.util (throws many warnings because this library is quite old)
+.factory("UserTagsContent", ["$firebaseObject",
+  function($firebaseObject) {
+    return function(userId) {
+      console.log(">>>> userId in service util: " + userId);
+      var ref = Firebase.util.join(
+      {
+        ref: new Firebase("https://skillfuel.firebaseio.com/users/" + userId + "/tags/"),
+        intersects: true
+      },
+        new Firebase("https://skillfuel.firebaseio.com/tagIds/")
+      );
+
+      return $firebaseObject(ref);
+    }
   }
 ]);
 
