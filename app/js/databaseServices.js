@@ -1,7 +1,9 @@
 
 // a factory to create a re-usable Profile object
 // we pass in a username and get back their synchronized data as an object
-skillFuelApp.factory("UserTags", ["$firebaseObject",
+skillFuelApp
+
+.factory("UserTags", ["$firebaseObject",
   function($firebaseObject) {
     return function(userId) {
       // create a reference to the Firebase where we will store our data
@@ -9,16 +11,16 @@ skillFuelApp.factory("UserTags", ["$firebaseObject",
       var ref = new Firebase("https://skillfuel.firebaseio.com/users/" + userId);
       var tagsRef = ref.child('tags');
 
-      Obj = $firebaseObject(tagsRef);
+      obj = $firebaseObject(tagsRef);
 
       // return it as a synchronized object
-      return Obj;
+      return obj;
 
     }
   }
-]);
+])
 
-skillFuelApp.factory("TagContent", ["$firebaseObject",
+.factory("TagContent", ["$firebaseObject",
   function($firebaseObject) {
     return function(tagId) {
       // create a reference to the Firebase where we will store our data
@@ -31,24 +33,19 @@ skillFuelApp.factory("TagContent", ["$firebaseObject",
 
     }
   }
-]);
+])
 
-skillFuelApp.controller("SearchByTagsCtrl", ["$scope", "UserTags", "TagContent",
-  function($scope, UserTags, TagContent) {
-    // create a three-way binding to our Profile as $scope.profile
-    $scope.userId = 'user1';
+.factory("UserNeedsKnows", ["$firebaseObject","UserTags","TagContent","$rootScope",
+  function($firebaseObject, UserTags, TagContent, $rootScope) {
+    return function(userId) {
 
-    userTagsObj = UserTags($scope.userId); //creates a UserTags Firebase Object that links to users.userId tags
-    userTagsObj.$bindTo($scope, "tags");
+    console.log("userId in service: " + userId);
+    var needsKnowsObj = {};  
+
+    userTagsObj = UserTags(userId); //creates a UserTags Firebase Object that links to users.userId tags
 
     userTagsObj.$loaded() // executes the function after the object is properly loaded
         .then(function(data) {
-          $scope.needTags = []; // Arrays that will receive tag names got from query. Binded to scope, which means they can be called in the HTML
-          $scope.knowTags = []; // ng-repeat is used to iterate through them         
-          
-          var i = 0; // indexes to debug 
-          var j = 0;
-
           // Iterate through the  user tags object. For each tag, refers to its content in Firebase.tagsId, gets the tag name and puts it in 
           // the proper array (needTags or knowTags).
           angular.forEach(userTagsObj, function(value, key) { // 'key' gets tagId, 'value' gets true
@@ -61,14 +58,12 @@ skillFuelApp.controller("SearchByTagsCtrl", ["$scope", "UserTags", "TagContent",
                 console.log("tagObj LOADED for: " + data.$ref());
                 
                 if(data.isNeed === true) {
-                  $scope.needTags.push(data.name);
-                  console.log("needTags: " + $scope.needTags[i]);
-                  i++;
+                  needsKnowsObj.needs[data.name] = true;
+                  console.log("needObj: " + needsKnowsObj.needs[data.name]);
                 }
                 else if (data.isNeed === false) {
-                  $scope.knowTags.push(data.name);
-                  console.log("knowTags: " + $scope.knowTags[j]);
-                  j++;
+                  needsKnowsObj.knows[data.name] = true;
+                  console.log("knowObj: " + needsKnowsObj.knows[data.name]);
                 }
 
               })
@@ -80,5 +75,20 @@ skillFuelApp.controller("SearchByTagsCtrl", ["$scope", "UserTags", "TagContent",
         .catch(function(error) {
           console.error("Error:", error);
         });
+      
+      $rootScope.$broadcast('onNeedsKnowsObj'); // test to send an event to $rootScope
+      
+      return needsKnowsObj;
+    }
+  }
+])
+
+.factory("AllUsers", ["$firebaseArray",
+  function($firebaseArray) {
+    
+    var ref = new Firebase("https://skillfuel.firebaseio.com/users");
+
+    return $firebaseArray(ref);
   }
 ]);
+

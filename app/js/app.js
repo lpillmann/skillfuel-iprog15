@@ -46,9 +46,13 @@ skillFuelApp.config(['$routeProvider',
       }).
       when('/search-by-tags', {
         templateUrl: 'partials/search-by-tags.html',
-        controller: 'SearchByTagsCtrl'
+        controller: 'SearchCtrl'
       }).
       when('/profiles/:profileId', {
+        templateUrl: 'partials/profile.html',
+        controller: 'ProfileCtrl'
+      }).
+      when('/profile', {
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl'
       }).
