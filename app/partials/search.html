@@ -1,20 +1,10 @@
 <!-- We include the sidebar as it is shared across two screens.
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
 
-<div class="row subHeader">
-	<div style="float:left;margin-left:63em">
-		<h3 style="margin-top:2px"></h3>
-	</div>
-	<div style="float:left; margin-top:8px; margin-left: 6px; color:white">
-		<small></small>
-	</div>	
-</div>
+<ng-include src="'partials/banner.html'"></ng-include>
+
 <!-- <div class="row"> -->
 <div class="row" id="searchContainer">
-  <div class="col-lg-3">
-	<h1 style="color:#E6B800">Skillfuel</h1>
-	<h4 style="color:#001F3D">Find people with skills</h4>
-  </div>
   <div class="col-lg-6" id="searchBar">
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
@@ -46,7 +36,7 @@
 		</div>
 		<div>
 			<div class="col-md-6 user-details">
-				<a href="#/" class="btn btn-warning btn-skills" style="display:block;"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> Needs & knows</a>
+				<a ng-controller="DialogCtrl" href="" ng-click="open()" class="btn btn-warning btn-skills" style="display:block;"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> Needs & knows</a>
 			</div>
 			<div class="col-md-6 user-details">
 				<a href="#/" class="btn btn-default btn-projects" style="display:block"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> Projects</a>
@@ -57,6 +47,32 @@
 			</div>
 		</div>
 	</div><!-- card -->
+
+	<script type="text/ng-template" id="firstDialogId">
+		<div class="ngdialog-message">
+			<h3>Needs and knows</h3>
+
+			<p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> <span class="label label-primary">{{need}}{{test}}</span></span></p>
+
+			<p ng-show="theme">Test content for <code>{{theme}}</code></p>
+			<p ng-show="ngDialogData.foo">Data passed through: <code>{{ngDialogData.foo}}</code></p>
+			<p ng-show="dialogModel.message">Scope passed through: <code>{{dialogModel.message}}</code></p>
+		</div>
+
+		<div class="ngdialog-buttons">
+			<button type="button" class="ngdialog-button ngdialog-button-secondary"
+				ng-dialog="secondDialogId"
+				ng-dialog-class="ngdialog-theme-default"
+				ng-dialog-controller="SecondModalCtrl"
+				ng-dialog-close-previous>Close and open</button>
+			<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openSecond()">Open next</button>
+		</div>
+	</script>
+
 </div>
+
+<!-- ngDialog -->
+
+
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search.

@@ -1,6 +1,6 @@
 // Search controller that we use whenever we have a search inputs
 // and search results
-skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', function ($scope,SkillFuel) {
+skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', '$rootScope', function ($scope,SkillFuel,$rootScope) {
 
   // TODO in Lab 5: you will need to implement a method that searchers for dishes
   // including the case while the search is still running.
@@ -22,6 +22,7 @@ skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', function ($scope,S
   }
 
   $scope.users = $scope.getUsers();
+  $scope.test = 'hey there!';
 
   //$scope.users = $scope.getUsersBySkillId($scope.skillType, $scope.skillId);
 
