@@ -52,6 +52,10 @@ skillFuelApp.config(['$routeProvider',
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl'
       }).
+      when('/profile', {
+        templateUrl: 'partials/profile.html',
+        controller: 'ProfileCtrl'
+      }).
       when('/new-profile', {
         templateUrl: 'partials/new-profile.html',
         controller: 'FirebaseCtrl'

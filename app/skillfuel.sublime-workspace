@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"BAC",
+				"background-image"
+			],
+			[
+				"bac",
+				"background-image"
+			],
+			[
 				"new",
 				"newUser"
 			],
@@ -142,119 +162,11 @@
 			[
 				"border",
 				"border"
-			],
-			[
-				"bac",
-				"background-color"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "js/app.js",
-			"settings":
-			{
-				"buffer_size": 3418,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/skillFuelService.js",
-			"settings":
-			{
-				"buffer_size": 2286,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/firebaseCtrl.js",
-			"settings":
-			{
-				"buffer_size": 3987,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/newProfileCtrl.js",
-			"settings":
-			{
-				"buffer_size": 373,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/profileCtrl.js",
-			"settings":
-			{
-				"buffer_size": 370,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/searchCtrl.js",
-			"settings":
-			{
-				"buffer_size": 440,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/skillFuelCtrl.js",
-			"settings":
-			{
-				"buffer_size": 535,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/uploadFileControllers.js",
-			"settings":
-			{
-				"buffer_size": 2182,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 2399,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "partials/home.html",
-			"settings":
-			{
-				"buffer_size": 181,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "partials/new-profile.html",
-			"settings":
-			{
-				"buffer_size": 8414,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "partials/profile.html",
-			"settings":
-			{
-				"buffer_size": 161,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "partials/search.html",
-			"settings":
-			{
-				"buffer_size": 1457,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -284,8 +196,16 @@
 	},
 	"file_history":
 	[
-		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/partials/search.html",
 		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/partials/new-profile.html",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/index.html",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/css/style.css",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/partials/profile.html",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/partials/home.html",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/partials/search.html",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/partials/new-profile-projects.html",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/js/app.js",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/partials/top-banner.html",
+		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/js/uploadFileControllers.js",
 		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/js/firebaseCtrl.js",
 		"/Users/luipillmann/GitHub/skillfuel-iprog15/bower.json",
 		"/Users/luipillmann/GitHub/skillfuel-iprog15/app/js/searchCtrl.js",
@@ -364,6 +284,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tags",
+			">\n",
+			" {{",
+			"btn",
+			"skills",
+			"h2",
+			"\n#",
+			"<",
+			"warning",
+			"search-container",
+			"img",
+			"ctrl",
+			"controller",
+			"new",
+			"card",
 			"form>",
 			"form",
 			"firebase",
@@ -413,364 +348,8 @@
 	"groups":
 	[
 		{
-			"selected": 7,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/app.js",
-					"settings":
-					{
-						"buffer_size": 3418,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/skillFuelService.js",
-					"settings":
-					{
-						"buffer_size": 2286,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/firebaseCtrl.js",
-					"settings":
-					{
-						"buffer_size": 3987,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "js/newProfileCtrl.js",
-					"settings":
-					{
-						"buffer_size": 373,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "js/profileCtrl.js",
-					"settings":
-					{
-						"buffer_size": 370,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "js/searchCtrl.js",
-					"settings":
-					{
-						"buffer_size": 440,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "js/skillFuelCtrl.js",
-					"settings":
-					{
-						"buffer_size": 535,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "js/uploadFileControllers.js",
-					"settings":
-					{
-						"buffer_size": 2182,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 8,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 2399,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "partials/home.html",
-					"settings":
-					{
-						"buffer_size": 181,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "partials/new-profile.html",
-					"settings":
-					{
-						"buffer_size": 8414,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "partials/profile.html",
-					"settings":
-					{
-						"buffer_size": 161,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "partials/search.html",
-					"settings":
-					{
-						"buffer_size": 1457,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -791,12 +370,6 @@
 				0,
 				1,
 				1
-			],
-			[
-				0,
-				1,
-				1,
-				2
 			]
 		],
 		"cols":
@@ -807,7 +380,6 @@
 		"rows":
 		[
 			0.0,
-			0.5,
 			1.0
 		]
 	},

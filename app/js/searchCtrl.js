@@ -1,32 +1,54 @@
 // Search controller that we use whenever we have a search inputs
 // and search results
-skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', '$rootScope', function ($scope,SkillFuel,$rootScope) {
+skillFuelApp.controller('SearchCtrl', ['$scope', 'AllUsers', 'UserNeedsKnows', 'UserTagsContent', 
+  function ($scope,AllUsers,UserNeedsKnows, UserTagsContent) {
 
-  // TODO in Lab 5: you will need to implement a method that searchers for dishes
-  // including the case while the search is still running.
-  $scope.skillId = '';
-  $scope.skillType = '';
-  $rootScope.users = [];
-    
-  $scope.getUsers = function () {
-    return SkillFuel.getUsers();
-  }
+  $scope.users = AllUsers; // get 'users' Firebase array using service
 
-  $scope.usersByTag = []; 	// dummy temporary variable for users to be searched in the new way (with Tags)
-  							// QUESTION: Do we include the skills in Firabase.users.userX ? This would result in 
-  							// duplicated (denormalized) data, but that's fine
+  // TODO: integrate with search/filter mechanism! Now, the search only looks into $scope.users content
 
-  // Experimenting with Tag-based database: how to get all users with that have a tag Id as need or know
-  $scope.getUsersBySkillId = function (skillType, skill) {
-  	$scope.usersByTag = SkillFuel.getUsersBySkillId(skillType, skill);
-  }
+  // Provides data to populate 'Needs' and 'Knows' profiles. It is working, but it's not binded in real-time, though. Do we need it to be?
+  $scope.users.$loaded()
+      .then(function(usersData){  // once loaded, usersData will hold the object
+        console.log("$scope.users loaded.");
+        
+        // create auxiliary object to hold the needs and knows, once it's not possible/convenient to 
+        // edit $scope.users directly (it's a Firebase array)
+        $scope.usersNeedsKnows = {}; 
 
-  $scope.users = $scope.getUsers();
+        // iterate through the users. 'key' gets Firebase array indexes (0,1,2,...); 'value' gets users.userX objects 
+        angular.forEach(usersData, function(value, key) { 
+          userTagsContent = UserTagsContent(value.$id); // uses 'join' service to get tags (with content) from a user
+          
+          userTagsContent.$loaded()
+              .then(function(userTagsData){ 
+                console.log("$scope.userTagsContent loaded."); 
+                console.log(Object.keys(userTagsData));
 
-  //$scope.users = $scope.getUsersBySkillId($scope.skillType, $scope.skillId);
+                $scope.usersNeedsKnows[value.$id] = {needs: {},knows: {}}; // create user field in the auxiliary object with needs/knows keys
+                
+                // iterate through user tags content. '_key' receives tag ids (tag1, tag2, ...) ; '_value' receives each tag's content
+                angular.forEach(userTagsData, function(_value, _key) {
+                  console.log(Object.keys(_value));
+                      if(_value.isNeed === true) {
+                        // Inserts values to the aux. object. 'value.$id' has user ID, '_value.name' has tag name
+                        $scope.usersNeedsKnows[value.$id].needs[_value.name] = true; 
+                        console.log(Object.keys($scope.usersNeedsKnows[value.$id].needs));
+                      }
+                      else if (_value.isNeed === false) {
+                        $scope.usersNeedsKnows[value.$id].knows[_value.name] = true; 
+                        console.log(Object.keys($scope.usersNeedsKnows[value.$id].knows));
+                      }
+                      console.log(Object.keys($scope.usersNeedsKnows[value.$id]));
+                })
+              })
+              .catch(function(error){
+                console.error("Error:", error);
+              });
+        });
 
-
-
-
-
+      })
+      .catch(function(error){
+        console.error("Error:", error);
+      });
 }]);

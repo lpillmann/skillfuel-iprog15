@@ -1,2 +1,21 @@
 <!-- We include the sidebar as it is shared across two screens. -->
-<ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include>
+<ng-include src="'partials/top-banner.html'"></ng-include>
+<div>
+		User: {{userId}}
+		<br>
+		Needs:
+		<div ng-repeat="need in needTags">
+			<strong>{{need}}</strong>
+		</div>
+		Knows:
+		<div ng-repeat="know in knowTags">
+			<strong>{{know}}</strong>
+		</div>
+		<hr>
+		<!-- Projects:
+		
+		<div ng-repeat="tag in projectTagsArray">
+			{{tag}}	
+		</div> -->
+	</div>
+
