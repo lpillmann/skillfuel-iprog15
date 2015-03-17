@@ -91,6 +91,14 @@ skillFuelApp
     return $firebaseArray(ref);
   }
 ])
+.factory("AllTags", ["$firebaseArray",
+  function($firebaseArray) {
+    
+    var ref = new Firebase("https://skillfuel.firebaseio.com/tags");
+
+    return $firebaseArray(ref);
+  }
+])
 // 'join' service to get tags content from a given user. Uses Firebase.util (throws many warnings because this library is quite old)
 .factory("UserTagsContent", ["$firebaseObject",
   function($firebaseObject) {
@@ -107,5 +115,106 @@ skillFuelApp
       return $firebaseObject(ref);
     }
   }
-]);
+])
+/*.factory("addUser", ["$firebaseArray",
+  function($firebaseArray) {
+    return function (newUserObj) {
+      var ref = new Firebase("https://skillfuel.firebaseio.com/users");
+      var list = $firebaseArray(ref);
+
+      list.$add(newUserObj).then(function(ref) {
+        var id = ref.key();
+        console.log("added record with id " + id);
+        list.$indexFor(id); // returns location in the array
+      });
+    }
+  } 
+])*/
+.factory("WriteService", ["$firebase", "$firebaseArray", "$firebaseObject", "AllUsers",
+  function($firebase, $firebaseArray, $firebaseObject, AllUsers) {
+     
+    var factory = {};
+    var newUserId = null;
+    var newTagId = null;
+    newTagsObj = {}; 
+    
+    
+    // called 4th
+    var addUserToTag = function (tagId, userId) {
+      var ref = new Firebase("https://skillfuel.firebaseio.com/tags/" + tagId + "/user");
+      ref.set(userId);
+    }
+
+    // called 3rd
+    var addTagToUser = function(userId, tagId) {
+      var ref = new Firebase("https://skillfuel.firebaseio.com/users/" + userId + "/tags/" + tagId);
+      ref.set(true);
+      addUserToTag(tagId, userId);
+    }
+
+    //called 2nd
+    var createTags = function(newTagsObject) {
+      var ref = new Firebase("https://skillfuel.firebaseio.com/tags");
+      var list = $firebaseArray(ref);
+
+      angular.forEach(newTagsObject, function(value, key) {
+        list.$add(value).then(function(ref) {
+          var id = ref.key();
+          console.log("added tag with id " + id);
+          list.$indexFor(id); // returns location in the array
+          newTagId = id;
+          addTagToUser(newUserId, newTagId);
+        });
+        console.log(Object.keys(value));
+        console.log("key: " + key);
+      });
+    }
+   
+   // called 1st
+    var addUser = function(newUserObj) {
+      var ref = new Firebase("https://skillfuel.firebaseio.com/users");
+      var list = $firebaseArray(ref);
+
+      list.$add(newUserObj).then(function(ref) {
+        var id = ref.key();
+        console.log("added user with id " + id);
+        list.$indexFor(id); // returns location in the array
+        newUserId = id;
+        createTags(newTagsObj);
+        console.log(Object.keys(newTagsObj));
+
+      });
+    }
+ 
+    factory.newEntry = function (newEntryObj) {
+      
+      newTagsObj = {};  
+      
+      var i = 0;
+      // assembles tag object depending on needs and knows arrays. *** user and project to be added later
+      for (var j = 0; j < newEntryObj.needs.length; j++) {
+        newTagsObj[i] = {name:'',project:'',isNeed:'',user:''};
+        newTagsObj[i].name = newEntryObj.needs[j]; 
+        newTagsObj[i].isNeed = true;
+        i++;
+      };
+      for (var j = 0; j < newEntryObj.knows.length; j++) {
+        newTagsObj[i] = {name:'',project:'',isNeed:'',user:''};
+        newTagsObj[i].name = newEntryObj.needs[j]; 
+        newTagsObj[i].isNeed = false;
+        i++;
+      };
+
+      newUserObj = {
+        name : newEntryObj.name,
+        title : newEntryObj.title,
+        location  : newEntryObj.location
+      };
+
+      addUser(newUserObj);
+
+    }
+ 
+    return factory;
+}]);
 

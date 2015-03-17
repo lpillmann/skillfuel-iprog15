@@ -29,7 +29,7 @@ skillFuelApp.controller('SearchCtrl', ['$scope', 'AllUsers', 'UserNeedsKnows', '
                 
                 // iterate through user tags content. '_key' receives tag ids (tag1, tag2, ...) ; '_value' receives each tag's content
                 angular.forEach(userTagsData, function(_value, _key) {
-                  console.log(Object.keys(_value)); 
+                  console.log(Object.keys(_value));
                       if(_value.isNeed === true) {
                         // Inserts values to the aux. object. 'value.$id' has user ID, '_value.name' has tag name
                         $scope.usersNeedsKnows[value.$id].needs[_value.name] = true; 
