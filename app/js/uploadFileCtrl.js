@@ -1,5 +1,7 @@
 // IMPORTANT: Where does the FileUploader service come from? We don't have this in the code now. Please include necessary libraries. (Commented on March 11, Lui)
 
+//TODO: description and make it work
+
 skillFuelApp.controller('uploadFileCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
         var uploader = $scope.uploader = new FileUploader({
             url: 'upload.php'

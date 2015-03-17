@@ -1,4 +1,10 @@
+// TODO: description 
 
+/** 
+  * @desc ?
+  * @required ?
+  * @used_by ?
+*/ 
 
 		// Example of how to set default values for all dialogs
 		skillFuelApp.config(['ngDialogProvider', function (ngDialogProvider) {

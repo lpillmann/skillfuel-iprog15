@@ -38,11 +38,15 @@ skillFuelApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/home', {
-        templateUrl: 'partials/home_new.html',
+        templateUrl: 'partials/home.html',
       }).
-      when('/search', {
-        templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl'
+      when('/search-users', {
+        templateUrl: 'partials/search-users.html',
+        controller: 'SearchUsersCtrl'
+      }).
+      when('/search-projects', {
+        templateUrl: 'partials/search-projects.html',
+        controller: 'SearchProjectsCtrl'
       }).
       when('/profiles/:profileId', {
         templateUrl: 'partials/profile.html',
@@ -54,11 +58,11 @@ skillFuelApp.config(['$routeProvider',
       }).
       when('/new-profile', {
         templateUrl: 'partials/new-profile.html',
-        controller: 'FirebaseCtrl'
+        controller: 'NewEntryCtrl'
       }).
       when('/new-profile-projects', {
         templateUrl: 'partials/new-profile-projects.html',
-        controller: 'uploadFileCtrl'
+        controller: 'NewEntryCtrl'
       }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({

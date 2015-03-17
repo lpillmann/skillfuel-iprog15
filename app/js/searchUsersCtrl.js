@@ -1,13 +1,17 @@
-// Search controller that we use whenever we have a search inputs
-// and search results
-skillFuelApp.controller('SearchCtrl', ['$scope', 'AllUsers', 'UserNeedsKnows', 'UserTagsContent', 
-  function ($scope,AllUsers,UserNeedsKnows, UserTagsContent) {
+/** 
+  * @desc populates the view with users and their info from database (one of the conceptual system VIEWS --> populates page, among other controller-related functions)
+  * @required databaseServices.js 
+  * @used_by search-users.html
+*/ 
+skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService', 
+  function ($scope, ReadService) {
 
-  $scope.users = AllUsers; // get 'users' Firebase array using service
+  $scope.users = ReadService.AllUsers(); // get 'users' Firebase array using service
 
   // TODO: integrate with search/filter mechanism! Now, the search only looks into $scope.users content
 
-  // Provides data to populate 'Needs' and 'Knows' profiles. It is working, but it's not binded in real-time, though. Do we need it to be?
+  // Gets data to populate 'Needs' and 'Knows' profiles. It is working, but it's not binded in real-time, though. Do we need it to be?
+  // It has been implemented here due to complications with callbacks when calling from the model. Possibly change this in the future
   $scope.users.$loaded()
       .then(function(usersData){  // once loaded, usersData will hold the object
         console.log("$scope.users loaded.");
@@ -18,7 +22,7 @@ skillFuelApp.controller('SearchCtrl', ['$scope', 'AllUsers', 'UserNeedsKnows', '
 
         // iterate through the users. 'key' gets Firebase array indexes (0,1,2,...); 'value' gets users.userX objects 
         angular.forEach(usersData, function(value, key) { 
-          userTagsContent = UserTagsContent(value.$id); // uses 'join' service to get tags (with content) from a user
+          userTagsContent = ReadService.UserTagsContent(value.$id); // uses 'join' service to get tags (with content) from a user
           
           userTagsContent.$loaded()
               .then(function(userTagsData){ 
