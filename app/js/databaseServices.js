@@ -116,20 +116,19 @@ skillFuelApp
     }
   }
 ])
-/*.factory("addUser", ["$firebaseArray",
-  function($firebaseArray) {
-    return function (newUserObj) {
-      var ref = new Firebase("https://skillfuel.firebaseio.com/users");
-      var list = $firebaseArray(ref);
+/******************************************************************************************************************
+  
+  Service with methods to write in the database. 
+    Controller just need to call WriteService.newEntry and the rest will be done here
+      Now it is being called in firebaseCtrl.js, line 52. We need to organise the modules and names!
+    Note that functions are called inside each other. This was made to prevent problems with sync.
+      Comments above each one specify the order they are called. 'addUser' starts everything here inside this service
+  
+  OBS: Generated tags and users IDs are in the Firebase format (randomly with timestamp), which is more reliable
+       and easier to use
 
-      list.$add(newUserObj).then(function(ref) {
-        var id = ref.key();
-        console.log("added record with id " + id);
-        list.$indexFor(id); // returns location in the array
-      });
-    }
-  } 
-])*/
+******************************************************************************************************************/
+
 .factory("WriteService", ["$firebase", "$firebaseArray", "$firebaseObject", "AllUsers",
   function($firebase, $firebaseArray, $firebaseObject, AllUsers) {
      
@@ -137,17 +136,17 @@ skillFuelApp
     var newUserId = null;
     var newTagId = null;
     newTagsObj = {}; 
-    
-    // called 5th
-    var addTagToTagNames = function (tagName, tagId) {
-      var ref = new Firebase("https://skillfuel.firebaseio.com/tagNames/" + tagName);
-      ref.child(tagId).set(true);
-    }
 
     // called 4th
     var addUserToTag = function (tagId, userId) {
       var ref = new Firebase("https://skillfuel.firebaseio.com/tagIds/" + tagId);
       ref.child('user').set(userId);
+    }
+
+    // called 3rd (together with addTagToUser)
+    var addTagToTagNames = function (tagName, tagId) {
+      var ref = new Firebase("https://skillfuel.firebaseio.com/tagNames/" + tagName);
+      ref.child(tagId).set(true);
     }
 
     // called 3rd
