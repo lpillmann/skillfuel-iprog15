@@ -30,8 +30,8 @@
 			  <p><strong>Location:</strong> {{user.location}}</p>
 			</div>
 			<div class="skillsDisplay">
-			  <p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
-			  <p><strong>Knows:</strong> <span ng-repeat="know in user.skills.know"> <span class="label label-success">{{know}}</span> </span></p> 
+			  <p><strong>Needs:</strong> <span ng-repeat="(need, value) in usersNeedsKnows[user.$id].needs"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
+			  <p><strong>Knows:</strong> <span ng-repeat="(know, value) in usersNeedsKnows[user.$id].knows"> <span class="label label-success">{{know}}</span> </span></p> 
 			</div>
 		</div>
 		<div>
