@@ -1,5 +1,6 @@
-skillFuelApp.controller("FirebaseCtrl", ['$scope', 'SkillFuel', function( $scope, SkillFuel) {//, $firebaseAuth) {
-  
+skillFuelApp.controller("FirebaseCtrl", ['$scope', 'SkillFuel','WriteService', function($scope, SkillFuel,WriteService) {//, $firebaseAuth) {
+
+
   // Used by Search view
   $scope.getUsers = function () {
     return SkillFuel.getUsers();
@@ -37,20 +38,18 @@ skillFuelApp.controller("FirebaseCtrl", ['$scope', 'SkillFuel', function( $scope
     return SkillFuel.emptySkillsArray(skillType);
   }
 
-  $scope.addUser = function() {
+  $scope.newEntry = function() {
     // creates object with new info from form
     console.log("add user from scope");
-    newUserObj = {
+    newEntryObj = {
       'name':     $scope.newUserName,
       'title':    $scope.newUserTitle,
       'location': $scope.newUserLocation,
-      'skills': {
-        'need': $scope.getSkillsArray('need'),
-        'know': $scope.getSkillsArray('know')
-      }
+      'needs': $scope.getSkillsArray('need'),
+      'knows': $scope.getSkillsArray('know')
     }
     // requests user creation by the service
-    SkillFuel.addUser(newUserObj);
+    WriteService.newEntry(newEntryObj);
 
     // cleans variables to be used by the next profile creation (provides submition feedback also)
     // because it is a "view issue", we keep it here and not in the service

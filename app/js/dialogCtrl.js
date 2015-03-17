@@ -20,16 +20,18 @@
 			$rootScope.theme = 'hello!';
 
 
-			$scope.open = function () {
-				ngDialog.open({ template: 'firstDialogId', controller: 'InsideCtrl', data: {foo: 'some data'} });
+			$scope.openNeedsKnows = function () {
+				ngDialog.open({ 
+					template: 'needsKnowsDialog', 
+					controller: 'InsideCtrl', 
+					data: {foo: 'some data'} });
 			};
 
-			$scope.openDefault = function () {
-				ngDialog.open({
-					template: 'firstDialogId',
-					controller: 'InsideCtrl',
-					className: 'ngdialog-theme-default'
-				});
+			$scope.openProjects = function () {
+				ngDialog.open({ 
+					template: 'projectsDialog', 
+					controller: 'InsideCtrl', 
+					data: {foo: 'some data'} });
 			};
 
 			
