@@ -1,0 +1,132 @@
+{
+  "users": {
+    "user1": {
+      "name": "Anna",
+      "title": "Developer",
+      "location": "Bahamas",
+      "tags": {
+        "need": {
+          "tag1": true
+        },
+        "know": {
+          "tag2": true
+        }
+      }
+    },
+    "user2": {
+      "name": "John",
+      "title": "Designer",
+      "location": "Macau",
+      "tags": {
+        "need": {
+          "tag4": true
+        },
+        "know": {
+          "tag5": true
+        }
+      }
+    },
+    "user3": {
+      "name": "Joseph",
+      "title": "Android developer",
+      "location": "Rio",
+      "tags": {
+        "need": {
+          "tag3": true
+        },
+        "know": {
+          "tag6": true
+        }
+      }
+    }
+  },
+  "projects": {
+    "project1": {
+      "name": "Android app #1",
+      "description": "blablabla",
+      "members": {
+        "user1": "true"
+      },
+      "media": {},
+      "tags": {
+        "need": {
+          "tag4": true,
+          "tag5": true
+        },
+        "know": {
+          "tag2": true,
+          "tag1": true
+        }
+      }
+    },
+    "project2": {
+      "name": "Webpage design",
+      "description": "blablabla",
+      "members": {
+        "user2": "true",
+        "user3": "true"
+      },
+      "media": {},
+      "tags": {
+        "need": {
+          "tag1": true,
+          "tag2": true
+        },
+        "know": {
+          "tag3": true
+        }
+      }
+    },
+    "project3": {
+      "name": "Android app #1",
+      "description": "blablabla",
+      "members": {},
+      "media": {},
+      "tags": {
+        "need": {
+          "tag4": true,
+          "tag2": true
+        },
+        "know": {}
+      }
+    }
+  },
+  "tags": {
+    "tag1": {
+      "name": "Javascript",
+      "user": "user1",
+      "project": "project1",
+      "isNeed": true
+    },
+    "tag2": {
+      "name": "HTML",
+      "user": "user1",
+      "project": "project1",
+      "isNeed": false
+    },
+    "tag3": {
+      "name": "iOS",
+      "user": "user3",
+      "project": "project3",
+      "isNeed": true
+    },
+    "tag4": {
+      "name": "Android",
+      "user": "user2",
+      "project": "project2",
+      "isNeed": true
+    },
+    "tag5": {
+      "name": "Photoshop",
+      "user": "user2",
+      "project": "project2",
+      "isNeed": false
+    },
+    "tag6": {
+      "name": "Illustrator",
+      "user": "user3",
+      "project": "project2",
+      "isNeed": false
+    }
+  }
+}
