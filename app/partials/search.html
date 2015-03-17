@@ -36,40 +36,78 @@
 		</div>
 		<div>
 			<div class="col-md-6 user-details">
-				<a ng-controller="DialogCtrl" href="" ng-click="open()" class="btn btn-warning btn-skills" style="display:block;"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> Needs & knows</a>
+				<a ng-controller="DialogCtrl" href="" ng-click="openNeedsKnows()" class="btn btn-warning btn-skills" style="display:block;"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> Needs & knows</a>
 			</div>
 			<div class="col-md-6 user-details">
-				<a href="#/" class="btn btn-default btn-projects" style="display:block"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> Projects</a>
+				<a ng-controller="DialogCtrl" href="" ng-click="openProjects()" class="btn btn-default btn-projects" style="display:block"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> Projects</a>
 			</div><!-- panel for projects and all needs & knows -->
 		<!-- delete a user -->
 			<div>
 				<button class="btn-classic" ng-click="users.$remove(user)" style="margin: 10px 10px">Delete User</button>
 			</div>
 		</div>
+	
+
+		<script type="text/ng-template" id="needsKnowsDialog">
+
+			<div class="ngdialog-message">
+				<h3>Needs and knows</h3>
+				<p ng-show="theme">Test content for <code>{{theme}}</code></p>
+				<p ng-show="ngDialogData.foo">Data passed through: <code>{{ngDialogData.foo}}</code></p>
+				<p ng-show="need in user.skills.need">Scope passed through: <code>{{need}}</code></p>
+			</div>
+
+			<div class="ngdialog-buttons">
+				<button type="button" class="ngdialog-button ngdialog-button-secondary"
+					ng-dialog="secondDialogId"
+					ng-dialog-class="ngdialog-theme-default"
+					ng-dialog-controller="SecondModalCtrl"
+					ng-dialog-close-previous>Close and open</button>
+				<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openSecond()">Open next</button>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="projectsDialog" style="width: 820px;">
+			<div class="ngdialog-message">
+				<h3>Projects</h3>
+			</div>
+
+			<div ng-controller="ImageCtrl">
+
+			    <!-- slider container -->
+			    <div class="container slider">
+
+			        <!-- enumerate all photos -->
+			        <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+
+			        <!-- prev / next controls -->
+			        <a class="arrow prev" href="#" ng-click="showPrev()"></a>
+			        <a class="arrow next" href="#" ng-click="showNext()"></a>
+
+			        <!-- extra navigation controls -->
+			        <ul class="nav-image">
+			            <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+			                <img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+			            </li>
+			        </ul>
+
+			    </div>
+			</div>
+
+			<div class="ngdialog-buttons">
+				<button type="button" class="ngdialog-button ngdialog-button-secondary"
+					ng-dialog="secondDialogId"
+					ng-dialog-class="ngdialog-theme-default"
+					ng-dialog-controller="SecondModalCtrl"
+					ng-dialog-close-previous>Close and open</button>
+				<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openSecond()">Open next</button>
+			</div>
+		</script>
 	</div><!-- card -->
-
-	<script type="text/ng-template" id="firstDialogId">
-		<div class="ngdialog-message">
-			<h3>Needs and knows</h3>
-
-			<p><strong>Needs:</strong> <span ng-repeat="need in user.skills.need"> <span class="label label-primary">{{need}}{{test}}</span></span></p>
-
-			<p ng-show="theme">Test content for <code>{{theme}}</code></p>
-			<p ng-show="ngDialogData.foo">Data passed through: <code>{{ngDialogData.foo}}</code></p>
-			<p ng-show="dialogModel.message">Scope passed through: <code>{{dialogModel.message}}</code></p>
-		</div>
-
-		<div class="ngdialog-buttons">
-			<button type="button" class="ngdialog-button ngdialog-button-secondary"
-				ng-dialog="secondDialogId"
-				ng-dialog-class="ngdialog-theme-default"
-				ng-dialog-controller="SecondModalCtrl"
-				ng-dialog-close-previous>Close and open</button>
-			<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openSecond()">Open next</button>
-		</div>
-	</script>
-
 </div>
+
+
+
 
 <!-- ngDialog -->
 

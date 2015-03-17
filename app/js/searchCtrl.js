@@ -6,7 +6,7 @@ skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', '$rootScope', func
   // including the case while the search is still running.
   $scope.skillId = '';
   $scope.skillType = '';
-  $scope.users = [];
+  $rootScope.users = [];
     
   $scope.getUsers = function () {
     return SkillFuel.getUsers();
@@ -22,7 +22,6 @@ skillFuelApp.controller('SearchCtrl', ['$scope', 'SkillFuel', '$rootScope', func
   }
 
   $scope.users = $scope.getUsers();
-  $scope.test = 'hey there!';
 
   //$scope.users = $scope.getUsersBySkillId($scope.skillType, $scope.skillId);
 
