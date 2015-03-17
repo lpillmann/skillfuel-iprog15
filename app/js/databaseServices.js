@@ -94,7 +94,7 @@ skillFuelApp
 .factory("AllTags", ["$firebaseArray",
   function($firebaseArray) {
     
-    var ref = new Firebase("https://skillfuel.firebaseio.com/tags");
+    var ref = new Firebase("https://skillfuel.firebaseio.com/tagIds");
 
     return $firebaseArray(ref);
   }
@@ -138,11 +138,16 @@ skillFuelApp
     var newTagId = null;
     newTagsObj = {}; 
     
-    
+    // called 5th
+    var addTagToTagNames = function (tagName, tagId) {
+      var ref = new Firebase("https://skillfuel.firebaseio.com/tagNames/" + tagName);
+      ref.child(tagId).set(true);
+    }
+
     // called 4th
     var addUserToTag = function (tagId, userId) {
-      var ref = new Firebase("https://skillfuel.firebaseio.com/tags/" + tagId + "/user");
-      ref.set(userId);
+      var ref = new Firebase("https://skillfuel.firebaseio.com/tagIds/" + tagId);
+      ref.child('user').set(userId);
     }
 
     // called 3rd
@@ -154,7 +159,7 @@ skillFuelApp
 
     //called 2nd
     var createTags = function(newTagsObject) {
-      var ref = new Firebase("https://skillfuel.firebaseio.com/tags");
+      var ref = new Firebase("https://skillfuel.firebaseio.com/tagIds");
       var list = $firebaseArray(ref);
 
       angular.forEach(newTagsObject, function(value, key) {
@@ -164,6 +169,7 @@ skillFuelApp
           list.$indexFor(id); // returns location in the array
           newTagId = id;
           addTagToUser(newUserId, newTagId);
+          addTagToTagNames(value.name, newTagId);
         });
         console.log(Object.keys(value));
         console.log("key: " + key);
@@ -200,7 +206,7 @@ skillFuelApp
       };
       for (var j = 0; j < newEntryObj.knows.length; j++) {
         newTagsObj[i] = {name:'',project:'',isNeed:'',user:''};
-        newTagsObj[i].name = newEntryObj.needs[j]; 
+        newTagsObj[i].name = newEntryObj.knows[j]; 
         newTagsObj[i].isNeed = false;
         i++;
       };
