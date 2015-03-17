@@ -5,15 +5,13 @@
 // the next time.
 skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebaseArray) {
   
-  // tried to parametrise with this constant, but errors occurred
-  //var FIREBASE_URL = "https://sizzling-heat-4392.firebaseio.com";
-  var URL = "https://skillfuel.firebaseio.com/";
-  
-  var tagIdsRef   = new Firebase(URL + "/tagIds");
-  var tagNamesRef = new Firebase(URL + "/tagNames");
-  var usersRef    = new Firebase(URL + "/users");
-  var projectsRef = new Firebase(URL + "/projects");
-  
+   // tried to parametrise with this constant, but errors occurred
+   //var FIREBASE_URL = "https://sizzling-heat-4392.firebaseio.com";
+   var URL = "https://sizzling-heat-4392.firebaseio.com";
+
+   var usersRef = new Firebase(URL + "/users");
+   var tagsRef = new Firebase(URL + "/tags");
+
   // create a synchronized array
   var users = $firebaseArray(usersRef);
 
@@ -23,149 +21,6 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
 
   // manouver to handle outer variables and functions inside "this." functions
   that = this;
-
-  /*****************************************************************************************/
-  /*                              Tag-based database (new, March 13)                       */
-  /*****************************************************************************************/
-
-  // Scenario 0: Get user's or project's needs/knows (GENERIC FUNCTION)
-  
-  this.getTags = function (fromWhat, Id, skillType) {
-    console.log("getTags called (" + fromWhat + ", " + Id + ", " + skillType + ")");
-    
-    // according to parameter, changes the reference 'ref' (to not to write similar function twice)
-    if      (fromWhat === 'users')    {ref = usersRef}
-    else if (fromWhat === 'projects') {ref = projectsRef}
-    else {
-      console.log("fromWhat not recognised. Stopped method before expected.");
-      return;
-    }
-
-    if ((Id === null)) {
-      console.log("skillType not recognised. Stopped method before expected.");
-      return;
-    }
-
-    // transforms "friendly" variable skillType into the boolean used in the database
-    if      (skillType === 'need') {isNeed = true}
-    else if (skillType === 'know') {isNeed = false}
-    else {
-      console.log("isNeed not recognised. Stopped method before expected.");
-      return;
-    }
-
-    refTagsRef = ref.child(Id).child('tags'); // reference to users.userX.tags
-    
-    var tagsArray = [];
-    
-    /******************************************************************
-      FIREBASE QUERY
-      Finds tags under user, checks each one if it is the desired type.
-      If it is, pushes to array to be returned.
-    ******************************************************************/
-    refTagsRef.on("child_added", function(snap) { 
-      // 'snap' receives tags in ref.tags object
-      tagIdsRef.child(snap.key()).on("value", function(snapshot) {
-        // 'snapshot' receives tag information inside tagId.tag object
-        // tags inside tagIds object are the actual tags (have name, userId, projectId and isNeed)
-
-        // if the tagIds.tagX.isNeed has value as same as skillType (need/know)
-        if(snapshot.val().isNeed === isNeed) {
-          tagsArray.push(snapshot.val().name);  // pushes ref element to the array
-          console.log("Pushed element (" + fromWhat +"): " + snapshot.val().name);
-        }
-      });
-    });
-    /*****************************************************************/
-    console.log("return tagsArray. length:" + tagsArray.length);
-    
-    $.each(tagsArray, function(index, tag) {
-      console.log("reading array: " + tag);  
-    });
-
-    for (var i = 0; i < tagsArray.length; i++) {
-      console.log(">>> reading array: " + tagsArray[i]);  
-    };
-
-    obj = toObject(tagsArray);
-
-    console.log("type: " + typeof(obj));
-
-    return obj;
-  }
-
-  // // Scenario 1: Get user's needs/knows
-  // this.getUserTags = function (userId, skillType) {
-  //   var tagsArray = [];
-
-  //   // transforms "friendly" variable skillType into the boolean used in the database
-  //   if      (skillType === 'need') {isNeed = true}
-  //   else if (skillType === 'know') {isNeed = false} 
-
-  //   userTagsRef = usersRef.child(userId).child('tags'); // reference to users.userX.tags
-    
-  //   /******************************************************************
-  //     Finds tags under user, checks each one if it is the desired type.
-  //     If it is, pushes to array to be returned.
-  //   ******************************************************************/
-  //   userTagsRef.on("child_added", function(snap) {
-  //     // 'snap' receives tags in users.tags object
-  //     tagIdsRef.child(snap.key()).once("value", function(snapshot) {
-  //       // 'snapshot' receives tag information inside tagId.tag object
-  //       // tags inside tagIds object are the actual tags (have name, userId, projectId and isNeed)
-        
-  //       // if the tagIds.tagX.isNeed has value as same as skillType (need/know)
-  //       if(snapshot.val().isNeed === isNeed) {
-  //         tagsArray.push(snapshot.val().name);  // pushes users element to the array
-  //       }
-  //     });
-  //   });
-  //   /*****************************************************************/
-  //   return tagsArray;
-  // }
-
-  // // Scenario 2: Get project's needs/knows
-  // this.getProjectTags = function (projectId, skillType) {
-  //   var tagsArray = [];
-
-  //   // transforms "friendly" variable skillType into the boolean used in the database
-  //   if      (skillType === 'need') {isNeed = true}
-  //   else if (skillType === 'know') {isNeed = false} 
-
-  //   projectTagsRef = projectsRef.child(projectId).child('tags'); // reference to users.userX.tags
-    
-  //   /******************************************************************
-  //     Finds tags under project, checks each one if it is the desired type.
-  //     If it is, pushes to array to be returned.
-  //   ******************************************************************/
-  //   userTagsRef.on("child_added", function(snap) {
-  //     // 'snap' receives tags in project.tags object
-  //     tagIdsRef.child(snap.key()).once("value", function(snapshot) {
-  //       // 'snapshot' receives tag information inside tagId.tag object
-  //       // tags inside tagIds object are the actual tags (have name, userId, projectId and isNeed)
-        
-  //       // if the tagIds.tagX.isNeed has value as same as skillType (need/know)
-  //       if(snapshot.val().isNeed === isNeed) {
-  //         tagsArray.push(snapshot.val().name);  // pushes users element to the array
-  //       }
-  //     });
-  //   });
-  //   /*****************************************************************/
-  //   return tagsArray;
-    
-  // }
-
-  // Scenario 3: Get users by needs/knows
-  this.getUsersByTagName = function (tagName, skillType) {
-    
-  }
-  // Scenario 4: Get projects by needs/knows
-  this.getProjectsByTagName = function (tagName, skillType) {
-    
-  }
-  
-
-  /*****************************************************************************************/
 
   // function to add skill in input field to temporary arrays. 
   //These arrays will later be added to the user profile in $scope.addUser()
@@ -258,10 +113,6 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
     return users;
   }
 
-  /*****************************************************************************************/
-  /*                              Support functions                                        */
-  /*****************************************************************************************/
-
   // function to remove element from array by value  
   //(http://stackoverflow.com/questions/3954438/remove-item-from-array-by-value)
   Array.prototype.remove = function() {
@@ -274,17 +125,6 @@ skillFuelApp.factory('SkillFuel',function ($resource, $firebaseObject, $firebase
     }
     return this;
   };
-
-  // converts array into object
-  function toObject(arr) {
-  var rv = {};
-  for (var i = 0; i < arr.length; ++i)
-    rv[i] = arr[i];
-    console.log("new obj: " + arr[i]);
-  return rv;
-  }
-
-/*****************************************************************************************/
 
   // Experimenting with Tag-based database
 
