@@ -68,6 +68,10 @@ skillFuelApp.config(['$routeProvider',
         templateUrl: 'partials/fileupload-test.html',
         controller: 'FileUploadCtrl'
       }).
+      when('/test-custom-filter', {
+        templateUrl: 'partials/ftest-custom-filter.html',
+        controller: 'SearchUsersCtrl'
+      }).      
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/home'

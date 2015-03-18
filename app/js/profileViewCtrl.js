@@ -6,7 +6,7 @@
 skillFuelApp.controller("ProfileViewCtrl", ["$scope", "ReadService",
   function($scope, ReadService) {
 
-    $scope.userId = 'user1'; // TODO: make this parametrised according to navigation. Perhaps we should use $routeParams and app.js configurations
+    $scope.userId = '-JkcDqjrinZf04rhG374'; // TODO: make this parametrised according to navigation. Perhaps we should use $routeParams and app.js configurations
 
     userBasicInfoLocal = ReadService.getUserBasicInfo($scope.userId);
 
