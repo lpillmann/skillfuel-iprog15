@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var skillFuelApp = angular.module('skillFuel', ['ngRoute','ngResource','firebase','ngAnimate', 'ngDialog']);
+var skillFuelApp = angular.module('skillFuel', ['ngRoute','ngResource','firebase','ngAnimate', 'ngDialog', 'angularFileUpload']);
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
@@ -63,6 +63,10 @@ skillFuelApp.config(['$routeProvider',
       when('/new-profile-projects', {
         templateUrl: 'partials/new-profile-projects.html',
         controller: 'NewEntryCtrl'
+      }).
+			when('/fileupload-test', {
+        templateUrl: 'partials/fileupload-test.html',
+        controller: 'FileUploadCtrl'
       }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
