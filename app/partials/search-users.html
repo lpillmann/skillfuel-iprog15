@@ -10,8 +10,8 @@
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
 				<span class="input-group-btn">
-					<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I need</button>
-					<button class="btn btn-success" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I know</button>
+					<button class="btn btn-search" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I need</button>
+					<button class="btn btn-search"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I know</button>
 				</span>
 			</div><!-- /input-group -->
 		</div><!-- /.col-lg-6 -->
@@ -19,12 +19,12 @@
 	<hr>
 
 	<div class="col-md-12 searchContainer">
-		<div class="col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText">
-			<div class="well profile" style="padding-right:5px; padding-left:5px; float:left;">
+		<div class="col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText" style="float: left;" >
+			<div class="well profile" style="padding-right:5px; padding-left:5px; height:350px;">
 				<div class="col-sm-12">
 					<div class="col-xs-12 col-sm-6 text-center">
 						<figure>
-							<img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
+							<img src="img/users/square.png" alt="" class="img-circle img-responsive">
 						</figure>
 					</div>
 					<!-- user data -->
@@ -34,93 +34,30 @@
 						<p><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span>{{user.location}}</p>
 
 						<!-- ATTENTION: overflow hidden hides rest of the tags -->
-						<p style="height:25px; overflow:hidden;"><strong>Needs:</strong> <span ng-repeat="(need, value) in usersNeedsKnows[user.$id].needs"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
+						<p style="height:25px; overflow:hidden;"><strong>Needs:</strong> <span ng-repeat="(need, value) in usersNeedsKnows[user.$id].needs"> <span class="label label-primary">{{need}}</span></span></p> 
+						<!-- Commas as separators -->
 						<p style="height:25px; overflow:hidden;"> <strong>Knows:</strong> <span ng-repeat="(know, value) in usersNeedsKnows[user.$id].knows"> <span class="label label-success">{{know}}</span> </span></p> 
 
-						<p style="padding-top:10px;"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right:5px"></span><a> Send Message
+						<p style="padding-top:10px;"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right:5px"></span><a id="send-message"> Send Message
 						</a>
 					</div>  
 
 					<div class="col-xs-12 divider text-center">
 						<div class="col-xs-12 col-sm-6 emphasis">
-							<a ng-controller="DialogCtrl" href="" ng-click="openNeedsKnows($index, usersNeedsKnows[user.$id].needs, usersNeedsKnows[user.$id].knows)" class="btn btn-info btn-block" style="background-color:#2C3E50"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> All Needs & Knows</a>
+							<a ng-controller="DialogCtrl" href="" ng-click="openNeedsKnows($index, usersNeedsKnows[user.$id].needs, usersNeedsKnows[user.$id].knows)" class="btn btn-search btn-block"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> All Needs and Knows</a>
 						</div>
 						<div class="col-md-6 user-details">
-							<a ng-controller="DialogCtrl" href="" ng-click="openProjects()" class="btn btn-info btn-block" style="background-color:#2C3E50"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> See projects</a>
+							<a ng-controller="DialogCtrl" href="" ng-click="openProjects()" class="btn btn-search btn-block"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> See projects</a>
 						</div>
 
 					</div>
 
-					<script type="text/ng-template" id="needsKnowsDialog">
-
-					<div class="ngdialog-message">
-						<h3>Needs and knows</h3>
-						<p ng-show="ngDialogData.username"> Username: <code>{{ngDialogData.username}}</code></p>
-						<p ng-show="ngDialogData.title"> Title: <code>{{ngDialogData.title}}</code></p>
-						<div class="skillsDisplay">
-							<p><strong>Needs:</strong> <span ng-repeat="(need, value) in ngDialogData.needs"> <span class="label label-primary">{{need}}</span></span></p> 
-							<p><strong>Knows:</strong> <span ng-repeat="(know, value) in ngDialogData.knows"> <span class="label label-success">{{know}}</span></span></p> 
-						</div>
-					</div>
-
-					<div class="ngdialog-buttons">
-					<button type="button" class="ngdialog-button ngdialog-button-secondary"
-=======
-<ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
-
-<ng-include src="'partials/banner.html'"></ng-include>
-
-<!-- <div class="row"> -->
-<div class="row" id="searchContainer">
-  <div class="col-lg-6" id="searchBar">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I need</button>
-        <button class="btn btn-success" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I know</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
-<hr>
-
-<div class="outer-container col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText"> <!-- userNeedsKnowsFilter:usersNeedsK -->
-	<div class="cardSearch">
-		<div class="imgContainer">
-			<img class="col-md-6" src="img/user.png"/>
-		</div>
-		<!-- user data -->
-		<div class="userInfo">
-			<div class="basicInfoDisplay">
-			  <h4> {{user.name}}</h4>
-			  <p><strong>Title:</strong> {{user.title}}</p>
-			  <p><strong>Location:</strong> {{user.location}}</p>
-			</div>
-			<div class="skillsDisplay">
-			  <p><strong>Needs:</strong> <span ng-repeat="(need, value) in usersNeedsKnows[user.$id].needs"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
-			  <p><strong>Knows:</strong> <span ng-repeat="(know, value) in usersNeedsKnows[user.$id].knows"> <span class="label label-success">{{know}}</span> </span></p> 
-			</div>
-		</div>
-		<div>
-			<div class="col-md-6 user-details">
-				<a ng-controller="DialogCtrl" href="" ng-click="openNeedsKnows($index, usersNeedsKnows[user.$id].needs, usersNeedsKnows[user.$id].knows)" class="btn btn-warning btn-skills" style="display:block;"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> Needs & knows</a>
-			</div>
-			<div class="col-md-6 user-details">
-				<a ng-controller="DialogCtrl" href="" ng-click="openProjects()" class="btn btn-default btn-projects" style="display:block"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> Projects</a>
-			</div><!-- panel for projects and all needs & knows -->
-		<!-- delete a user -->
-			<div>
-				<button class="btn-classic" ng-click="users.$remove(user)" style="margin: 10px 10px">Delete User</button>
-			</div>
-		</div>
-	
 
 		<script type="text/ng-template" id="needsKnowsDialog">
 
 			<div class="ngdialog-message">
-				<h3>Needs and knows</h3>
-				<p ng-show="ngDialogData.username"> Username: <code>{{ngDialogData.username}}</code></p>
-				<p ng-show="ngDialogData.title"> Title: <code>{{ngDialogData.title}}</code></p>
+				<h3>All needs and knows</h3>
+				<h4 ng-show="ngDialogData.username" ng-show="ngDialogData.title">  of {{ngDialogData.username}}</code> the {{ngDialogData.title}}</h4>
 				<div class="skillsDisplay">
 					<p><strong>Needs:</strong> <span ng-repeat="(need, value) in ngDialogData.needs"> <span class="label label-primary">{{need}}</span></span></p> 
 					<p><strong>Knows:</strong> <span ng-repeat="(know, value) in ngDialogData.knows"> <span class="label label-success">{{know}}</span></span></p> 
@@ -130,59 +67,51 @@
 
 			<div class="ngdialog-buttons">
 				<button type="button" class="ngdialog-button ngdialog-button-secondary"
->>>>>>> Stashed changes
 					ng-dialog="secondDialogId"
 					ng-dialog-class="ngdialog-theme-default"
 					ng-dialog-controller="SecondModalCtrl"
-					ng-dialog-close-previous>Close and open</button>
-					<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openSecond()">Open next</button>
-					</div>
-					</script>
+					ng-dialog-close-previous>Close dialog</button>
+			</div>
+		</script>
 
 					<script type="text/ng-template" id="projectsDialog" style="width: 820px;">
-					<div class="ngdialog-message">
-					<h3>Projects</h3>
-					</div>
+						<div class="ngdialog-message">
+							<h3>Projects</h3>
+						</div>
+						<div ng-controller="ImageCtrl">
 
-					<div ng-controller="ImageCtrl">
+						<!-- slider container -->
+							<div class="container slider">
 
-					<!-- slider container -->
-					<div class="container slider">
+								<!-- enumerate all photos -->
+								<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
 
-					<!-- enumerate all photos -->
-					<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+								<!-- prev / next controls -->
+								<a class="arrow prev" href="#" ng-click="showPrev()"></a>
+								<a class="arrow next" href="#" ng-click="showNext()"></a>
 
-					<!-- prev / next controls -->
-					<a class="arrow prev" href="#" ng-click="showPrev()"></a>
-					<a class="arrow next" href="#" ng-click="showNext()"></a>
+								<!-- extra navigation controls -->
+								<ul class="nav-image">
+								<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+								<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+								</li>
+								</ul>
+							</div>
+						</div>
 
-					<!-- extra navigation controls -->
-					<ul class="nav-image">
-					<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
-					<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
-					</li>
-					</ul>
-
-					</div>
-					</div>
-
-					<div class="ngdialog-buttons">
-					<button type="button" class="ngdialog-button ngdialog-button-secondary"
-					ng-dialog="secondDialogId"
-					ng-dialog-class="ngdialog-theme-default"
-					ng-dialog-controller="SecondModalCtrl"
-					ng-dialog-close-previous>Close and open</button>
-					<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="openSecond()">Open next</button>
-					</div>
+						<div class="ngdialog-buttons">
+							<button type="button" class="ngdialog-button ngdialog-button-secondary"
+							ng-dialog="secondDialogId"
+							ng-dialog-class="ngdialog-theme-default"
+							ng-dialog-controller="SecondModalCtrl"
+							ng-dialog-close-previous>Close dialog</button>
+						</div>
 					</script>
 				</div>
 			</div><!-- well profile -->
 		</div><!--ng repeat 4 col  -->
 	</div><!--Search container  -->
 
-
-	<script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.0.2/bootstrap-hover-dropdown.min.js'></script>
 
 
 

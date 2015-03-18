@@ -8,12 +8,14 @@
 	<form ng-submit="newEntry()">
 		<div class="row card">
 			<div class="row">
-				<div class="col-xs-4">
+				<div class="col-xs-12 col-sm-6">
 					<div id="newImage">
-						<img ng-src="" style="display:block">
+						<figure>
+						<img class="img-circle img-responsive" ng-src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" style="height:250px; width:25b0px">
+						</figure>
 					</div>
 				</div>
-				<div class="col-xs-8 new-user-col">
+				<div class="col-xs-12 col-sm-6">
 	              <div class="form-group">
 	                <label for="name">Name</label>
 	                <input type="text" class="form-control" id="new-user-p" ng-model="newUserName" placeholder="Input Name">
