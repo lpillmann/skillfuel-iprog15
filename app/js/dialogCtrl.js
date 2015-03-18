@@ -24,13 +24,22 @@
 			skillFuelApp.controller('DialogCtrl', function ($scope, $rootScope, ngDialog) {
 			$rootScope.jsonData = '{"foo": "bar"}';
 			$rootScope.theme = 'hello!';
+			
+			// Added 03-18 because for some reason i can only access $scope.users once inside openNeedsKnows()
+			var localUsers = $scope.users;
 
-
-			$scope.openNeedsKnows = function () {
+			$scope.openNeedsKnows = function (index, needs, knows) {
+				console.log(needs);
 				ngDialog.open({ 
 					template: 'needsKnowsDialog', 
 					controller: 'InsideCtrl', 
-					data: {foo: 'some data'} });
+					data: {
+						title: localUsers[index].title,
+						username: localUsers[index].name,
+						needs: needs,
+						knows: knows
+						} 
+				});
 			};
 
 			$scope.openProjects = function () {
