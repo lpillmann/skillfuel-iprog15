@@ -57,14 +57,12 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', 'NewEntryViewHandler','WriteS
         
             'name': $scope.projectName,
             'url': $scope.projectUrl,
-            'description': $scope.projectDesrption,
-            'pics': $scope.projectPics,
+            'description': $scope.projectDescription,
+            'pics': '',//$scope.projectPics,
             'needs': $scope.projectNeeds,
             'knows': $scope.projectKnows 
         
-            }]
-        
-        
+            }]        
     };
     // requests user creation by the service
     WriteService.newEntry(newEntryObj);
