@@ -221,7 +221,7 @@ skillFuelApp
       * @return (nothing, call other functions inside that manipulate database)
     */  
     factory.newEntry = function (newEntryObj) {
-      console.log(Object.keys(newEntryObj.));
+      console.log(Object.keys(newEntryObj));
       newTagsObj = {};  
       
       var i = 0;
@@ -245,11 +245,7 @@ skillFuelApp
         location  : newEntryObj.location
       };
         
-        
-        
-        
-        
-        newProjectObj = {
+      newProjectObj = {
         name : newEntryObj.project.name,
         url : newEntryObj.project.url,
         location  : newEntryObj.project.desription
@@ -258,7 +254,7 @@ skillFuelApp
         
         var k = 0;
         
-         for (var j = 0; j < newEntryObj.needs.length; j++) {
+      for (var j = 0; j < newEntryObj.needs.length; j++) {
         newTagsObj[k] = {name:'',project:'',isNeed:'',user:''};
         newTagsObj[k].name = newEntryObj.needs[j]; 
         newTagsObj[k].isNeed = true;
@@ -272,13 +268,11 @@ skillFuelApp
       };
         
         
-
       addUser(newUserObj);
         
       addProject(newProjectObj);
-
-    }
  
     return factory;
+  }
 }]);
 
