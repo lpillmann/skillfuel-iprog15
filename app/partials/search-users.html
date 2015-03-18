@@ -42,7 +42,7 @@
 
 					<div class="col-xs-12 divider text-center">
 						<div class="col-xs-12 col-sm-6 emphasis">
-							<a ng-controller="DialogCtrl" href="" ng-click="openNeedsKnows()" class="btn btn-info btn-block" style="background-color:#2C3E50"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> All Needs & Knows</a>
+							<a ng-controller="DialogCtrl" href="" ng-click="openNeedsKnows($index, usersNeedsKnows[user.$id].needs, usersNeedsKnows[user.$id].knows)" class="btn btn-info btn-block" style="background-color:#2C3E50"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> All Needs & Knows</a>
 						</div>
 						<div class="col-md-6 user-details">
 							<a ng-controller="DialogCtrl" href="" ng-click="openProjects()" class="btn btn-info btn-block" style="background-color:#2C3E50"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> See projects</a>
@@ -53,10 +53,13 @@
 					<script type="text/ng-template" id="needsKnowsDialog">
 
 					<div class="ngdialog-message">
-					<h3>Needs and knows</h3>
-					<p ng-repeat="(need, value) in usersNeedsKnows[user.$id].needs"><span>{{need}}</span></p>
-					<p ng-show="ngDialogData.foo">Data passed through: <code>{{ngDialogData.foo}}</code></p>
-					<p ng-show="need in user.skills.need">Scope passed through: <code>{{need}}</code></p>
+						<h3>Needs and knows</h3>
+						<p ng-show="ngDialogData.username"> Username: <code>{{ngDialogData.username}}</code></p>
+						<p ng-show="ngDialogData.title"> Title: <code>{{ngDialogData.title}}</code></p>
+						<div class="skillsDisplay">
+							<p><strong>Needs:</strong> <span ng-repeat="(need, value) in ngDialogData.needs"> <span class="label label-primary">{{need}}</span></span></p> 
+							<p><strong>Knows:</strong> <span ng-repeat="(know, value) in ngDialogData.knows"> <span class="label label-success">{{know}}</span></span></p> 
+						</div>
 					</div>
 
 					<div class="ngdialog-buttons">

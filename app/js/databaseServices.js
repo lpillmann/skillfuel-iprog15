@@ -43,8 +43,9 @@ skillFuelApp
               .then(function(data){ 
                 angular.forEach(data, function(value, key) {
                   arr.push(value.$id);
-                  console.log("tag names as array, pushed: " + value.$id)
-                  console.log(Object.keys(data));
+                  //debug
+									//console.log("tag names as array, pushed: " + value.$id)
+                  //console.log(Object.keys(data));
                   //console.log("key: " + key);
                 });
                   
@@ -78,7 +79,8 @@ skillFuelApp
     // 'join' service to get tags content from a given user. Uses Firebase.util 
     // (throws many warnings because this library is quite old)
     factory.UserTagsContent = function (userId) {  
-      console.log(">>>> userId in service util: " + userId);
+      //debug
+			//console.log(">>>> userId in service util: " + userId);
       var ref = Firebase.util.join(
       {
         ref: new Firebase(FBURL + "/users/" + userId + "/tags/"),

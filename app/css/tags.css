@@ -1,3 +1,6 @@
+#searchInput {
+    margin-bottom: 10px;
+}
 .top-buffer{
     padding-top:20px;
 }
@@ -5,10 +8,12 @@
     position: relative;
 }
 .tags-cloud .tag {
-    float: left;
+    /*float: left;*/
+    text-align: center;
+    cursor: move;
     padding: 4px 6px;
     font-size: 1em;
-    margin-right: 5px;
+    margin-right: 0px;
     margin-bottom: 5px;
     background: #f2f2f2;
     font-weight: 600;
@@ -29,7 +34,7 @@
 .tags-cloud .tag .cross {
     margin-left: 5px;
     margin-right: 3px;
-    font-size: 1em;
+    font-size: 1.2em;
     color: #20a28e;
     opacity: .7;
     cursor: pointer;
@@ -67,4 +72,31 @@
 }
 .suggestions-list:focus{
     outline:none;
+}
+    
+.needs-column .tags-cloud .tag {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+.needs-column .tags-cloud .tag[href]:hover,
+.needs-column .tags-cloud .tag[href]:focus {
+  background-color: #286090;
+}
+.needs-column .tags-cloud .tag .cross {
+    color: #B5CEF1;
+}
+
+.knows-column .tags-cloud .tag {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.knows-column .tags-cloud .tag[href]:hover,
+.knows-column .tags-cloud .tag[href]:focus {
+  background-color: #449d44;
+}
+
+.knows-column .tags-cloud .tag .cross {
+    color: #CEEACE;
 }

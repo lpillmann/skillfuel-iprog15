@@ -50,16 +50,16 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', 'NewEntryViewHandler','WriteS
       'name':     $scope.newUserName,
       'title':    $scope.newUserTitle,
       'location': $scope.newUserLocation,
-      'needs': $scope.getSkillsArray('need'),
-      'knows': $scope.getSkillsArray('know')
+      'needs': $scope.skills.needs,
+      'knows': $scope.skills.knows
     }
     // requests user creation by the service
     WriteService.newEntry(newEntryObj);
 
     // cleans variables to be used by the next profile creation (provides submition feedback also)
     // because it is a "view issue", we keep it here and not in the service
-    $scope.emptySkillsArray('need');
-    $scope.emptySkillsArray('know');
+    $scope.skills.needs = [];
+    $scope.skills.knows = [];
     $scope.newUserName      = "";
     $scope.newUserTitle     = "";
     $scope.newUserLocation  = "";

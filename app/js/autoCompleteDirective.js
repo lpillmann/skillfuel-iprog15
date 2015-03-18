@@ -1,4 +1,4 @@
-skillFuelApp.directive('autoComplete',['ReadService',function(ReadService){
+skillFuelApp.directive('autoComplete',['NewEntryViewHandler',function(NewEntryViewHandler){
     return {
         restrict:'AE',
         scope:{
@@ -18,7 +18,7 @@ skillFuelApp.directive('autoComplete',['ReadService',function(ReadService){
             }
 
             scope.search=function(){
-              data = ReadService.AllTagNamesAsArray();
+              data = NewEntryViewHandler.filterTagNames(scope.searchText);
             		if(data.indexOf(scope.searchText)===-1){
                         data.unshift(scope.searchText);
                     }
