@@ -3,7 +3,7 @@
   * @required databaseServices.js 
   * @used_by profile.html
 */ 
-skillFuelApp.controller("ProfileCtrl", ["$scope", "ReadService",
+skillFuelApp.controller("ProfileViewCtrl", ["$scope", "ReadService",
   function($scope, ReadService) {
 
     $scope.userId = 'user1'; // TODO: make this parametrised according to navigation. Perhaps we should use $routeParams and app.js configurations
