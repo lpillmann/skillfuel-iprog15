@@ -2,8 +2,8 @@
     <div id="tagsList" class="tags-cloud">
         <input type="text" placeholder="Start typing" id="searchInput" ng-keydown="checkKeyDown($event)" class="form-control" ng-model="searchText" ng-change="search()"/>
             <ul id="suggestions" class="suggestions-list" style="z-index: 10">
-       <li ng-repeat="suggestion in suggestions" class="blockSpan" ng-click="addToSelectedTags($index)" ng-mouseover="$parent.selectedIndex=$index" ng-class="{active : selectedIndex===$index}">{{suggestion}}</li>
-    </ul>
+               <li ng-repeat="suggestion in suggestions | limitTo: 5" class="blockSpan" ng-click="addToSelectedTags($index)" ng-mouseover="$parent.selectedIndex=$index" ng-class="{active : selectedIndex===$index}">{{suggestion}}</li>
+            </ul>
         <div ng-repeat="selectedTag in selectedTags" class="tag">
             <span class="tagName">{{selectedTag}}</span>
             <span>&nbsp;<b ng-click="removeTag($index)" class="fa fa-times cross" style="float:right"></b></span>

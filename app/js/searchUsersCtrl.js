@@ -57,3 +57,18 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
         console.error("Error:", error);
       });
 }]);
+
+// skillFuelApp.filter('userNeedsKnowsFilter', function() {
+//   return function( items, filter, skills) {
+//     var filtered = [];
+//     var i = 0;
+//     angular.forEach(items, function(item) {
+//       if ((skills.needs[i].indexOf(filter) > -1) || (skills.needs[i].indexOf(filter) > -1)) { // filters (includes) if it's need or know
+//         filtered.push(item);
+//         console.log("users search pushed item: " + item);
+//       } 
+//       i++; 
+//     });
+//   }
+//   return filtered;
+// });

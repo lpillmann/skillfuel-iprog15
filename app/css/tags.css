@@ -40,6 +40,7 @@
     cursor: pointer;
 }
 .suggestions-list {
+    width: 100%;
     position: absolute;
     list-style-type: none;
     margin: 0;
@@ -67,7 +68,7 @@
 }
 .suggestions-list li:active,
 .suggestions-list li.active {
-    color: #20a28e;
+    color: #CCA300;
     background: #dddddd;
 }
 .suggestions-list:focus{

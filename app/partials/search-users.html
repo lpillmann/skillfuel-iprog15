@@ -1,4 +1,5 @@
 <!-- We include the sidebar as it is shared across two screens.
+<<<<<<< Updated upstream
 	<ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
 
 	<ng-include src="'partials/banner.html'"></ng-include>
@@ -64,6 +65,72 @@
 
 					<div class="ngdialog-buttons">
 					<button type="button" class="ngdialog-button ngdialog-button-secondary"
+=======
+<ng-include src="'partials/dinner-sidebar.html'" ng-controller="SkillFuelCtrl"></ng-include> -->
+
+<ng-include src="'partials/banner.html'"></ng-include>
+
+<!-- <div class="row"> -->
+<div class="row" id="searchContainer">
+  <div class="col-lg-6" id="searchBar">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I need</button>
+        <button class="btn btn-success" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I know</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+<hr>
+
+<div class="outer-container col-md-4" ng-animate="'animate'" ng-repeat="user in users | filter:searchText"> <!-- userNeedsKnowsFilter:usersNeedsK -->
+	<div class="cardSearch">
+		<div class="imgContainer">
+			<img class="col-md-6" src="img/user.png"/>
+		</div>
+		<!-- user data -->
+		<div class="userInfo">
+			<div class="basicInfoDisplay">
+			  <h4> {{user.name}}</h4>
+			  <p><strong>Title:</strong> {{user.title}}</p>
+			  <p><strong>Location:</strong> {{user.location}}</p>
+			</div>
+			<div class="skillsDisplay">
+			  <p><strong>Needs:</strong> <span ng-repeat="(need, value) in usersNeedsKnows[user.$id].needs"> <span class="label label-primary">{{need}}</span></span></p> <!-- Commas as separators -->
+			  <p><strong>Knows:</strong> <span ng-repeat="(know, value) in usersNeedsKnows[user.$id].knows"> <span class="label label-success">{{know}}</span> </span></p> 
+			</div>
+		</div>
+		<div>
+			<div class="col-md-6 user-details">
+				<a ng-controller="DialogCtrl" href="" ng-click="openNeedsKnows($index, usersNeedsKnows[user.$id].needs, usersNeedsKnows[user.$id].knows)" class="btn btn-warning btn-skills" style="display:block;"><span class="glyphicon glyphicon-flash" aria-hidden="true" style="margin-left:-7px"></span> Needs & knows</a>
+			</div>
+			<div class="col-md-6 user-details">
+				<a ng-controller="DialogCtrl" href="" ng-click="openProjects()" class="btn btn-default btn-projects" style="display:block"><span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="margin-right:5px"></span> Projects</a>
+			</div><!-- panel for projects and all needs & knows -->
+		<!-- delete a user -->
+			<div>
+				<button class="btn-classic" ng-click="users.$remove(user)" style="margin: 10px 10px">Delete User</button>
+			</div>
+		</div>
+	
+
+		<script type="text/ng-template" id="needsKnowsDialog">
+
+			<div class="ngdialog-message">
+				<h3>Needs and knows</h3>
+				<p ng-show="ngDialogData.username"> Username: <code>{{ngDialogData.username}}</code></p>
+				<p ng-show="ngDialogData.title"> Title: <code>{{ngDialogData.title}}</code></p>
+				<div class="skillsDisplay">
+					<p><strong>Needs:</strong> <span ng-repeat="(need, value) in ngDialogData.needs"> <span class="label label-primary">{{need}}</span></span></p> 
+					<p><strong>Knows:</strong> <span ng-repeat="(know, value) in ngDialogData.knows"> <span class="label label-success">{{know}}</span></span></p> 
+				</div>
+				
+			</div>
+
+			<div class="ngdialog-buttons">
+				<button type="button" class="ngdialog-button ngdialog-button-secondary"
+>>>>>>> Stashed changes
 					ng-dialog="secondDialogId"
 					ng-dialog-class="ngdialog-theme-default"
 					ng-dialog-controller="SecondModalCtrl"
