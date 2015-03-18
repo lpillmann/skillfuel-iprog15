@@ -63,7 +63,21 @@ skillFuelApp.factory('NewEntryViewHandler',function (ReadService) {
   }
 
   this.getUsers = function() {
-    return ReadService.AllUsers;;
+    return ReadService.AllUsers;
+  }
+
+  this.getTagNames = function() {
+    return ReadService.AllTagNamesAsArray();
+  }
+
+  var tagNames = this.getTagNames();
+  
+
+  this.filterTagNames = function (typedInput) {
+    return (tagNames.filter(function(value){
+          console.log("return search: " + value.indexOf(typedInput));
+            return value.indexOf(typedInput)!== -1;
+        }));
   }
 
   /*****************************************************************************************/
