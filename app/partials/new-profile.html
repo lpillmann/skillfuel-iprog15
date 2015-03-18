@@ -1,11 +1,12 @@
-<ng-include src="'partials/banner.html'"></ng-include>
+<!-- <ng-include src="'partials/top-banner.html'"></ng-include> -->
+
 
 <div class="row">	
 <div class="col-md-6 col-md-offset-3">
 	<h2>Create your profile</h2>
 	<h4>Your basic information and skills</h4>
 	<hr>
-	<form ng-submit="newEntry()">
+	<form ng-submit="addUser()">
 		<div class="row card">
 			<div class="row">
 				<div class="col-xs-4">
@@ -24,7 +25,7 @@
 	              </div>
 	              <div class="form-group">
 	                <label for="new-user-p">Location</label>
-	                <input type="location" class="form-control" id="new-user-p" ng-model="newUserLocation" placeholder="Location">
+	                <input type="location" class="form-control" id="new-user-p" ng-model="newUserLocation" placeholder="Country & City">
 	              </div>
 				</div>
 			</div>
@@ -33,7 +34,7 @@
 						<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="newImageBtn">+ Add picture</a>		
 				</div>
 				<div class="col-md-6">
-						<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="connectLinkedInBtn">Connect to LinkedIn</a>
+						<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="connectLinkedInBtn">Sync with LinkedIn</a>
 					</div>
 				</div>
 			</div>
@@ -71,23 +72,40 @@
 			</div>
 		</div>
 
+
+
+	
+
 		<!-- Project form was here -->
 	<div class="row">
 		<div style="float:left">
-			<a href="#/new-profile-projects" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add projects to your profile</a>
+			<!-- <a href="#/new-profile-projects" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add projects to your profile</a> -->
+			<button ng-hide="projectCtrl.isAddProject()" ng-click="projectCtrl.setAddProject(true)" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"> Add projects to your profile</span> </button>
 		</div>
+
+		<div ng-show="projectCtrl.addProject">
+
+			<create-user-project></create-user-project>	
+
+		</div>
+
 		<div style="float:right">
 			<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit profile</button>
-		</div>		
+		</div>	
+
 	</div>
 	
 	</form>
-	<hr>
+	
+	<!-- <hr>
 	<div class="row">
 		<div align="center">
-			<a href="#/search-users" class="btn btn-warning"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> See all users</a>
+			<a href="#/search" class="btn btn-warning"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> See all users</a>
+			<a href="#/search-by-tags" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> See all users BY TAGS</a>
 		</div>
-	</div>
+	</div> -->
+	
+
 
 </div>
 
