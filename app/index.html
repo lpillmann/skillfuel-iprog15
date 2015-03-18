@@ -12,16 +12,18 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tags.css">
     <!-- ng-Dialog CSS -->
     <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css">
     <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css">
     <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-plain.css">
     <!-- Nav bar and homepage style -->
     <link rel="stylesheet" href="css/agency.css">
-
-
+    <!-- Multiselect style -->
+    <link rel="stylesheet" href="bower_components/oi.multiselect/dist/multiselect.min.css">
 
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -36,11 +38,16 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
     <script src="https://cdn.firebase.com/libs/firebase-util/0.1.0/firebase-util.min.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
 
+    <!-- Multiselect JavaScript -->
+    <script src="bower_components/oi.multiselect/dist/multiselect.min.js"></script>
+
     <!-- ng-Dialog -->
     <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
 
     <!-- Nav bar JavaScript -->
     <script src="js/agency.js"></script>
+    
+    
     
     <!-- The application JavaScript code -->
     <script src="js/app.js"></script>
@@ -55,6 +62,9 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
     <script src="js/uploadFileCtrl.js"></script>
     <script src="js/dialogCtrl.js"></script>
     <script src="js/imageCtrl.js"></script>
+    <script src="js/tagCtrl.js"></script>
+    <!-- Directives -->
+    <script src="js/autoCompleteDirective.js"></script>
 
   </head>
   <body>

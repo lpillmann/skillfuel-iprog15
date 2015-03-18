@@ -16,9 +16,63 @@ skillFuelApp
       return $firebaseArray(ref);
     }
 
+    factory.getUserBasicInfo = function (userId) {  
+      var ref = new Firebase(FBURL + "/users/" + userId);
+      return $firebaseObject(ref);
+    }
+
     factory.AllTags = function () {  
       var ref = new Firebase(FBURL + "/tagIds");
       return $firebaseArray(ref);
+    }
+
+    factory.AllTagNames = function () {  
+      return AllTagNames;
+    }
+
+    var AllTagNames = function () {  
+      var ref = new Firebase(FBURL + "/tagNames");
+      return $firebaseArray(ref);
+    }
+
+    factory.AllTagNamesAsArray = function () {  
+      var arr = [];
+      obj = AllTagNames();
+
+      obj.$loaded()
+              .then(function(data){ 
+                angular.forEach(data, function(value, key) {
+                  arr.push(value.$id);
+                  console.log("tag names as array, pushed: " + value.$id)
+                  console.log(Object.keys(data));
+                  //console.log("key: " + key);
+                });
+                  
+              })
+              .catch(function(error){
+                console.error("Error:", error);
+              });
+      return arr;
+    }
+
+    factory.AllTagNamesAsString = function () {  
+      var str = '';
+      obj = AllTagNames();
+
+      obj.$loaded()
+              .then(function(data){ 
+                angular.forEach(data, function(value, key) {
+                  str += value.$id;
+                  console.log("tag names as string, concatenated: " + value.$id)
+                  console.log(Object.keys(data));
+                  //console.log("key: " + key);
+                });
+                  
+              })
+              .catch(function(error){
+                console.error("Error:", error);
+              });
+      return str;
     }
     
     // 'join' service to get tags content from a given user. Uses Firebase.util 

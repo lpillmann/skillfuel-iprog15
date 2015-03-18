@@ -1,12 +1,18 @@
 <!-- We include the sidebar as it is shared across two screens. -->
 <ng-include src="'partials/top-banner.html'"></ng-include>
 <div>
-		User: {{userId}}
+		User ID (hardcoded): {{userId}}
 		<br>
+		<strong>Basic info:</strong> <br>
+		{{userBasicInfo.name}} <br>
+		{{userBasicInfo.title}} <br>
+		{{userBasicInfo.location}} <br>
+		<hr>
 		Needs:
 		<div ng-repeat="need in needTags">
 			<strong>{{need}}</strong>
 		</div>
+		<br>
 		Knows:
 		<div ng-repeat="know in knowTags">
 			<strong>{{know}}</strong>

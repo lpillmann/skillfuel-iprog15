@@ -6,7 +6,19 @@
 skillFuelApp.controller("ProfileCtrl", ["$scope", "ReadService",
   function($scope, ReadService) {
 
-    $scope.userId = 'user1'; // TODO: make this parametrised according to navigation. See $routeParams and app.js configurations
+    $scope.userId = 'user1'; // TODO: make this parametrised according to navigation. Perhaps we should use $routeParams and app.js configurations
+
+    userBasicInfoLocal = ReadService.getUserBasicInfo($scope.userId);
+
+    // waits user basic info to load. When loaded, defines variable in $scope (visible to HTML)
+    userBasicInfoLocal.$loaded()
+      .then(function(data){ 
+        console.log("userBasicInfo LOADED for: " + data.$ref());
+        $scope.userBasicInfo = data;
+      })
+      .catch(function(error){
+      console.error("Error:", error);
+      });
 
     userTagsObj = ReadService.UserTags($scope.userId); //creates a UserTags Firebase Object that links to users.userId tags
     userTagsObj.$bindTo($scope, "tags");

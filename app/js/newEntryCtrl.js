@@ -5,7 +5,7 @@
 */ 
 skillFuelApp.controller("NewEntryCtrl", ['$scope', 'NewEntryViewHandler','WriteService', 
   function($scope, NewEntryViewHandler, WriteService) {
-
+  
   // Used by Search view
   $scope.getUsers = function () {
     return NewEntryViewHandler.getUsers();
