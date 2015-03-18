@@ -49,7 +49,7 @@ skillFuelApp.config(['$routeProvider',
         controller: 'SearchProjectsCtrl'
       }).
       when('/profiles/:profileId', {
-        templateUrl: 'partials/profile.html',
+        templateUrl: 'partials/profile-view.html',
         controller: 'ProfileCtrl'
       }).
       when('/profile', {
