@@ -26,24 +26,25 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
           
           userTagsContent.$loaded()
               .then(function(userTagsData){ 
-                console.log("$scope.userTagsContent loaded."); 
-                console.log(Object.keys(userTagsData));
+								//console.log("$scope.userTagsContent loaded."); 
+                //console.log(Object.keys(userTagsData));
 
                 $scope.usersNeedsKnows[value.$id] = {needs: {},knows: {}}; // create user field in the auxiliary object with needs/knows keys
                 
                 // iterate through user tags content. '_key' receives tag ids (tag1, tag2, ...) ; '_value' receives each tag's content
                 angular.forEach(userTagsData, function(_value, _key) {
-                  console.log(Object.keys(_value));
+                  //debug
+									//console.log(Object.keys(_value));
                       if(_value.isNeed === true) {
                         // Inserts values to the aux. object. 'value.$id' has user ID, '_value.name' has tag name
                         $scope.usersNeedsKnows[value.$id].needs[_value.name] = true; 
-                        console.log(Object.keys($scope.usersNeedsKnows[value.$id].needs));
+                        //console.log(Object.keys($scope.usersNeedsKnows[value.$id].needs));
                       }
                       else if (_value.isNeed === false) {
                         $scope.usersNeedsKnows[value.$id].knows[_value.name] = true; 
-                        console.log(Object.keys($scope.usersNeedsKnows[value.$id].knows));
+                        //console.log(Object.keys($scope.usersNeedsKnows[value.$id].knows));
                       }
-                      console.log(Object.keys($scope.usersNeedsKnows[value.$id]));
+                      //console.log(Object.keys($scope.usersNeedsKnows[value.$id]));
                 })
               })
               .catch(function(error){
