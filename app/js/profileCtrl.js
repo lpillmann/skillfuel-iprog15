@@ -8,10 +8,6 @@ skillFuelApp.controller('ProfileCtrl', function ($scope,$routeParams,SkillFuel) 
   
 });
 
-
-
-
-
 skillFuelApp.directive('createUserProject', function(){
 	
 	return{
