@@ -50,11 +50,11 @@ skillFuelApp.config(['$routeProvider',
       }).
       when('/profiles/:profileId', {
         templateUrl: 'partials/profile-view.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileViewCtrl'
       }).
       when('/profile', {
         templateUrl: 'partials/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileViewCtrl'
       }).
       when('/new-profile', {
         templateUrl: 'partials/new-profile.html',
