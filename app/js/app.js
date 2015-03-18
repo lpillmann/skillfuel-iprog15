@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var skillFuelApp = angular.module('skillFuel', ['ngRoute','ngResource','firebase','ngAnimate', 'ngDialog']);
+var skillFuelApp = angular.module('skillFuel', ['ngRoute','ngResource','firebase','ngAnimate']);
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
@@ -40,29 +40,25 @@ skillFuelApp.config(['$routeProvider',
       when('/home', {
         templateUrl: 'partials/home.html',
       }).
-      when('/search-users', {
-        templateUrl: 'partials/search-users.html',
-        controller: 'SearchUsersCtrl'
+      when('/search', {
+        templateUrl: 'partials/search.html',
+        controller: 'SearchCtrl'
       }).
-      when('/search-projects', {
-        templateUrl: 'partials/search-projects.html',
-        controller: 'SearchProjectsCtrl'
+      when('/search-by-tags', {
+        templateUrl: 'partials/search-by-tags.html',
+        controller: 'SearchCtrl'
       }).
-      when('/profiles/:profileId', {
-        templateUrl: 'partials/profile.html',
-        controller: 'ProfileCtrl'
-      }).
-      when('/profile', {
-        templateUrl: 'partials/profile.html',
+      when('/profiles/:profileId', { //profileId
+        templateUrl: 'partials/profile-view.html',
         controller: 'ProfileCtrl'
       }).
       when('/new-profile', {
         templateUrl: 'partials/new-profile.html',
-        controller: 'NewEntryCtrl'
+        controller: 'FirebaseCtrl'
       }).
       when('/new-profile-projects', {
         templateUrl: 'partials/new-profile-projects.html',
-        controller: 'NewEntryCtrl'
+        controller: 'uploadFileCtrl'
       }).
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
