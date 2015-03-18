@@ -199,20 +199,20 @@ skillFuelApp
     }
     
     // called 1st
-    var addProject = function(newUserObj) {
-      var ref = new Firebase(FBURL + "/projects");
-      var list = $firebaseArray(ref);
+    // var addProject = function(newUserObj) {
+    //   var ref = new Firebase(FBURL + "/projects");
+    //   var list = $firebaseArray(ref);
 
-      list.$add(newUserObj).then(function(ref) {
-        var id = ref.key();
-        console.log("added user with id " + id);
-        list.$indexFor(id); // returns location in the array
-        newUserId = id;
-        createTags(newTagsObj);
-        console.log(Object.keys(newTagsObj));
+    //   list.$add(newUserObj).then(function(ref) {
+    //     var id = ref.key();
+    //     console.log("added user with id " + id);
+    //     list.$indexFor(id); // returns location in the array
+    //     newUserId = id;
+    //     createTags(newTagsObj);
+    //     console.log(Object.keys(newTagsObj));
 
-      });
-    }
+    //   });
+    // }
     
  
     /** 
@@ -252,27 +252,24 @@ skillFuelApp
             
       };
         
-        var k = 0;
+      // var k = 0;
         
-      for (var j = 0; j < newEntryObj.needs.length; j++) {
-        newTagsObj[k] = {name:'',project:'',isNeed:'',user:''};
-        newTagsObj[k].name = newEntryObj.needs[j]; 
-        newTagsObj[k].isNeed = true;
-        i++;
-      };
-      for (var j = 0; j < newEntryObj.knows.length; j++) {
-        newTagsObj[k] = {name:'',project:'',isNeed:'',user:''};
-        newTagsObj[k].name = newEntryObj.knows[j]; 
-        newTagsObj[k].isNeed = false;
-        i++;
-      };
-        
+      // for (var j = 0; j < newEntryObj.needs.length; j++) {
+      //   newTagsObj[k] = {name:'',project:'',isNeed:'',user:''};
+      //   newTagsObj[k].name = newEntryObj.needs[j]; 
+      //   newTagsObj[k].isNeed = true;
+      //   i++;
+      // };
+      // for (var j = 0; j < newEntryObj.knows.length; j++) {
+      //   newTagsObj[k] = {name:'',project:'',isNeed:'',user:''};
+      //   newTagsObj[k].name = newEntryObj.knows[j]; 
+      //   newTagsObj[k].isNeed = false;
+      //   i++;
+      // };
         
       addUser(newUserObj);
-        
-      addProject(newProjectObj);
- 
-    return factory;
+      //addProject(newProjectObj);
   }
+    return factory;
 }]);
 

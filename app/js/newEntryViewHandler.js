@@ -74,7 +74,6 @@ skillFuelApp.factory('NewEntryViewHandler',function (ReadService) {
 
   this.filterTagNames = function (typedInput) {
     return (tagNames.filter(function(value){
-          console.log("return search: " + value.indexOf(typedInput));
             return value.indexOf(typedInput)!== -1;
         }));
   }
