@@ -197,6 +197,23 @@ skillFuelApp
 
       });
     }
+    
+    // called 1st
+    var addProject = function(newUserObj) {
+      var ref = new Firebase(FBURL + "/projects");
+      var list = $firebaseArray(ref);
+
+      list.$add(newUserObj).then(function(ref) {
+        var id = ref.key();
+        console.log("added user with id " + id);
+        list.$indexFor(id); // returns location in the array
+        newUserId = id;
+        createTags(newTagsObj);
+        console.log(Object.keys(newTagsObj));
+
+      });
+    }
+    
  
     /** 
       * @desc gets object with new data and adds to database 
@@ -204,7 +221,7 @@ skillFuelApp
       * @return (nothing, call other functions inside that manipulate database)
     */  
     factory.newEntry = function (newEntryObj) {
-      
+      console.log(Object.keys(newEntryObj));
       newTagsObj = {};  
       
       var i = 0;
@@ -227,11 +244,35 @@ skillFuelApp
         title : newEntryObj.title,
         location  : newEntryObj.location
       };
-
+        
+      newProjectObj = {
+        name : newEntryObj.project.name,
+        url : newEntryObj.project.url,
+        location  : newEntryObj.project.desription
+            
+      };
+        
+        var k = 0;
+        
+      for (var j = 0; j < newEntryObj.needs.length; j++) {
+        newTagsObj[k] = {name:'',project:'',isNeed:'',user:''};
+        newTagsObj[k].name = newEntryObj.needs[j]; 
+        newTagsObj[k].isNeed = true;
+        i++;
+      };
+      for (var j = 0; j < newEntryObj.knows.length; j++) {
+        newTagsObj[k] = {name:'',project:'',isNeed:'',user:''};
+        newTagsObj[k].name = newEntryObj.knows[j]; 
+        newTagsObj[k].isNeed = false;
+        i++;
+      };
+        
+        
       addUser(newUserObj);
-
-    }
+        
+      addProject(newProjectObj);
  
     return factory;
+  }
 }]);
 
