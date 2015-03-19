@@ -6,6 +6,10 @@
 skillFuelApp.controller("NewEntryCtrl", ['$scope', '$upload','WriteService', 
   function($scope, $upload, WriteService) {
 
+  $scope.newUserName      = "";
+  $scope.newUserTitle     = "";
+  $scope.newUserLocation  = "";
+
   // Used by Profile creation view
   var newUserObj = {};
 	
