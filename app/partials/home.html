@@ -286,6 +286,45 @@
         </div>
     </footer>
 
+
+<script>
+
+    $(document).ready(function(){
+        
+        $( ".navbar-nav > li" ).hover(
+  function() {
+    $( this ).addClass( "nav-item-selected" );
+  }, function() {
+    $( this ).removeClass( "nav-item-selected" );
+  }
+);
+        
+ 
+    });
+
+
+
+</script>
+
+
+<style>
+
+.nav-item-selected{
+    
+  display: block;
+  
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 10%;
+  cursor: pointer;
+  background: yellow;
+
+}
+
+
+
+</style>
+
     <!-- jQuery 
     <script src="js/jquery.js"></script>-->
 

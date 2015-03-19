@@ -1,22 +1,4 @@
-<!--<script>
-      $(document).ready(function() {
-         $('#sortable-1').sortable({
-            update: function(event, ui) {
-               var productOrder = $(this).sortable('toArray').toString();
-               $("#sortable-9").text (productOrder);
-            }
-         });
-          
-          
-          $('#sortable-2').sortable({
-            update: function(event, ui) {
-               var productOrder = $(this).sortable('toArray').toString();
-               $("#sortable-9").text (productOrder);
-            }
-         });
-          
-      });
-</script> -->
+
 
 <ng-include src="'partials/banner.html'"></ng-include>
 
@@ -77,6 +59,11 @@
 				</div> 
 			</div>  <!-- col-md-6 knows-column --> 
 		</div> <!-- rowcard -->
+        
+        
+
+        
+        
 
 	<div class="row">
     <h1 class="project-name" style="margin-bottom:30px;">Projects</h1>
@@ -98,7 +85,8 @@
 							<p><strong>Knows:</strong> <span ng-repeat="know in user.knows"> <span class="label label-success">{{know}}</span></span></p> 
 						</div>
 					</div>
-
+                    
+                            
 					<!-- PICTURES -->
 					<div ng-controller="ImageCtrl">
 
