@@ -3,15 +3,8 @@
   * @required databaseServices.js, newEntryViewHandler.js
   * @used_by new-profile.html
 */ 
-skillFuelApp.controller("NewEntryCtrl", ['$scope', 'NewEntryViewHandler','WriteService', 
-  function($scope, NewEntryViewHandler, WriteService) {
-  
-  // Used by Search view
-  $scope.getUsers = function () {
-    return NewEntryViewHandler.getUsers();
-  }
-
-  $scope.users = $scope.getUsers();
+skillFuelApp.controller("NewEntryCtrl", ['$scope','WriteService', 
+  function($scope, WriteService) {
 
   // Used by Profile creation view
   var newUserObj = {};

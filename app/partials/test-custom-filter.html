@@ -2,7 +2,7 @@
 <input type="text" class="form-control" placeholder="Filter tags..." ng-model="searchTextTag">
 <div ng-repeat="user in users | filter:searchText">
 	
-	{{user}}
+	{{user.$id}}
 	
 </div>
 <div ng-repeat="(need, value) in usersNeedsKnows['-JkcDqjrinZf04rhG374'].needs">
