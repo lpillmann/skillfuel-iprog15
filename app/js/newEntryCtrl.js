@@ -48,17 +48,10 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', 'WriteService',
       'location': $scope.newUserLocation,
       'needs': $scope.skills.needs,
       'knows': $scope.skills.knows,
-<<<<<<< HEAD
       'needsAllNames': userNeeds,
       'knowsAllNames': userKnows,
 			'imgURL': $scope.imgURL ,
       'project':{  
-=======
-			'imgURL': $scope.imgURL,
-        
-        'project':[{
-        
->>>>>>> origin/master
             'name': $scope.projectName,
             'url': $scope.projectUrl,
             'description': $scope.projectDescription,
