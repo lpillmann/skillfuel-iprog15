@@ -10,6 +10,10 @@ img {
     height: inherit;
 }
 
+.background{
+  background-image: url(../img/header.png);
+}
+
 
 .searchContainer{
   padding-right: 15px;
@@ -65,7 +69,7 @@ ul {
 
 .btn-profile {
 	width: 60%;
-	margin: 20px auto;
+	margin: 0px auto;
 }
 
 .btn-search {

@@ -11,11 +11,14 @@ function stopRKey(evt) {
 document.onkeypress = stopRKey; 
 
 </script>
+<div class="background">
 
+<ng-include src="'partials/banner.html'"></ng-include>
+</div>
 <div class="row">	
 <div class="col-md-6 col-md-offset-3">
 	<h2>Create your profile</h2>
-	<h4>Your basic information and skills</h4>
+	<h4>Inser your basic information, skills and projects</h4>
 	<hr>
 	<form ng-submit="newEntry()">
 		<div class="row card">
@@ -23,7 +26,7 @@ document.onkeypress = stopRKey;
 				<div class="col-xs-12 col-sm-6">
 					<div id="newImage">
 						<figure>
-						<img class="img-circle img-responsive" ng-src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" style="height:250px; width:25b0px">
+						<img class="img-circle img-responsive" ng-src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" style="height:200px; width:200px">
 						</figure>
 					</div>
 				</div>
@@ -44,14 +47,10 @@ document.onkeypress = stopRKey;
 			</div>
 			<div class="row"> <!-- Row with buttons -->
 				<div class="col-md-6">
-						<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="newImageBtn">+ Add picture</a>		
+						<a href="#/" class="btn btn-search btn-profile" style="display:block" id="newImageBtn"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right:5px;"></span> Add picture</a>		
 				</div>
-				<div class="col-md-6">
-						<a href="#/" class="btn btn-primary btn-profile" style="display:block" id="connectLinkedInBtn">Sync with LinkedIn</a>
-					</div>
 				</div>
 			</div>
-        
         
 		<div class="row card">
 			<!--  Needs Column -->
