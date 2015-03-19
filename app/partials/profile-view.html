@@ -1,4 +1,3 @@
-<link href='../css/user_profile.css' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../css/style_timeline.css">
 
 
@@ -35,6 +34,8 @@
        
 				
 			</div>
+	</div><!-- row -->
+
         
         
 
@@ -55,15 +56,15 @@
 				
 			</div>
 
-		<div class="row need_know">
+		<div class="row card">
 
-		<div class="col-xs-6 knows text-center">
+		<div class="col-xs-6 knows-column">
                <ul id="sortable-8" >
                    <div ng-repeat="need in needTags">
                     <li id="1" class="default">
                         
                         
-                        <h4><span class="label label-primary">{{need}} </span>
+                        <p style="height:25px; overflow:hidden;"> <strong>Knows:</strong> <span ng-repeat="know in userBasicInfo.knows"> >{{know}}</span> </span></p> 
                        
                     <li>
                    </div>
@@ -86,6 +87,29 @@
 			</div>
 
 		</div>
+
+		<div class="row card">
+			<div class="col-md-6 needs-column">
+				<h3 class="new-user-h3">{{userBasicInfo.name}} needs</h3>
+				<div class="tags-wrapper">
+				    <div id="tagsList" class="tags-cloud">
+				        <div ng-repeat="need in userBasicInfo.needs" class="tag">
+				         	<span class="tagName">{{need}}</span>
+			        	</div>
+			    	</div>
+				</div> 
+			</div> 
+			<div class="col-md-6 knows-column">
+				<h3 class="new-user-h3">{{userBasicInfo.name}} knows</h3>
+				<div class="tags-wrapper">
+				    <div id="tagsList" class="tags-cloud">
+				        <div ng-repeat="know in userBasicInfo.knows" class="tag">
+				         	<span class="tagName">{{know}}</span>
+			        	</div>
+			    	</div>
+				</div> 
+			</div>  <!-- col-md-6 knows-column --> 
+		</div> <!-- rowcard -->
 
 
 
@@ -115,7 +139,7 @@
 
 				</div>
                 
-				<div class="timeline-content right">
+				<div class="timeline-content">
 					<h2>LOREM IPSUM DOLOR</h2>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, facilis quo. Maiores magnam modi ab libero praesentium blanditiis consequatur aspernatur accusantium maxime molestiae sunt ipsa.
@@ -143,7 +167,7 @@
 
 				</div>
                 
-				<div class="timeline-content right">
+				<div class="timeline-content">
 					<h2>LOREM IPSUM DOLOR</h2>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, facilis quo. Maiores magnam modi ab libero praesentium blanditiis consequatur aspernatur accusantium maxime molestiae sunt ipsa.

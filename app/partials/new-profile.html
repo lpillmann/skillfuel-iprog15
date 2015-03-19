@@ -1,20 +1,18 @@
 <!-- <ng-include src="'partials/top-banner.html'"></ng-include> -->
 <!-- Disables Enter to submit form -->
 <script type="text/javascript"> 
-
 function stopRKey(evt) { 
   var evt = (evt) ? evt : ((event) ? event : null); 
   var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
   if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
 } 
-
 document.onkeypress = stopRKey; 
-
 </script>
-<div class="background">
 
-<ng-include src="'partials/banner.html'"></ng-include>
+<div class="background">
+	<ng-include src="'partials/banner.html'"></ng-include>
 </div>
+
 <div class="row">	
 <div class="col-md-6 col-md-offset-3">
 	<h2>Create your profile</h2>

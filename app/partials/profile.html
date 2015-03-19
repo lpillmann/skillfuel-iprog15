@@ -1,27 +1,165 @@
 <!-- We include the sidebar as it is shared across two screens. -->
-<ng-include src="'partials/top-banner.html'"></ng-include>
-<div>
-		User ID (hardcoded): {{userId}}
-		<br>
-		<strong>Basic info:</strong> <br>
-		{{userBasicInfo.name}} <br>
-		{{userBasicInfo.title}} <br>
-		{{userBasicInfo.location}} <br>
-		<hr>
-		Needs:
-		<div ng-repeat="need in needTags">
-			<strong>{{need}}</strong>
+
+
+<ng-include src="'partials/banner.html'"></ng-include>
+
+	<div class="col-md-6 col-md-offset-3">
+
+		<div class="row card">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div id="newImage">
+						<figure>
+							
+						<img class="img-circle img-responsive" ng-src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" style="height:200px; width:200px">
+
+						</figure>
+					</div>
+				</div><!-- col-xs-12 col-sm-6-->
+				<div class="col-xs-12 col-sm-6">
+						<h2>{{userBasicInfo.name}}</h2>
+						<h4>{{userBasicInfo.title}}</h4>
+						<p><span class="glyphicon glyphicon-globe" aria-hidden="true" style="margin-right:5px"></span>{{userBasicInfo.location}}</p>
+
+						<a href="#/" class="btn btn-search btn-profile" style="display:block; width:100%; margin-top:40px;" id="newImageBtn"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right:5px;"></span> Message {{userBasicInfo.name}}</a>	
+				</div><!-- col-xs-12 col-sm-6-->
+			</div><!-- row-->
+
+			<div class="row"> <!-- Row with buttons -->
+				<div class="col-md-6">
+							
+				</div>
+			</div>
 		</div>
-		<br>
-		Knows:
-		<div ng-repeat="know in knowTags">
-			<strong>{{know}}</strong>
+
+	
+		<div class="row card">
+			<div class="col-md-6 needs-column">
+				<h3 class="new-user-h3">{{userBasicInfo.name}} needs</h3>
+				<div class="tags-wrapper">
+				    <div id="tagsList" class="tags-cloud">
+				        <div ng-repeat="need in userBasicInfo.needs" class="tag">
+				         	<span class="tagName">{{need}}</span>
+			        	</div>
+			    	</div>
+				</div> 
+			</div> 
+			<div class="col-md-6 knows-column">
+				<h3 class="new-user-h3">{{userBasicInfo.name}} knows</h3>
+				<div class="tags-wrapper">
+				    <div id="tagsList" class="tags-cloud">
+				        <div ng-repeat="know in userBasicInfo.knows" class="tag">
+				         	<span class="tagName">{{know}}</span>
+			        	</div>
+			    	</div>
+				</div> 
+			</div>  <!-- col-md-6 knows-column --> 
+		</div> <!-- rowcard -->
+
+	<div class="row">
+    <h1 class="project-name" style="margin-bottom:30px;">Projects</h1>
+		<div id="timeline">
+
+			<div class="timeline-item">
+				<div class="timeline-icon"></span></div>                
+				<div class="timeline-content right">
+					<h2>LOREM IPSUM DOLOR</h2>
+					<p>
+						Project description
+					</p>
+					<!-- KNOWS NEEDS PER PROJECT -->
+					<div class="row">
+						<div class="col-md-6">
+							<p><strong>Needs:</strong> <span ng-repeat="need in userBasicInfo.needs"> <span class="label label-primary">{{need}}</span></span></p> 
+						</div>
+						<div class="col-md-6">
+							<p><strong>Knows:</strong> <span ng-repeat="know in userBasicInfo.knows"> <span class="label label-success">{{know}}</span></span></p> 
+						</div>
+					</div>
+
+					<!-- PICTURES -->
+					<div ng-controller="ImageCtrl">
+
+						<!-- slider container -->
+					<div class="slider">
+
+						<!-- enumerate all photos -->
+						<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+
+							<!-- prev / next controls -->
+							<a class="arrow prev" href="#" ng-click="showPrev()"></a>
+							<a class="arrow next" href="#" ng-click="showNext()"></a>
+
+							<!-- extra navigation controls -->
+							<ul class="nav-image">
+							<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+							<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+							</li>
+							</ul>
+					</div>
+				</div><!-- / end PICTURES -->
+
+			</div><!-- / end timeline content -->
+
+			<div class="timeline-item">
+				<div class="timeline-icon"></div>
+				<div class="timeline-content right">
+					<h2>Project 1 Name here</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, facilis quo. Maiores magnam modi ab libero praesentium blanditiis consequatur aspernatur accusantium maxime molestiae sunt ipsa.
+					</p>
+					<div ng-controller="ImageCtrl">
+
+						<!-- slider container -->
+							<div class="slider">
+
+								<!-- enumerate all photos -->
+								<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+
+								<!-- prev / next controls -->
+								<a class="arrow prev" href="#" ng-click="showPrev()"></a>
+								<a class="arrow next" href="#" ng-click="showNext()"></a>
+
+								<!-- extra navigation controls -->
+								<ul class="nav-image">
+								<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+								<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+								</li>
+								</ul>
+					</div>
+				</div>
+			</div>
+                
+            <div class="timeline-item">
+				<div class="timeline-icon"></div>
+                
+				<div class="timeline-content right">
+					<h2>LOREM IPSUM DOLOR</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, facilis quo. Maiores magnam modi ab libero praesentium blanditiis consequatur aspernatur accusantium maxime molestiae sunt ipsa.
+					</p>
+				</div>
+			</div>
+			</div>
 		</div>
-		<hr>
+		</div>
+	</div>
+
+	</div><!-- col-md-6 col-md-offset-3 -->
+
+<script>
+      $(document).ready(function() {
+         $('#sortable-8').sortable({
+            update: function(event, ui) {
+               var productOrder = $(this).sortable('toArray').toString();
+               $("#sortable-9").text (productOrder);
+            }
+         });
+      });
+</script>
 		<!-- Projects:
 		
 		<div ng-repeat="tag in projectTagsArray">
 			{{tag}}	
-		</div> -->
-</div>
+
 
