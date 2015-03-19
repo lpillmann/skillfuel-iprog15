@@ -6,53 +6,75 @@
 skillFuelApp.controller("NewEntryCtrl", ['$scope', '$upload','WriteService', 
   function($scope, $upload, WriteService) {
 
-  $scope.newUserName      = "";
-  $scope.newUserTitle     = "";
-  $scope.newUserLocation  = "";
+  // init user obj fields
+  $scope.newUserName        = "";
+  $scope.newUserTitle       = "";
+  $scope.newUserLocation    = "";
+  // init project obj fields
+  $scope.projectName        = "";
+  $scope.projectUrl         = "";
+  $scope.projectDescription = "";
 
-  // Used by Profile creation view
-  var newUserObj = {};
-	
-	$scope.imgURL = "";
+  $scope.imgURL = "";
 	$scope.isloading = false;
-  // arrays that hold the skills being added in the profile creation
-  $scope.needsArray = [];
-  $scope.knowsArray = [];
+  
 
   $scope.createProjectVisible = false;
 
+  function extendObjects (obj1, obj2) {
+    length1 = Object.keys(obj1).length;
+    length2 = Object.keys(obj2).length;
+    obj3 = obj1;
+    for (var i = 0; i <= length2-1; i++) {
+      obj3[length1 + i] = obj2 [i];  // adds elements of obj2 to obj1 without overwriting  
+    };
+    return obj3;
+  }
+
   $scope.newEntry = function() {
+    console.log(Object.keys($scope.skills.needs ));
+    console.log(Object.keys($scope.projectNeeds));
+    userNeeds = extendObjects($scope.skills.needs, $scope.projectNeeds);
+    userKnows = extendObjects($scope.skills.knows, $scope.projectKnows);
+    console.log(Object.keys(userNeeds));
+    console.log(Object.keys($scope.skills.needs ));
+
+
     // creates object with new info from form
-    console.log("add user from scope");
     newEntryObj = {
       'name':     $scope.newUserName,
       'title':    $scope.newUserTitle,
       'location': $scope.newUserLocation,
       'needs': $scope.skills.needs,
       'knows': $scope.skills.knows,
+      'needsAllNames': userNeeds,
+      'knowsAllNames': userKnows,
 			'imgURL': $scope.imgURL ,
-        
-        'project':[{
-        
+      'project':{  
             'name': $scope.projectName,
             'url': $scope.projectUrl,
             'description': $scope.projectDescription,
-            'pics': '',//$scope.projectPics,
+            'pics': {},//$scope.projectPics,
             'needs': $scope.projectNeeds,
             'knows': $scope.projectKnows 
-        
-            }]        
+            }       
     };
     // requests user creation by the service
     WriteService.newEntry(newEntryObj);
+    console.log("new entry sent to Database");
 
     // cleans variables to be used by the next profile creation (provides submition feedback also)
     // because it is a "view issue", we keep it here and not in the service
-    $scope.skills.needs = [];
-    $scope.skills.knows = [];
-    $scope.newUserName      = "";
-    $scope.newUserTitle     = "";
-    $scope.newUserLocation  = "";
+    $scope.skills.needs       = [];
+    $scope.skills.knows       = [];
+    $scope.projectNeeds       = [];
+    $scope.projectKnows       = [];
+    $scope.newUserName        = "";
+    $scope.newUserTitle       = "";
+    $scope.newUserLocation    = "";
+    $scope.projectName        = "";
+    $scope.projectUrl         = "";
+    $scope.projectDescription = "";
   };
 	
 	$scope.$watch('files', function () {
