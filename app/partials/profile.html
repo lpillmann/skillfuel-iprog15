@@ -21,10 +21,9 @@
 						<h4>{{user.title}}</h4>
 						<p><span class="glyphicon glyphicon-globe" aria-hidden="true" style="margin-right:5px"></span>{{user.location}}</p>
 
-						<a href="#/" class="btn btn-search btn-profile" style="display:block; width:100%; margin-top:40px;" id="newImageBtn"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right:5px;"></span> Message {{user.name}}</a>	
+						<a href="" class="btn btn-search btn-profile" style="display:block; width:100%; margin-top:40px;" ng-controller="DialogCtrl" href="" ng-click="sendMessage()"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right:5px;"></span> Message {{user.name}}</a>	
 				</div><!-- col-xs-12 col-sm-6-->
 			</div><!-- row-->
-
 			<div class="row"> <!-- Row with buttons -->
 				<div class="col-md-6">
 							
@@ -156,6 +155,25 @@
 	</div>
 
 	</div><!-- col-md-6 col-md-offset-3 -->
+
+	<!-- message dialog-->
+	<script type="text/ng-template" id="messageDialog">
+
+			<div class="ngdialog-message">
+				<div class="form-group">
+	                <label for="name">Your message to {{ngDialogData.username}}</label>
+	                <input type="text" class="form-control" placeholder="Write message">
+                </div>
+			</div>
+
+			<div class="ngdialog-buttons">
+				<button type="button" class="btn-success ngdialog-button"
+					ng-dialog="secondDialogId"
+					ng-dialog-class="ngdialog-theme-default"
+					ng-dialog-controller="SecondModalCtrl"
+					ng-dialog-close-previous>Send message</button>
+			</div>
+	</script><!-- end message dialog-->
 
 <script>
       $(document).ready(function() {
