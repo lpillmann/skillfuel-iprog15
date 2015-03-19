@@ -131,8 +131,8 @@ skillFuelApp
        and easier to use (e.g. order by date of creation)
 ******************************************************************************************************************/
 
-.factory("WriteService", ["$firebaseArray", "$firebaseObject",
-  function($firebaseArray, $firebaseObject) {
+.factory("WriteService", ["$firebaseArray", "$firebaseObject", "$rootScope",
+  function($firebaseArray, $firebaseObject, $rootScope) {
      
     var factory = {};
 
@@ -231,6 +231,8 @@ skillFuelApp
       list.$add(newUserObj).then(function(ref) {
        var id = ref.key();
        console.log("added user with id " + id);
+			 $rootScope.myid = id;
+			 console.log("$rootScope.myid value = " + $rootScope.myid);
        list.$indexFor(id); // returns location in the array
        newUserId = id;
        createTags(newUserTagsObj, 'user'); // just create tags for this object (has all the new tags)
