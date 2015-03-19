@@ -12,6 +12,7 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
 
   // Gets data to populate 'Needs' and 'Knows' profiles. It is working, but it's not binded in real-time, though. Do we need it to be?
   // It has been implemented here due to complications with callbacks when calling from the model. Possibly change this in the future
+  // Waits to load users and start checking routines to see if the Tags are needs or knows and store them accordingly to be printed
   $scope.users.$loaded()
       .then(function(usersData){  // once loaded, usersData will hold the object
         console.log("$scope.users loaded.");
@@ -19,6 +20,8 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
         // create auxiliary object to hold the needs and knows, once it's not possible/convenient to 
         // edit $scope.users directly (it's a Firebase array)
         $scope.usersNeedsKnows = {}; 
+        $scope.needsArray = [];
+        $scope.knowsArray = [];
 
         // iterate through the users. 'key' gets Firebase array indexes (0,1,2,...); 'value' gets users.userX objects 
         angular.forEach(usersData, function(value, key) { 
@@ -27,10 +30,10 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
           userTagsContent.$loaded()
               .then(function(userTagsData){ 
 								//console.log("$scope.userTagsContent loaded."); 
-                //console.log(Object.keys(userTagsData));
+                console.log(Object.keys(userTagsData));
 
                 $scope.usersNeedsKnows[value.$id] = {needs: {},knows: {}}; // create user field in the auxiliary object with needs/knows keys
-                
+                                
                 // iterate through user tags content. '_key' receives tag ids (tag1, tag2, ...) ; '_value' receives each tag's content
                 angular.forEach(userTagsData, function(_value, _key) {
                   //debug
@@ -56,10 +59,34 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
       .catch(function(error){
         console.error("Error:", error);
       });
+
+      var needKeys = [];
+      var knowKeys = [];
+      
+      $scope.generateKeysArrays = function () {
+        //for(var k in $scope.usersNeedsKnows[value.$id].needs) needKeys.push(k);
+        //alert("total " + needKeys.length + " keys: " + needKeys);
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      }
 }]);
 
+// skillFuelApp.filter('userNeedsKnowsFilter', function() {
+//   return function( items, filter, skills) {
+//     var filtered = [];
+//     var i = 0;
+//     angular.forEach(items, function(item) {
+//       if ((skills.needs[i].indexOf(filter) > -1) || (skills.needs[i].indexOf(filter) > -1)) { // filters (includes) if it's need or know
+//         filtered.push(item);
+//         console.log("users search pushed item: " + item);
+//       } 
+//       i++; 
+//     });
+//   }
+//   return filtered;
+// });
+
 skillFuelApp.filter('userNeedsKnowsFilter', function() {
-  return function( items, filter, skills) {
+  return function( items, filter ) {
     var filtered = [];
     var i = 0;
     angular.forEach(items, function(item) {
