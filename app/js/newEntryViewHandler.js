@@ -13,55 +13,6 @@ skillFuelApp.factory('NewEntryViewHandler',function (ReadService) {
   // manouver to handle outer variables and functions inside "this." functions
   that = this;
 
-  // function to add skill in input field to temporary arrays. 
-  //These arrays will later be added to the user profile in $scope.addUser()
-  this.addSkill = function (skillType, skill) {
-    console.log("called from service");
-    switch (skillType) { // depending on the skill type, it adds the value to the proper array
-      case 'need':
-        needsArray.push(skill);
-        //newUserNeed = ""; // clears input field
-      break;
-      case 'know':
-        knowsArray.push(skill);
-        //newUserKnow = ""; // clears input field
-      break;
-      default:
-        alert("error 007!"); 
-    };
-  };
-
-  this.removeSkill = function (skillType, skill) {
-    switch (skillType) { // depending on the skill type, it adds the value to the proper array
-      case 'need':
-      
-        needsArray.remove(skill);
-        //newUserNeed = ""; // clears input field
-      break;
-      case 'know':
-        knowsArray.remove(skill);
-        //newUserKnow = ""; // clears input field
-      break;
-      default:
-        alert("error 008!"); 
-    }
-  }
-
-  this.getSkillsArray = function (skillType) {
-    if (skillType === "need")
-      return needsArray;
-    else if (skillType === "know") 
-      return knowsArray;
-  }
-
-  // clears arrays when view requests
-  this.emptySkillsArray = function (skillType) {
-    if (skillType === "need")
-      needsArray = [];
-    else if (skillType === "know") 
-      knowsArray = [];
-  }
-
   this.getUsers = function() {
     return ReadService.AllUsers;
   }

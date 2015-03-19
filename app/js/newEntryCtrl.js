@@ -20,29 +20,6 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', 'NewEntryViewHandler','WriteS
   $scope.needsArray = [];
   $scope.knowsArray = [];
 
-  // New way (with service)
-  // Functions that are called in the HTML file (with directives) must be binded to $scope to be visible there
-  $scope.addSkill = function (skillType, skill) {
-    NewEntryViewHandler.addSkill(skillType, skill);
-    // clears input field depending on skillType
-    if (skillType === "need")
-      $scope.newUserNeed = ""; 
-    else if (skillType === "know") 
-      $scope.newUserKnow = "";
-  };
-
-  $scope.removeSkill = function (skillType, skill) {
-    NewEntryViewHandler.removeSkill(skillType, skill);
-  }
-
-  $scope.getSkillsArray = function (skillType) {
-    return NewEntryViewHandler.getSkillsArray(skillType);
-  }
-
-  $scope.emptySkillsArray = function (skillType) {
-    return NewEntryViewHandler.emptySkillsArray(skillType);
-  }
-
   $scope.newEntry = function() {
     // creates object with new info from form
     console.log("add user from scope");
