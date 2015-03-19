@@ -249,7 +249,9 @@ skillFuelApp
       newProjectObj = {
         name : newEntryObj.project.name,
         url : newEntryObj.project.url,
-        location  : newEntryObj.project.desription
+        create_date : newEntryObj.project.createOn,
+        start_date : newEntryObj.project.startOn,
+        description  : newEntryObj.project.desription
             
       };
         
