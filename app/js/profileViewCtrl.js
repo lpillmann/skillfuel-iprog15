@@ -9,16 +9,16 @@ skillFuelApp.controller("ProfileViewCtrl", ["$scope", "ReadService", "$routePara
     $scope.userId = '-JkcDqjrinZf04rhG374'; // TODO: make this parametrised according to navigation. Perhaps we should use $routeParams and app.js configurations
       
     var id = $routeParams.profileId.split(':')[1];
-    
-      console.log("XXXXXXXXXXXXXXXXX" + id);
+    //debug
+    //console.log("XXXXXXXXXXXXXXXXX" + id);
 
-    userBasicInfoLocal = ReadService.getUserBasicInfo(id);
+    userLocal = ReadService.getUserBasicInfo(id);
 
     // waits user basic info to load. When loaded, defines variable in $scope (visible to HTML)
-    userBasicInfoLocal.$loaded()
+    userLocal.$loaded()
       .then(function(data){ 
         console.log("userBasicInfo LOADED for: " + data.$ref());
-        $scope.userBasicInfo = data;
+        $scope.user = data;
       })
       .catch(function(error){
       console.error("Error:", error);
