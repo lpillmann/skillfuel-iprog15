@@ -7,8 +7,40 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
   function ($scope, ReadService) {
 
   $scope.users = ReadService.AllUsers(); // get 'users' Firebase array using service
+  $scope.search = '';
+  $scope.isNeed = false;
+  $scope.isKnow = false;
+  
+  $scope.updateSearch = function () {
+    if ($scope.isNeed && $scope.isKnow) {
+      $scope.search = {$: $scope.searchText};  
+    }
+    else if ($scope.isNeed) {
+      $scope.search = {needs: $scope.searchText};    
+    }
+    else if ($scope.isKnow) {
+      $scope.search = {knows: $scope.searchText};  
+    }
+    else {
+      $scope.search = {$: $scope.searchText};  
+    }
+  }
 
-  // TODO: integrate with search/filter mechanism! Now, the search only looks into $scope.users content
+  $scope.toggleNeeds = function () {
+    $scope.isNeed = $scope.isNeed ? false : true;
+    $scope.search = {$: ''};  
+    $scope.search.needs = $scope.searchText;
+    $scope.updateSearch();
+    console.log("need: " + $scope.isNeed + ", know: " + $scope.isKnow);
+  }
+
+  $scope.toggleKnows = function () {
+    $scope.isKnow = $scope.isKnow ? false : true;
+    $scope.search = {$: ''};  
+    $scope.search.knows = $scope.searchText;
+    $scope.updateSearch();
+    console.log("need: " + $scope.isNeed + ", know: " + $scope.isKnow);
+  }
 
   // Gets data to populate 'Needs' and 'Knows' profiles. It is working, but it's not binded in real-time, though. Do we need it to be?
   // It has been implemented here due to complications with callbacks when calling from the model. Possibly change this in the future
@@ -59,15 +91,6 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
       .catch(function(error){
         console.error("Error:", error);
       });
-
-      var needKeys = [];
-      var knowKeys = [];
-      
-      $scope.generateKeysArrays = function () {
-        //for(var k in $scope.usersNeedsKnows[value.$id].needs) needKeys.push(k);
-        //alert("total " + needKeys.length + " keys: " + needKeys);
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-      }
 }]);
 
 // skillFuelApp.filter('userNeedsKnowsFilter', function() {

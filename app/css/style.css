@@ -80,12 +80,18 @@ ul {
 }
 
 .btn-search:hover,
-.btn-search:focus,
-.btn-search:active {
+.btn-search:focus {
     background-color:#67809F;
     color: white;
     text-decoration: none;
     border-color: #FFFFFF;
+}
+
+.btn-search:active {
+    background-color:#67809F;
+    color: red;
+    text-decoration: none;
+    border-color: #CCCFFF;
 }
 
 a.btn {
