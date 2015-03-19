@@ -194,7 +194,6 @@ skillFuelApp
         newUserId = id;
         createTags(newTagsObj);
         console.log(Object.keys(newTagsObj));
-
       });
     }
     
@@ -242,7 +241,9 @@ skillFuelApp
       newUserObj = {
         name : newEntryObj.name,
         title : newEntryObj.title,
-        location  : newEntryObj.location
+        location  : newEntryObj.location,
+        needs: newEntryObj.needs, // included tag names here to make filter simpler (Althought it generates duplicated data in the DB)
+        knows: newEntryObj.knows
       };
         
       newProjectObj = {

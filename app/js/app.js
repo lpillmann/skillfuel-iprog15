@@ -69,7 +69,7 @@ skillFuelApp.config(['$routeProvider',
         controller: 'FileUploadCtrl'
       }).
       when('/test-custom-filter', {
-        templateUrl: 'partials/ftest-custom-filter.html',
+        templateUrl: 'partials/test-custom-filter.html',
         controller: 'SearchUsersCtrl'
       }).      
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
