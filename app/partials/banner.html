@@ -1,4 +1,40 @@
-    <!-- Navigation -->
+<script>
+
+    $(document).ready(function(){
+        
+        $( ".navbar-nav > li" ).hover(
+  function() {
+    $( this ).addClass( "nav-item-selected" );
+  }, function() {
+    $( this ).removeClass( "nav-item-selected" );
+  }
+);
+        
+ 
+    });
+</script>
+
+
+<style>
+
+.nav-item-selected{
+    
+  display: block;
+  font-size: 18px;
+  color: white;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 5%;
+  cursor: pointer;
+  background: rgba(33, 239, 112, 0.8);
+
+}
+
+
+</style>
+
+
+<!-- Navigation -->
     <nav class="row navbar navbar-default background">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,13 +55,14 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="#/profile">My Profile</a>
-                    </li>
-                    <li>
                         <a href="#/search-users">Discover</a>
                     </li>
                     <li>
-                        <a href="#/home">About</a>
+                        <a href="#/profile">Explore</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#/new-profile">Join</a>
                     </li>
                     <li>
                     </li>
