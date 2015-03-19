@@ -6,18 +6,21 @@ skillFuelApp.controller('FileUploadCtrl', ['$scope', '$upload', function ($scope
 	$scope.upload = function (files) {
 			if (files && files.length) {
 					for (var i = 0; i < files.length; i++) {
-							
+							var file = files[i]
 							var fileReader = new FileReader();
-							fileReader.readAsArrayBuffer(files[i]);
+							fileReader.readAsArrayBuffer(file);
 							fileReader.onload = function(e) {
 									$upload.http({
 											url: 'https://api.imgur.com/3/image',
-											headers: {'Content-Type': file.type},
+											//headers: {'Content-Type': file.type},
+											headers: {
+												'Content-Type': file.type,
+												'Authorization': 'Client-ID 4858d2a8e5879a4'},
 											data: e.target.result
 									}).then(function(response) {
-											//success;
+											console.log('success, maybe? response: ' + JSON.stringify(response));//success;
 									}, null, function(evt) {
-											$scope.progress[index] = parseInt(100.0 * evt.loaded / evt.total);
+											$scope.progress = parseInt(100.0 * evt.loaded / evt.total);
 									});
 							}
 							
