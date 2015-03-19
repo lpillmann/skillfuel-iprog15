@@ -9,6 +9,15 @@ function stopRKey(evt) {
 document.onkeypress = stopRKey; 
 </script>
 
+
+
+
+
+<!--javascript for drag & drop of tags-->
+
+
+
+
 <div class="background">
 	<ng-include src="'partials/banner.html'"></ng-include>
 </div>
@@ -55,8 +64,11 @@ document.onkeypress = stopRKey;
 		<div class="row card">
 			<!--  Needs Column -->
 			<div class="col-md-6 needs-column">
-				<h3 class="new-user-h3">I need</h3>				
+                
+				<h3 class="new-user-h3">I need</h3>
+                
 			    <div auto-complete model="skills.needs"></div>
+                
 			</div>
 
 			<!--  Knows Column -->
