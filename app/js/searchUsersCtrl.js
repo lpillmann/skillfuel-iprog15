@@ -10,7 +10,8 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
   $scope.search = '';
   $scope.isNeed = false;
   $scope.isKnow = false;
-  
+      
+      
   $scope.updateSearch = function () {
     if ($scope.isNeed && $scope.isKnow) {
       $scope.search = {$: $scope.searchText};  

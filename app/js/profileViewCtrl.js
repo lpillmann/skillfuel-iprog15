@@ -3,12 +3,16 @@
   * @required databaseServices.js 
   * @used_by profile.html
 */ 
-skillFuelApp.controller("ProfileViewCtrl", ["$scope", "ReadService",
-  function($scope, ReadService) {
+skillFuelApp.controller("ProfileViewCtrl", ["$scope", "ReadService", "$routeParams",
+  function($scope, ReadService, $routeParams) {
 
     $scope.userId = '-JkcDqjrinZf04rhG374'; // TODO: make this parametrised according to navigation. Perhaps we should use $routeParams and app.js configurations
+      
+    var id = $routeParams.profileId.split(':')[1];
+    
+      console.log("XXXXXXXXXXXXXXXXX" + id);
 
-    userBasicInfoLocal = ReadService.getUserBasicInfo($scope.userId);
+    userBasicInfoLocal = ReadService.getUserBasicInfo(id);
 
     // waits user basic info to load. When loaded, defines variable in $scope (visible to HTML)
     userBasicInfoLocal.$loaded()
