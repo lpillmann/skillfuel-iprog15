@@ -26,9 +26,14 @@ document.onkeypress = stopRKey;
 				<div class="col-xs-12 col-sm-6">
 					<div id="newImage">
 						<figure>
-							
+						<div ng-file-drop ng-model="picture" class="drop-box img-circle" drag-over-class="dragover" accept=".jpg,.png,.pdf">Drop Image here</div>
+						<div ng-no-file-drop>File Drag/Drop is not supported for this browser</div>
+						<p> picture test: {{picture}}
+						<img ng-href="{{picture}}" ng-show="picture" />
+						</p>
+						<!--
 						<img class="img-circle img-responsive" ng-src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" style="height:200px; width:200px">
-
+						-->
 						</figure>
 					</div>
 				</div>
