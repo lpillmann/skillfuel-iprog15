@@ -3,8 +3,9 @@
   * @required databaseServices.js, newEntryViewHandler.js
   * @used_by new-profile.html
 */ 
-skillFuelApp.controller("NewEntryCtrl", ['$scope', '$upload','WriteService', 
-  function($scope, $upload, WriteService) {
+skillFuelApp.controller("NewEntryCtrl", ['$scope', 'WriteService', 
+  function($scope, WriteService) {
+
 
   // init user obj fields
   $scope.newUserName        = "";
@@ -47,10 +48,17 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', '$upload','WriteService',
       'location': $scope.newUserLocation,
       'needs': $scope.skills.needs,
       'knows': $scope.skills.knows,
+<<<<<<< HEAD
       'needsAllNames': userNeeds,
       'knowsAllNames': userKnows,
 			'imgURL': $scope.imgURL ,
       'project':{  
+=======
+			'imgURL': $scope.imgURL,
+        
+        'project':[{
+        
+>>>>>>> origin/master
             'name': $scope.projectName,
             'url': $scope.projectUrl,
             'description': $scope.projectDescription,
@@ -77,6 +85,7 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', '$upload','WriteService',
     $scope.projectDescription = "";
   };
 	
+	/*
 	$scope.$watch('files', function () {
 			$scope.upload($scope.files);
 	});
@@ -109,5 +118,6 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', '$upload','WriteService',
 					}
 			}
 	};
+	*/
 
 }]);

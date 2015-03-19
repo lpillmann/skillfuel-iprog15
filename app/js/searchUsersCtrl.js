@@ -30,16 +30,28 @@ skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService',
   $scope.toggleNeeds = function () {
     $scope.isNeed = $scope.isNeed ? false : true;
     $scope.search = {$: ''};  
-    $scope.search.needs = $scope.searchText;
+      
+      if ($scope.searchText)  {
+      
+       $scope.search.needs = $scope.searchText;
     $scope.updateSearch();
+      }
+   
     console.log("need: " + $scope.isNeed + ", know: " + $scope.isKnow);
   }
 
   $scope.toggleKnows = function () {
     $scope.isKnow = $scope.isKnow ? false : true;
     $scope.search = {$: ''};  
-    $scope.search.knows = $scope.searchText;
+    if ($scope.searchText)  {
+        
+        $scope.search.knows = $scope.searchText;
+
     $scope.updateSearch();
+    
+    }
+      
+    
     console.log("need: " + $scope.isNeed + ", know: " + $scope.isKnow);
   }
   

@@ -33,7 +33,7 @@
 
 	<div class="col-md-12 searchContainer">
 		<div class="col-md-4" ng-repeat="user in users | filter:search">
-			<div class="well profile" style="padding-right:5px; padding-left:5px; float:left;">
+			<div class="well profile" style="height: 370px; padding-right:5px; padding-left:5px; float:left;">
 				<div class="col-sm-12">
                     <a href="#/profiles/:{{user.$id}}">
 					<div class="col-xs-12 col-sm-6 text-center">
@@ -62,7 +62,7 @@
 
 
 
-						<p style="padding-top:10px;"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right:5px"></span><a id="send-message"> Send Message
+						<p style="padding-top:10px;"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin-right:5px"></span><a ng-controller="DialogCtrl" href="" ng-click="sendMessage()" id="send-message"> Send Message
 						</a>
 					</div>  
 
@@ -83,7 +83,7 @@
 
 			<div class="ngdialog-message">
 				<h3>All needs and knows</h3>
-				<h4 ng-show="ngDialogData.username" ng-show="ngDialogData.title">  of {{ngDialogData.username}}</code> the {{ngDialogData.title}}</h4>
+				<h4 ng-show="ngDialogData.username" ng-show="ngDialogData.title">  of {{ngDialogData.username}} the {{ngDialogData.title}}</h4>
 				<div class="skillsDisplay">
 					<p><strong>Needs:</strong> <span ng-repeat="need in ngDialogData.needs"> <span class="label label-primary">{{need}}</span></span></p> 
 					<p><strong>Knows:</strong> <span ng-repeat="know in ngDialogData.knows"> <span class="label label-success">{{know}}</span></span></p> 
@@ -99,6 +99,25 @@
 					ng-dialog-close-previous>Close dialog</button>
 			</div>
 		</script>
+
+		<script type="text/ng-template" id="messageDialog">
+
+			<div class="ngdialog-message">
+				<div class="form-group">
+	                <label for="name">Your message to {{ngDialogData.username}}</label>
+	                <input type="text" class="form-control" placeholder="Write message">
+                </div>
+			</div>
+
+			<div class="ngdialog-buttons">
+				<button type="button" class="btn-success ngdialog-button"
+					ng-dialog="secondDialogId"
+					ng-dialog-class="ngdialog-theme-default"
+					ng-dialog-controller="SecondModalCtrl"
+					ng-dialog-close-previous>Send message</button>
+			</div>
+		</script>
+
 
 					<script type="text/ng-template" id="projectsDialog" style="width: 820px;">
 						<div class="ngdialog-message">

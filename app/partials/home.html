@@ -18,7 +18,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#/search-users">Explore</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -46,6 +46,22 @@
             </div>
         </div>
     </header>
+
+
+<colour-bar-section>
+
+<div class="bg-coral"></div>
+<div class="bg-orange"></div>
+<div class="bg-yellow"></div>
+<div class="bg-green"></div>
+<div class="bg-teal"></div>
+<div class="bg-blue"></div>
+<div class="bg-purple"></div>
+<div class="bg-gray"></div>
+<div class="bg-black"></div>
+</colour-bar-section>
+
+
 
     <!-- Services Section -->
     <section id="services">
@@ -285,6 +301,45 @@
             </div>
         </div>
     </footer>
+
+
+<script>
+
+    $(document).ready(function(){
+        
+        $( ".navbar-nav > li" ).hover(
+  function() {
+    $( this ).addClass( "nav-item-selected" );
+  }, function() {
+    $( this ).removeClass( "nav-item-selected" );
+  }
+);
+        
+ 
+    });
+
+
+
+</script>
+
+
+<style>
+
+.nav-item-selected{
+    
+  display: block;
+  font-size: 18px;
+  color: white;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 5%;
+  cursor: pointer;
+  background: rgba(33, 239, 112, 0.8);
+
+}
+
+
+</style>
 
     <!-- jQuery 
     <script src="js/jquery.js"></script>-->

@@ -1,0 +1,68 @@
+.bg-coral {
+  background: #F45D4C;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-orange {
+  background: #F7A541;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-yellow {
+  background: #FACA66;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-green {
+  background: #A1DBB2;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-teal {
+  background: #60B99A;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-blue {
+  background: #54787D;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-purple {
+  background: #5B527F;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-gray {
+  background: #555;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+.bg-black {
+  background: #000000;
+  float: left;
+  height: 70px;
+  width: 11.11%;
+}
+
+
+colour-bar-section {
+  text-align: center;
+    top:-100px;
+}

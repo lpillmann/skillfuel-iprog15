@@ -49,6 +49,12 @@
 					data: {foo: 'some data'} });
 			};
 
+			$scope.sendMessage = function () {
+				ngDialog.open({ 
+					template: 'messageDialog', 
+					controller: 'InsideCtrl', 
+					data: {foo: 'some data'} });
+			};
 			
 
 			$rootScope.$on('ngDialog.opened', function (e, $dialog) {
