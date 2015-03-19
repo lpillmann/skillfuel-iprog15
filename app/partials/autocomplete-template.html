@@ -1,20 +1,13 @@
 
 <script>
       $(document).ready(function() {
-         $('#sortable-1').sortable({
+         $('#sortable').sortable({
             update: function(event, ui) {
                var productOrder = $(this).sortable('toArray').toString();
                $("#sortable-9").text (productOrder);
             }
          });
           
-          
-          $('#sortable-2').sortable({
-            update: function(event, ui) {
-               var productOrder = $(this).sortable('toArray').toString();
-               $("#sortable-9").text (productOrder);
-            }
-         });
           
       });
 </script>
@@ -29,13 +22,13 @@
                     <li ng-repeat="suggestion in suggestions | limitTo: 5" class="blockSpan" ng-click="addToSelectedTags($index)" ng-mouseover="$parent.selectedIndex=$index" ng-class="{active : selectedIndex===$index}">{{suggestion}}</li> 
             </ul>
         
-        <ul id="sortable-1">
-        <div ng-repeat="selectedTag in selectedTags" class="tag">
-            
-            <span class="tagName">{{selectedTag}}</span>
-            <span>&nbsp;<b ng-click="removeTag($index)" class="fa fa-times cross" style="float:right"></b></span>
-            
-        </div>
-            </ul>
+        <ul id="sortable">
+            <div ng-repeat="selectedTag in selectedTags" class="tag">
+
+                <span class="tagName">{{selectedTag}}</span>
+                <span>&nbsp;<b ng-click="removeTag($index)" class="fa fa-times cross" style="float:right"></b></span>
+
+            </div>
+        </ul>
     </div>
 </div>   

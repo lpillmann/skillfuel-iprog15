@@ -4,9 +4,11 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:100);
+
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "roboto", "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .text-muted {
@@ -42,7 +44,14 @@ a {
 
 h1,
 h2,
-h3,
+h3{
+    
+    text-transform: uppercase;
+    font-family: 'roboto', Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+
+}
+
 h4,
 h5,
 h6 {
@@ -66,7 +75,7 @@ h6 {
 .btn-primary {
     border-color: #fed136;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'roboto', Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #fff;
     background-color: #fed136;
@@ -168,8 +177,8 @@ fieldset[disabled] .btn-xl.active {
     border-color: transparent;
     background-color: #000000;
 }
-
-.navbar-default .navbar-brand {
+/*title*/
+.navbar-default .navbar-brand { 
     font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
     color: #fed136;
 }
