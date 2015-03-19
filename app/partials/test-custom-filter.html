@@ -1,4 +1,13 @@
 <input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText">
-<div class="col-md-8" ng-repeat="tag in users | filter:searchText">
-
+<input type="text" class="form-control" placeholder="Filter tags..." ng-model="searchTextTag">
+<div ng-repeat="user in users | filter:searchText">
+	
+	{{user}}
+	
 </div>
+<div ng-repeat="(need, value) in usersNeedsKnows['-JkcDqjrinZf04rhG374'].needs">
+	{{need}}
+	
+</div>
+
+<button class="btn btn-info"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true" ng-click="generateKeysArrays()"></span> Generate arrays</button>
