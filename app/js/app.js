@@ -60,10 +60,6 @@ skillFuelApp.config(['$routeProvider',
         templateUrl: 'partials/new-profile.html',
         controller: 'NewEntryCtrl'
       }).
-      when('/new-profile-projects', {
-        templateUrl: 'partials/new-profile-projects.html',
-        controller: 'NewEntryCtrl'
-      }).
 			when('/fileupload-test', {
         templateUrl: 'partials/fileupload-test.html',
         controller: 'FileUploadCtrl'
