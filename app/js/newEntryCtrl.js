@@ -13,6 +13,8 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope','WriteService',
   $scope.needsArray = [];
   $scope.knowsArray = [];
 
+  $scope.createProjectVisible = false;
+
   $scope.newEntry = function() {
     // creates object with new info from form
     console.log("add user from scope");

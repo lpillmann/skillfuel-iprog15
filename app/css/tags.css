@@ -88,6 +88,11 @@
     color: #B5CEF1;
 }
 
+.needs-column .suggestions-list li.active {
+    color: #337ab7;
+    background: #D3E2F7;
+}
+
 .knows-column .tags-cloud .tag {
   color: #fff;
   background-color: #5cb85c;
@@ -101,3 +106,9 @@
 .knows-column .tags-cloud .tag .cross {
     color: #CEEACE;
 }
+
+.knows-column .suggestions-list li.active {
+    color: #428542;
+    background: #D8EED8;
+}
+

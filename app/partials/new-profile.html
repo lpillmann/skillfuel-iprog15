@@ -73,11 +73,11 @@ document.onkeypress = stopRKey;
 	<div class="row">
 		<div style="float:left">
 			<!-- <a href="#/new-profile-projects" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add projects to your profile</a> -->
-			<button ng-hide="projectCtrl.isAddProject()" ng-click="projectCtrl.setAddProject(true)" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="margin-right:5px;"></span>Add projects to your profile</button>
+			<button ng-hide="createProjectVisible" ng-click="createProjectVisible=true" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="margin-right:5px;"></span>Add projects to your profile</button>
 		</div>
 
 		<!-- Directive that includes projects part -->
-		<div ng-show="projectCtrl.addProject">
+		<div ng-show="createProjectVisible">
 			<create-user-project></create-user-project>	
 		</div>
 		
