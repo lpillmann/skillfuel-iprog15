@@ -243,7 +243,8 @@ skillFuelApp
         title : newEntryObj.title,
         location  : newEntryObj.location,
         needs: newEntryObj.needs, // included tag names here to make filter simpler (Althought it generates duplicated data in the DB)
-        knows: newEntryObj.knows
+        knows: newEntryObj.knows,
+				imgurl: newEntryObj.imgURL
       };
         
       newProjectObj = {

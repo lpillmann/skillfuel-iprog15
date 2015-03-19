@@ -326,12 +326,9 @@ a.btn {
 
 .drop-box {
     background-image: url("http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png");
-    border: 5px dashed #DDD;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    padding-top: 25px;
-    margin: 10px;
+    background-repeat: no-repeat;
+		border: 5px dashed #DDD;
+    
 }
 .dragover {
     border: 5px dashed blue;

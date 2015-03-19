@@ -22,16 +22,11 @@ document.onkeypress = stopRKey;
 		<div class="row card">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<div id="newImage">
+					<div id="newImage" align="center">
 						<figure>
-						<div ng-file-drop ng-model="picture" class="drop-box img-circle" drag-over-class="dragover" accept=".jpg,.png,.pdf">Drop Image here</div>
+						<img ng-src="{{imgURL}}" ng-file-drop ng-model="files" class="drop-box img-circle img-responsive" drag-over-class="dragover" accept=".jpg,.png,.pdf" style="width:200px;height:200px;"/>
 						<div ng-no-file-drop>File Drag/Drop is not supported for this browser</div>
-						<p> picture test: {{picture}}
-						<img ng-href="{{picture}}" ng-show="picture" />
-						</p>
-						<!--
-						<img class="img-circle img-responsive" ng-src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" style="height:200px; width:200px">
-						-->
+						<label ng-if="isloading" style="text-align: center">Image is uploading...</label>
 						</figure>
 					</div>
 				</div>

@@ -3,12 +3,14 @@
   * @required databaseServices.js, newEntryViewHandler.js
   * @used_by new-profile.html
 */ 
-skillFuelApp.controller("NewEntryCtrl", ['$scope','WriteService', 
-  function($scope, WriteService) {
+skillFuelApp.controller("NewEntryCtrl", ['$scope', '$upload','WriteService', 
+  function($scope, $upload, WriteService) {
 
   // Used by Profile creation view
   var newUserObj = {};
-
+	
+	$scope.imgURL = "";
+	$scope.isloading = false;
   // arrays that hold the skills being added in the profile creation
   $scope.needsArray = [];
   $scope.knowsArray = [];
@@ -24,6 +26,7 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope','WriteService',
       'location': $scope.newUserLocation,
       'needs': $scope.skills.needs,
       'knows': $scope.skills.knows,
+			'imgURL': $scope.imgURL ,
         
         'project':[{
         
@@ -47,5 +50,38 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope','WriteService',
     $scope.newUserTitle     = "";
     $scope.newUserLocation  = "";
   };
+	
+	$scope.$watch('files', function () {
+			$scope.upload($scope.files);
+	});
+
+	$scope.upload = function (files) {
+			if (files && files.length) {
+					for (var i = 0; i < files.length; i++) {
+							var file = files[i]
+							var fileReader = new FileReader();
+							fileReader.readAsArrayBuffer(file);
+							fileReader.onload = function(e) {
+									$scope.isloading=true;
+									$upload.http({
+											url: 'https://api.imgur.com/3/image',
+											headers: {
+												'Content-Type': file.type,
+												'Authorization': 'Client-ID 4858d2a8e5879a4'},
+											data: e.target.result
+									}).then(function(response) {
+											$scope.isloading=false;
+											$scope.imgURL = response.data.data.link;
+											console.log('Response object:' + JSON.stringify(response));
+											console.log('Link to imgur: ' + $scope.imgURL);//success;
+											
+									}, null, function(evt) {
+											$scope.progress = parseInt(100.0 * evt.loaded / evt.total);
+									});
+							}
+							
+					}
+			}
+	};
 
 }]);
