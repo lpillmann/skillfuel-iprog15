@@ -1,4 +1,6 @@
 
+
+
 <nav class="row navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -14,21 +16,21 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+               <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#/search-users">Explore</a>
+                        <a href="#/search-users">Discover</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a href="#/profiles/:{{ getMyId() }}">My Profile</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#/new-profile">Join</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#team">Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -167,8 +169,8 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>January 2015</h4>
-                                    <h4 class="subheading">The idea is born</h4>
+                                    <h3>January 2015</h3>
+                                    <h3 class="subheading">The idea is born</h3>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Skillfuel is started as a school project at KTH in Stockholm by 5 students</p>
@@ -181,8 +183,8 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>February-April 2015</h4>
-                                    <h4 class="subheading">Thorough research</h4>
+                                    <h3>February-April 2015</h3>
+                                    <h3 class="subheading">Thorough research</h3>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Entrepreneurs are intervieved about their needs and relations to other entreprneurs to validate the idea of skillfuel. First wireframes are created and tested with users</p>
@@ -195,8 +197,8 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>May 2015</h4>
-                                    <h4 class="subheading">Taking over the web</h4>
+                                    <h3>May 2015</h3>
+                                    <h3 class="subheading">Taking over the web</h3>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Website is published and Skillfuel site is open for registration.</p>
@@ -205,9 +207,9 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <a href="#/new-profile"><h4 style"color: #CC6666;">Become
+                                <a href="#/new-profile"><h3 style"color: #CC6666;">Become
                                     <br>part of
-                                    <br>Skillfuel!</h4></a>
+                                    <br>Skillfuel!</h3></a>
                             </div>
                         </li>
                     </ul>
