@@ -58,98 +58,52 @@
 				</div> 
 			</div>  <!-- col-md-6 knows-column --> 
 		</div> <!-- rowcard -->
-        
-        
-
-        
-        
 
 	<div class="row">
     <h1 class="project-name" style="margin-bottom:30px;">Projects</h1>
     <hr>
 		<div id="timeline">
 
-			<div class="timeline-item">
-				<div class="timeline-icon"></span></div>                
-				<div class="timeline-content right">
-					<h2>LOREM IPSUM DOLOR</h2>
-					<p>
-						Project description
-					</p>
-					<!-- KNOWS NEEDS PER PROJECT -->
-					<div class="row">
-						<div class="col-md-6">
-							<p><strong>Needs:</strong> <span ng-repeat="need in user.needs"> <span class="label label-primary">{{need}}</span></span></p> 
+			<div ng-repeat="project in resultObj">
+				<div class="timeline-item">
+					<div class="timeline-icon"></div>
+					<div class="timeline-content right">
+						<h2>{{$index+1}}. {{project.name}}</h2>
+						<p>
+							{{project.description}}
+						</p>
+						<div class="row">
+							<div class="col-md-6">
+								<p><strong>Needs:</strong> <span ng-repeat="need in project.needs"> <span class="label label-primary">{{need}}</span></span></p> 
+							</div>
+							<div class="col-md-6">
+								<p><strong>Knows:</strong> <span ng-repeat="know in project.knows"> <span class="label label-success">{{know}}</span></span></p> 
+							</div>
 						</div>
-						<div class="col-md-6">
-							<p><strong>Knows:</strong> <span ng-repeat="know in user.knows"> <span class="label label-success">{{know}}</span></span></p> 
+						<div ng-controller="ImageCtrl">
+							<!-- slider container -->
+								<div class="slider">
+
+									<!-- enumerate all photos -->
+									<div ng-repeat="proj in resultObj">
+									<h1>{{proj.name}}</h1>
+									</div>
+									<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
+
+									<!-- prev / next controls -->
+									<a class="arrow prev" href="#" ng-click="showPrev()"></a>
+									<a class="arrow next" href="#" ng-click="showNext()"></a>
+
+									<!-- extra navigation controls -->
+									<ul class="nav-image">
+									<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+									<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+									</li>
+									</ul>
+								</div>
 						</div>
 					</div>
-                    
-                            
-					<!-- PICTURES -->
-					<div ng-controller="ImageCtrl">
-
-						<!-- slider container -->
-					<div class="slider">
-
-						<!-- enumerate all photos -->
-						<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
-
-							<!-- prev / next controls -->
-							<a class="arrow prev" href="#" ng-click="showPrev()"></a>
-							<a class="arrow next" href="#" ng-click="showNext()"></a>
-
-							<!-- extra navigation controls -->
-							<ul class="nav-image">
-							<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
-							<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
-							</li>
-							</ul>
-					</div>
-				</div><!-- / end PICTURES -->
-
-			</div><!-- / end timeline content -->
-
-			<div class="timeline-item">
-				<div class="timeline-icon"></div>
-				<div class="timeline-content right">
-					<h2>Project 1 Name here</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, facilis quo. Maiores magnam modi ab libero praesentium blanditiis consequatur aspernatur accusantium maxime molestiae sunt ipsa.
-					</p>
-					<div ng-controller="ImageCtrl">
-
-						<!-- slider container -->
-							<div class="slider">
-
-								<!-- enumerate all photos -->
-								<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
-
-								<!-- prev / next controls -->
-								<a class="arrow prev" href="#" ng-click="showPrev()"></a>
-								<a class="arrow next" href="#" ng-click="showNext()"></a>
-
-								<!-- extra navigation controls -->
-								<ul class="nav-image">
-								<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
-								<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
-								</li>
-								</ul>
-					</div>
-				</div>
-			</div>
-                
-            <div class="timeline-item">
-				<div class="timeline-icon"></div>
-                
-				<div class="timeline-content right">
-					<h2>LOREM IPSUM DOLOR</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, facilis quo. Maiores magnam modi ab libero praesentium blanditiis consequatur aspernatur accusantium maxime molestiae sunt ipsa.
-					</p>
-				</div>
-			</div>
+				</div>    
 			</div>
 		</div>
 		</div>

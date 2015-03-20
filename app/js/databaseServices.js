@@ -1,6 +1,6 @@
 /**  
   * @desc these services will hold functions for database (Firebase) read/write (conceptual system MODEL --> holds database and functions to manipulate it)
-  * examples include ReadService.UserTagsContent, ReadService.AllUsers, WriteService.newEntry
+  * examples include ReadService.getUserTagsContent, ReadService.getAllUsers, WriteService.newEntry
   * @required AngularFire services ($firebaseArray, $firebaseObject)  
   * @used_by newEntryViewHandler.js, searchUsersCtrl.js, searchProjectsCtrl.js
 */  
@@ -11,33 +11,33 @@ skillFuelApp
 
     var FBURL = "https://skillfuel.firebaseio.com";
 
-    factory.AllUsers = function () {  
+    factory.getAllUsers = function () {  
       var ref = new Firebase(FBURL + "/users");
       return $firebaseArray(ref);
     }
 
-    factory.getUserBasicInfo = function (userId) {  
+    factory.getUserInfo = function (userId) {  
       var ref = new Firebase(FBURL + "/users/" + userId);
       return $firebaseObject(ref);
     }
 
-    factory.AllTags = function () {  
+    factory.getAllTags = function () {  
       var ref = new Firebase(FBURL + "/tagIds");
       return $firebaseArray(ref);
     }
 
-    factory.AllTagNames = function () {  
-      return AllTagNames;
+    factory.getAllTagNames = function () {  
+      return getAllTagNames;
     }
 
-    var AllTagNames = function () {  
+    var getAllTagNames = function () {  
       var ref = new Firebase(FBURL + "/tagNames");
       return $firebaseArray(ref);
     }
 
-    factory.AllTagNamesAsArray = function () {  
+    factory.getAllTagNamesAsArray = function () {  
       var arr = [];
-      obj = AllTagNames();
+      obj = getAllTagNames();
 
       obj.$loaded()
               .then(function(data){ 
@@ -56,9 +56,9 @@ skillFuelApp
       return arr;
     }
 
-    factory.AllTagNamesAsString = function () {  
+    factory.getAllTagNamesAsString = function () {  
       var str = '';
-      obj = AllTagNames();
+      obj = getAllTagNames();
 
       obj.$loaded()
               .then(function(data){ 
@@ -78,7 +78,7 @@ skillFuelApp
     
     // 'join' service to get tags content from a given user. Uses Firebase.util 
     // (throws many warnings because this library is quite old)
-    factory.UserTagsContent = function (userId) {  
+    factory.getUserTagsContent = function (userId) {  
       //debug
 			//console.log(">>>> userId in service util: " + userId);
       var ref = Firebase.util.join(
@@ -92,7 +92,7 @@ skillFuelApp
       return $firebaseObject(ref);
     }
 
-    factory.TagContent = function (tagId) {  
+    factory.getTagContent = function (tagId) {  
       var ref = new Firebase(FBURL + "/tagIds/" + tagId);
       
       obj = $firebaseObject(ref);
@@ -100,7 +100,7 @@ skillFuelApp
       return obj;
     }
 
-    factory.UserTags = function (userId) {  
+    factory.getUserTags = function (userId) {  
       // create a reference to the Firebase where we will store our data
       var ref = new Firebase(FBURL + "/users/" + userId);
       var tagsRef = ref.child('tags');
@@ -109,6 +109,16 @@ skillFuelApp
       
       // return it as a synchronized object
       return obj;
+    }
+
+    factory.getProjectsByUser = function (userId) {
+      var ref = new Firebase(FBURL + "/users/" + userId + "/projects");      
+      return $firebaseObject(ref);
+    }
+
+    factory.getProjectsById = function (projectId) {
+      var ref = new Firebase(FBURL + "/projects/" + projectId);      
+      return $firebaseObject(ref);
     }
 
     return factory;
@@ -153,6 +163,12 @@ skillFuelApp
     }
 
     // called 4th
+    var addUserToProject = function (projectId, userId) {
+      var ref = new Firebase(FBURL + "/projects/" + projectId);
+      ref.child('members').child(userId).set(true);
+    }
+
+    // called 4th
     var addProjectToTag = function (tagId, projectId) {
       var ref = new Firebase(FBURL + "/tagIds/" + tagId);
       ref.child('project').set(projectId);
@@ -161,7 +177,7 @@ skillFuelApp
     // called 4th
     var addProjectToUser = function (userId, projectId) {
       var ref = new Firebase(FBURL + "/users/" + userId);
-      ref.child('projects').set(true);
+      ref.child('projects').child(projectId).set(true);
     }
 
     // called 3rd (together with addTagToUser)
@@ -219,6 +235,7 @@ skillFuelApp
         list.$indexFor(id); // returns location in the array
         newProjectId = id;
         addProjectToUser(newUserId, newProjectId);
+        addUserToProject(newProjectId, newUserId);
         createTags(newProjectTagsObj, 'project'); // just create tags for this object (has all the new tags)
       });
     }
@@ -307,7 +324,9 @@ skillFuelApp
 //        create_date : newEntryObj.project.createOn,
 //        start_date  : newEntryObj.project.startOn,
         description : newEntryObj.project.description,
-        pics        : newEntryObj.project.pics
+        pics        : newEntryObj.project.pics,
+        needs       : newEntryObj.project.needs,
+        knows       : newEntryObj.project.knows
       };
         
       addUser(newUserObj);
