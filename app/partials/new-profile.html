@@ -57,7 +57,7 @@ document.onkeypress = stopRKey;
 			<div class="row"> <!-- Row with buttons -->
 				<div class="col-md-6">
 						<!-- <a href="#/" class="btn btn-search btn-profile" style="display:block" id="newImageBtn"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right:5px;"></span> Add picture</a>		-->
-						<a href="" class="btn btn-search btn-profile" style="display:block; background-color:#7F5276;" ng-file-select ng-model="files"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right:5px; "></span>Add picture</a>
+						<a href="" class="btn btn-search btn-profile" style="display:block; background-color:#5B527F;" ng-file-select ng-model="files"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="margin-right:5px; "></span>Add picture</a>
 				</div>
 				</div>
 			</div>
@@ -92,13 +92,17 @@ document.onkeypress = stopRKey;
 		<div ng-show="createProjectVisible">
 			<create-user-project></create-user-project>	
 		</div>
-		
-		<button type="button" class="btn btn-default" style="background-color: #15EA60;" ng-click="createProjectVisible=true"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="margin-right:5px; "></span>Add projects to your profile</button>
 
-		<div style="float:right">
-			<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit profile</button>
+		<div class="row">
+			<div class="col-md-12" style="margin-top:15px;">
+				<div class="col-md-6">
+				<button type="button" class="btn btn-search btn-block" style="background-color: #F7A541;" ng-click="createProjectVisible=true"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="margin-right:5px; "></span>Add projects to your profile</button>
+				</div>
+				<div class="col-md-6" style="float:right">
+					<button type="submit" class="btn btn-search btn-block" style="background-color: #60B99A;"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit profile</button>
+				</div>
+			</div>
 		</div>
-	</div>
 	
 	</form>	
 	

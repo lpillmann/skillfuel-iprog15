@@ -87,6 +87,14 @@ ul {
     border-right: solid;
     border-color: white;
 }
+
+.btn-profile:hover {
+    background-color:#3e5871;
+    color: white;
+    border-right: solid;
+    border-color: white;
+}
+
 button:hover,
 button:focus,
 button:active,
@@ -111,7 +119,10 @@ button.active, {
 
 
 .know{
-  background-color:#674172;
+  background-color:#5B527F;
+}
+.know:hover{
+  background-color:#72679d;
 }
 
 .active{
