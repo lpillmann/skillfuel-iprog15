@@ -86,22 +86,23 @@
 								<div class="slider">
 
 									<!-- enumerate all photos -->
-									<div ng-repeat="proj in resultObj"> <!-- Visible, possible to get the photos! -->
-									<h1>{{proj.name}}</h1>
+									<!-- <div ng-repeat="proj in resultObj"> --> <!-- Visible, possible to get the photos! -->
+										
+										
+										<img ng-repeat="photo in project.pictures" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo}}" />
+
+										<!-- prev / next controls -->
+										<a class="arrow prev" href="#" ng-click="showPrev()"></a>
+										<a class="arrow next" href="#" ng-click="showNext()"></a>
+
+										<!-- extra navigation controls -->
+										<ul class="nav-image">
+										<li ng-repeat="photo in project.pictures" ng-class="{'active':isActive($index)}">
+										<img src="{{photo}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+										</li>
+										</ul>
 									</div>
-									<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />
-
-									<!-- prev / next controls -->
-									<a class="arrow prev" href="#" ng-click="showPrev()"></a>
-									<a class="arrow next" href="#" ng-click="showNext()"></a>
-
-									<!-- extra navigation controls -->
-									<ul class="nav-image">
-									<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
-									<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
-									</li>
-									</ul>
-								</div>
+								
 						</div>
 					</div>
 				</div>    
