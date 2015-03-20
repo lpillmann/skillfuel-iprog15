@@ -1,4 +1,6 @@
-Interaction Programing - Lab assignment - HTML
+Skillfuel - Find people with skills
 =================================================
 
-This project contains the startup code for HTML version of the Interaction Programing course lab assignment. For more details on how to complete the assignment follow the instructions on the [course website](https://www.kth.se/social/course/DH2641).
+SkillFuel consists of a professional profile viewer and networking tool where you can create/edit/view the profiles including text/images. You can also search through the profiles by free text filtering options. 
+
+This project was developed during the [Interaction Programming](https://www.kth.se/social/course/DH2641) course 2015/1.
