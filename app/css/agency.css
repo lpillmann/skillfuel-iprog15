@@ -183,30 +183,6 @@ fieldset[disabled] .btn-xl.active {
     color: #fed136;
 }
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus,
-.navbar-default .navbar-brand:active,
-.navbar-default .navbar-brand.active {
-    color: #fec503;
-}
-
-.navbar-default .navbar-collapse {
-    border-color: rgba(255,255,255,.02);
-}
-
-.navbar-default .navbar-toggle {
-    border-color: #fed136;
-    background-color: #fed136;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #000000;
-}
-
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #fed136;
-}
 
 .navbar-default .nav li a {
     text-transform: uppercase;
@@ -236,7 +212,7 @@ fieldset[disabled] .btn-xl.active {
 
 @media(min-width:768px) {
     .navbar-default {
-        padding: 25px 0;
+        padding: 20px 0;
         border: 0;
         background-color: rgba(0, 0, 0, 0.5);
         display: block;
@@ -265,6 +241,18 @@ fieldset[disabled] .btn-xl.active {
     .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
     }
+
+.nav-item-selected{
+    
+  display: block;
+  font-size: 18px;
+  color: white;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 5%;
+  cursor: pointer;
+  background: #60B99A;
+
 }
 
 header {

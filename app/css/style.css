@@ -1,5 +1,5 @@
-container {
-	background-image: url("img/header.png");
+.container-home {
+	background-image: url("../img/header_blue.png");
 }
 
 img {
@@ -11,7 +11,7 @@ img {
 }
 
 .background{
-  background-image: url(../img/header.png);
+  background-image: url(../img/header_blue.png);
 }
 
 
@@ -23,7 +23,6 @@ img {
   display: block;
   word-wrap: break-word;
   overflow: scroll;
-  
 }
 
 .subHeader {
@@ -82,6 +81,44 @@ ul {
     border-color: white;
 }
 
+.btn-profile {
+    background-color:#2C3E50;
+    color: white;
+    border-right: solid;
+    border-color: white;
+}
+button:hover,
+button:focus,
+button:active,
+button.active, {
+  color: #FFF;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active, {
+  color: #FFF;
+}
+
+.btn-search:hover,
+.btn-search:focus,
+.btn-search:active,
+.btn-search.active, {
+  color: #FFF;
+}
+
+
+
+.know{
+  background-color:#674172;
+}
+
+.active{
+    background:#67809F;
+    color:#FFF
+}
+
 .btn-search:hover,
 .btn-search:focus {
     background-color:#67809F;
@@ -109,12 +146,11 @@ a.btn {
 
 #send-message {
   text-decoration: none;
-  color: #3A539B;
+  color: #674172;
 }
 
 #send-message:hover {
-  text-decoration: none;
-  color: blue;
+  text-decoration: underline;
 }
 
 .btn-skills {
@@ -403,6 +439,7 @@ a {
   display: table;
   width: 100%;
 }
+
 #timeline .timeline-item {
   margin-bottom: 50px;
   position: relative;

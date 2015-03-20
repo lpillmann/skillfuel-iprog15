@@ -41,11 +41,11 @@
 				<input type="text" class="form-control" placeholder="Filter users..." ng-model="searchText" ng-change="updateSearch()">
 				<span class="input-group-btn">
 					
-					<button class="btn btn-search btn-search-need" type="button" ng-click="toggleNeeds()" ng-class="{active:isNeed}">
+					<button class="btn btn-profile" ng-click="toggleNeeds()" ng-class="{active:isNeed}" onClick="jQuery(this).toggleClass('active')">
 						<span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I need</button>
 					
-					<button class="btn btn-search btn-search-know" type="button" ng-click="toggleKnows()" ng-class="{active:isKnow}">
-						<span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-right:5px"></span> I know</button>
+					<button class="btn btn-profile know" ng-click="toggleKnows()" onClick="jQuery(this).toggleClass('active')"  ng-class="{active:isKnow}">
+						<span class="glyphicon glyphicon-search" style="margin-right:5px"></span> I know</button>
 
 				</span>
 			</div><!-- /input-group -->
