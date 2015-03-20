@@ -16,7 +16,7 @@
 
   //       // iterate through the users. 'key' gets Firebase array indexes (0,1,2,...); 'value' gets users.userX objects 
   //       angular.forEach(usersData, function(value, key) { 
-  //         userTagsContent = ReadService.UserTagsContent(value.$id); // uses 'join' service to get tags (with content) from a user
+  //         userTagsContent = ReadService.getUserTagsContent(value.$id); // uses 'join' service to get tags (with content) from a user
           
   //         userTagsContent.$loaded()
   //             .then(function(userTagsData){ 
@@ -65,7 +65,7 @@
   //     console.error("Error:", error);
   //     });
 
-  //   userTagsObj = ReadService.UserTags($scope.userId); //creates a UserTags Firebase Object that links to users.userId tags
+  //   userTagsObj = ReadService.getUserTags($scope.userId); //creates a getUserTags Firebase Object that links to users.userId tags
   //   userTagsObj.$bindTo($scope, "tags");
 
   //   userTagsObj.$loaded() // executes the function after the object is properly loaded
@@ -78,30 +78,30 @@
 
   //         // Iterate through the  user tags object. For each tag, refers to its content in Firebase.tagsId, gets the tag name and puts it in 
   //         // the proper array (needTags or knowTags).
-  //         angular.forEach(userTagsObj, function(value, key) { // 'key' gets tagId, 'value' gets true
-  //           tagObj = ReadService.TagContent(key); // creates a TagContent Firebase Object that links to tags.tagId (tagId = key, comes from before) tags
-  //           console.log("tagObj CREATED for: " + tagObj.$ref()); 
+          // angular.forEach(userTagsObj, function(value, key) { // 'key' gets tagId, 'value' gets true
+          //   tagObj = ReadService.getTagContent(key); // creates a getTagContent Firebase Object that links to tags.tagId (tagId = key, comes from before) tags
+          //   console.log("tagObj CREATED for: " + tagObj.$ref()); 
             
-  //           tagObj.$loaded()
-  //             .then(function(data){ // executes the function after the object is properly loaded. 
-  //               // 'data' is equal to tagIds.tagX (one tag object listed in Firebase.tagsId) where tagX is 'key' from above 
-  //               console.log("tagObj LOADED for: " + data.$ref());
+          //   tagObj.$loaded()
+          //     .then(function(data){ // executes the function after the object is properly loaded. 
+          //       // 'data' is equal to tagIds.tagX (one tag object listed in Firebase.tagsId) where tagX is 'key' from above 
+          //       console.log("tagObj LOADED for: " + data.$ref());
                 
-  //               if(data.isNeed === true) {
-  //                 $scope.needTags.push(data.name);
-  //                 console.log("needTags: " + $scope.needTags[i]);
-  //                 i++;
-  //               }
-  //               else if (data.isNeed === false) {
-  //                 $scope.knowTags.push(data.name);
-  //                 console.log("knowTags: " + $scope.knowTags[j]);
-  //                 j++;
-  //               }
-  //             })
-  //             .catch(function(error){
-  //             console.error("Error:", error);
-  //             });
-  //         })
+          //       if(data.isNeed === true) {
+          //         $scope.needTags.push(data.name);
+          //         console.log("needTags: " + $scope.needTags[i]);
+          //         i++;
+          //       }
+          //       else if (data.isNeed === false) {
+          //         $scope.knowTags.push(data.name);
+          //         console.log("knowTags: " + $scope.knowTags[j]);
+          //         j++;
+          //       }
+          //     })
+          //     .catch(function(error){
+          //     console.error("Error:", error);
+          //     });
+          // })
   //       })
   //       .catch(function(error) {
   //         console.error("Error:", error);
