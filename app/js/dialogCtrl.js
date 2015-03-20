@@ -56,6 +56,22 @@
 					data: {foo: 'some data'} });
 			};
 			
+			$scope.submitProfile = function () {
+				ngDialog.open({ 
+					template: 'submitProfileDialog', 
+					controller: 'InsideCtrl', 
+					data: {foo: 'some data' } });
+			};
+			
+			$rootScope.$watch('myid', function() {
+				$scope.myid = $rootScope.myid;
+			});
+			
+			/*
+			$scope.getMyId = function() {
+				return $rootScope.myid;
+			};
+			*/
 
 			$rootScope.$on('ngDialog.opened', function (e, $dialog) {
 				console.log('ngDialog opened: ' + $dialog.attr('id'));
