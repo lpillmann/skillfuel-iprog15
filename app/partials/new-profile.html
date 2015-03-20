@@ -96,7 +96,7 @@ document.onkeypress = stopRKey;
 		<button type="button" class="btn btn-default" style="background-color: #15EA60; color:white;" ng-click="createProjectVisible=true"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="margin-right:5px; "></span>Add projects to your profile</button>
 
 		<div style="float:right">
-			<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit profile</button>
+			<button type="submit" class="btn btn-info" ng-controller="DialogCtrl" href="" ng-click="submitProfile()"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit profile</button>	
 		</div>
 	</div>
 	
@@ -107,3 +107,29 @@ document.onkeypress = stopRKey;
 </div>
 
 </div>
+
+<script type="text/ng-template" id="submitProfileDialog">
+
+			<div class="ngdialog-message">
+				<div class="form-group">
+	                <label for="name">Profile created!</label>
+				</div>
+			</div>
+
+			<div class="ngdialog-buttons">
+				<div>
+					<a href="#/profiles/:{{ myid }}">
+					<button type="button" class="btn-success ngdialog-button"
+						ng-dialog-class="ngdialog-theme-default"
+						ng-dialog-controller="SecondModalCtrl"
+						ng-click="closeThisDialog()">My profile</button>
+					</a>
+					<a href="#/search-users">
+					<button type="button" class="btn btn-info ngdialog-button"
+						ng-dialog-class="ngdialog-theme-default"
+						ng-dialog-controller="SecondModalCtrl"
+						ng-click="closeThisDialog()">Search for users</button>
+					</a>
+				</div>
+			</div>
+</script><!-- end message dialog-->
