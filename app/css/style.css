@@ -424,15 +424,6 @@ a {
   -ms-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-#timeline:before {
-  content: "";
-  width: 3px;
-  height: 100%;
-  background: #2C3E50;
-  left: 5.5%;
-  top: 0;
-  position: absolute;
-}
 #timeline:after {
   content: "";
   clear: both;
@@ -444,30 +435,12 @@ a {
   margin-bottom: 50px;
   position: relative;
 }
-#timeline .timeline-item .timeline-icon {
-  background: #EA5722;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 0;
-  left: 5%;
-  overflow: hidden;
-  margin-left: -23px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-}
-#timeline .timeline-item .timeline-icon svg {
-  position: relative;
-  top: 14px;
-  left: 14px;
-}
+
 #timeline .timeline-item .timeline-content {
   background-color: #f5f5f5;
   margin-bottom: 15px;
   box-shadow: 1px 1px 5px #888888;
-  width: 85%;
+  width: 100%;
   padding: 20px;
 }
 #timeline .timeline-item .timeline-content h2 {
@@ -502,15 +475,14 @@ a {
 
 @media screen and (max-width: 768px) {
   #timeline {
-    margin: 30px;
     padding: 0px;
-    width: 90%;
+    width: 100%;
   }
   #timeline:before {
     left: 0;
   }
   #timeline .timeline-item .timeline-content {
-    width: 90%;
+    width: 100%;
     float: right;
   }
   #timeline .timeline-item .timeline-content:before, #timeline .timeline-item .timeline-content.right:before {
