@@ -92,21 +92,20 @@ document.onkeypress = stopRKey;
 		<div ng-show="createProjectVisible">
 			<create-user-project></create-user-project>	
 		</div>
-		
-		<button type="button" class="btn btn-default" style="background-color: #15EA60; color:white;" ng-click="createProjectVisible=true"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="margin-right:5px; "></span>Add projects to your profile</button>
 
 		<div class="row">
 			<div class="col-md-12" style="margin-top:15px;">
+				
 				<div class="col-md-6">
 				<button type="button" class="btn btn-search btn-block" style="background-color: #F7A541;" ng-click="createProjectVisible=true"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="margin-right:5px; "></span>Add projects to your profile</button>
 				</div>
+
 				<div class="col-md-6" style="float:right">
 					<button type="submit" class="btn btn-search btn-block" style="background-color: #60B99A;" ng-controller="DialogCtrl" href="" ng-click="submitProfile()"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Submit profile</button>
 				</div>
 			</div>
-		
-	
-	</form>	
+		</div>	
+	</form>
 	
 
 
