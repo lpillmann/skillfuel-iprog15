@@ -14,7 +14,21 @@ skillFuelApp.controller("NewEntryCtrl", ['$scope', 'WriteService',
   // init project obj fields
   $scope.projectName        = "";
   $scope.projectUrl         = "";
+  
+
   $scope.projectDescription = "";
+
+  $scope.$watch(function () {
+      return $scope.projectDescription;
+  },
+  function (newValue, oldValue) {
+      
+      if(newValue == oldValue){return;}
+      
+      console.log(newValue);
+      
+      $scope.projectDescription = newValue;
+  }, true);
 
   $scope.imgURL = "";
 	$scope.isloading = false;

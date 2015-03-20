@@ -6,7 +6,7 @@
 skillFuelApp.controller('SearchUsersCtrl', ['$scope', 'ReadService', 
   function ($scope, ReadService) {
 
-  $scope.users = ReadService.AllUsers(); // get 'users' Firebase array using service
+  $scope.users = ReadService.getAllUsers(); // get 'users' Firebase array using service
   $scope.search = '';
   $scope.isNeed = false;
   $scope.isKnow = false;

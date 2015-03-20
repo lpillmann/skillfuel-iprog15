@@ -21,7 +21,9 @@
 	        <div class="col-xs-6 col-xs-6">
 	            <div class="form-group">
 		            <label for="url">URL</label>
-		            <input type="url" class="form-control" ng-model="projectUrl" id="url" placeholder="http://">
+		            <!-- <input type="url" class="form-control" ng-model="projectUrl" id="url" placeholder="http://"> -->
+		            <!-- Without restriction -->
+		            <input class="form-control" ng-model="projectUrl" id="url" placeholder="http://">
 	    	    </div>
 	        </div>
 	    </div>
@@ -29,7 +31,7 @@
 			<div class="col-xs-12">
 			  <div class="form-group">
 			    <label for="description">Description</label>
-			      <textarea class="form-control" rows="3" id="description" ng-model="projetDescription" placeholder="Add text here"></textarea>
+			      <textarea class="form-control" rows="3" id="description" ng-model="projectDescription" placeholder="Add text here"></textarea>
 			  </div>
 			</div>
 		</div>

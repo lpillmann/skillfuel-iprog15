@@ -7,7 +7,7 @@
 skillFuelApp.factory('NewEntryViewHandler',function (ReadService) {
 
   this.getTagNames = function() {
-    return ReadService.AllTagNamesAsArray();
+    return ReadService.getAllTagNamesAsArray();
   }
 
   var tagNames = this.getTagNames();
