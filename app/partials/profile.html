@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
 					<div id="newImage">
-						<figure>
+						<figure style="max-width:200px;max-height:200px;">
 							
-						<img ng-hide="user.imgURL.length" src="img/users/user.png" alt="" class="img-circle img-responsive" style="max-width:200px;max-height:200px;">
-						<img ng-show="user.imgURL.length" ng-src="{{user.imgURL}}" alt="" class="img-circle img-responsive" >
+						<img ng-hide="user.imgURL.length" src="img/users/user.png" alt="" class="img-circle img-responsive">
+						<img ng-show="user.imgURL.length" ng-src="{{user.imgURL}}" alt="" class="img-circle img-responsive">
 
 						</figure>
 					</div>
