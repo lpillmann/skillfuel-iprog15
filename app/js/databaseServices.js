@@ -324,7 +324,7 @@ skillFuelApp
 //        create_date : newEntryObj.project.createOn,
 //        start_date  : newEntryObj.project.startOn,
         description : newEntryObj.project.description,
-        pics        : newEntryObj.project.pics,
+        pictures    : {'0':'http://azmind.com/wp-content/uploads/2012/04/folder-icon.jpg'},
         needs       : newEntryObj.project.needs,
         knows       : newEntryObj.project.knows
       };
